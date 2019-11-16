@@ -1,27 +1,10 @@
-/*
---DEFINITION OF GLOBAL VARIABLES--
-*/
-
 var namesdayList;
 
-/*
---FUNCTIONS--
-*/
-$(document).ready(function(){
-     
+$(document).ready(function() {     
     loadNamesday(namesdayList).done(function(data) {
         namesdayList = $(data).find('zaznam');
-    });
-    
-    /* Delay is set because reading from external XML file is an async GET request
-    /  and thus the program appends todays name even before it's loaded
-    /  Any solution more elegant to this is very much welcome.
-    */
-
-    setTimeout(function() {
         injectTodaysName();
-      }, 50);
-
+    });
 });
 
 function loadNamesday(data) {
@@ -32,7 +15,7 @@ function loadNamesday(data) {
     });
 }
 
-function injectTodaysName(){
+function injectTodaysName() {
     $("#namesday-today").append(retrieveNameFromDate(getToday()));
 }
 
@@ -49,16 +32,14 @@ function retrieveNameFromDate(date){
     return name;
 }
 
-function getToday(){
+function getToday() {
     var d = new Date();
     var day = d.getDate();
 
     //JS months start from zero, so to get the correct notation, add 1
-
     var month = d.getMonth()+1;
 
     //Prepend zero if needed to match the date format of the attached XML
-
     if (day.toString().length==1){
         day = '0'+day.toString();
     }
@@ -82,4 +63,4 @@ the correct value.
 
 */
 
-function namesDayLookup(){} 
+function namesDayLookup() {} 
