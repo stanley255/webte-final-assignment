@@ -19,10 +19,11 @@
             <p id="namesday-today">Dnes ma meniny </p>
             <form id="namesday-form"></form>
             <label for="name-input">Meno</label>
-            <input type="text" id="name-input">
+            <input type="text" id="name-input" onchange="switchLastUpdated(this)">
             <label for="date-input"></label>
-            <input type="text" id="date-input">
+            <input type="text" id="date-input" onchange="switchLastUpdated(this)">
             <button onclick="namesDayLookup()"> Eat shit</button>
+            <p id="result"></p>
         </div>
     </section>
     <footer>

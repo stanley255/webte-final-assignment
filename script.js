@@ -1,4 +1,6 @@
+
 var namesdayList;
+var lastUpdated;
 
 $(document).ready(function() {     
     loadNamesday(namesdayList).done(function(data) {
@@ -28,7 +30,7 @@ function retrieveNameFromDate(date){
             return false;
         }
     });
-
+    
     return name;
 }
 
@@ -49,18 +51,48 @@ function getToday() {
     return (month.toString()+day.toString());
 }
 
-/* I can see this function working in r ways. 
-1. We check what field was updated last, whether it was date or textinput(name).
-Based on this info we lookup the other field, e.g.: if date was entered last, we
-suppose the user wants to find out the names day on that date and if name was entered
-last, we suppose the user wants to see when that name celebrates.
+// 1. We check what field was updated last, whether it was date or textinput(name).
+// Based on this info we lookup the other field, e.g.: if date was entered last, we
+// suppose the user wants to find out the names day on that date and if name was entered
+// last, we suppose the user wants to see when that name celebrates.
 
-2. We implement a switch that switches from one lookup to another.
+function namesDayLookup() {
+    if (lastUpdated=="date-input"){
+        var date = parseDateInput();
+        var name = retrieveNameFromDate(date);
+        console.log(name);
+    }
+    else if(lastUpdated=="name-input"){
+        
+    }
+} 
 
-3. We implement only one input field and base on the context of input, we return
-the correct value.
+function parseDateInput(){
+    var value = $("#date-input").val();
+    value = value.split('.').join('');
+    
+    return value;
+}
 
 
-*/
 
-function namesDayLookup() {} 
+$(function trimDateInput(){
+    $("#date-input").keyup(function(event) {
+    var value = $("#date-input").val();
+
+      if(value.length>1 && !(value.includes('.'))){
+          $("#date-input").val([value[0],value[1],'.',value[3],value[4]].join(''));
+      }
+      if ( event.keyCode<48 || event.keyCode>57 ){
+        $("#date-input").val(value.replace(event.key,''));
+      }
+      if(value.length>4){
+        $("#date-input").val([value[0],value[1],'.',value[3],value[4]].join(''));
+      }
+    });
+});
+
+
+function switchLastUpdated(element){
+    lastUpdated = element.id;
+}
