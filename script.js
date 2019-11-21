@@ -7,7 +7,15 @@ $(document).ready(function() {
         namesdayList = $(data).find('zaznam');
         injectTodaysName();
     });
+    setupHandlers()
 });
+
+function setupHandlers() {
+    $('a#search-date-button').on('click', namesDayLookup);
+    $('#name-input').on('change', switchLastUpdated);
+    $('#date-input').on('change', switchLastUpdated);
+    $('#input-toggle').on('change', changeInputType)
+}
 
 function loadNamesday(data) {
     return $.ajax({
@@ -120,7 +128,7 @@ function retrieveDateFromName(input){
     $(namesdayList).each(function(index,value){
         $(value.children).each(function(index2,value2){
             if (checkifNameEquals(input,value2.textContent)) {
-                //SKd is the same as SK but extended, so we do not need sk
+                //SKd is the same as SK but extended, so we do not need SK
                 if(value2.nodeName!="SK"){
                     date=
                     {
@@ -136,7 +144,6 @@ function retrieveDateFromName(input){
 }
 
 function checkifNameEquals(input1,input2){
-    
     input1 = normalizeName(input1);
     input2 = normalizeName(input2);
     
@@ -228,6 +235,15 @@ $(function trimDateInput(){
 });
 
 
-function switchLastUpdated(element){
-    lastUpdated = element.id;
+function switchLastUpdated(){
+    lastUpdated = this.id;
+}
+
+
+// If toggle switch is to the right then this.checked == true, therefore we can assume
+// that on change we should change the input type
+function changeInputType() {
+    $('.input-box').each(function() {
+        $(this).toggle();
+    })
 }

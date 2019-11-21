@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shorcut icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./script.js"></script>
     <title>Finálne zadanie</title>
@@ -15,15 +17,31 @@
 
     </header>
     <section>
-        <div>
+        <div class="box-wrapper">
+          <div class="box-container">
             <p id="namesday-today">Dnes ma meniny </p>
+            <div class="switch">
+                <label>
+                  Meno
+                  <input type="checkbox" id="input-toggle">
+                  <span class="lever"></span>
+                  Dátum
+                </label>
+              </div>
             <form id="namesday-form"></form>
-            <label for="name-input">Meno</label>
-            <input type="text" id="name-input" onchange="switchLastUpdated(this)">
-            <label for="date-input"></label>
-            <input type="text" id="date-input" onchange="switchLastUpdated(this)">
-            <button onclick="namesDayLookup()"> Eat shit</button>
+            <div class="input-field col s6 input-box">
+                <!-- <i class="material-icons prefix">account_circle</i> -->
+                <input id="name-input" type="text" class="validate" id="name-input-box">
+                <label for="name-input">Search name</label>
+              </div>
+            <div class="input-field col s6 input-box" id="date-input-box">
+                <!-- <i class="material-icons prefix">account_circle</i> -->
+                <input id="date-input" type="text" class="validate">
+                <label for="date-input">Search date</label>
+              </div>
+            <a class="waves-effect waves-light btn" id="search-date-button">Search date</a>
             <p id="result"></p>
+          </div>
         </div>
     </section>
     <footer>
