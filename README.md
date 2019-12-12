@@ -25,18 +25,22 @@ Odkaz na [XML súbor](https://github.com/stanley255/webte-final-assignment/blob/
 ## Zostávajúce tasky
 
  - [ ] Križovatkový trenažér
-	 - [ ] navrhnúť štruktúru JSON-u s informáciami o križovatke
+	 - [ ] navrhnúť štruktúru JSON-u s informáciami o križovatke - Stanislav Pekarovič
+	 - [ ] implementovať pozadie križovatiek  - Stanislav Pekarovič
+	 - [ ] implementovať pohyb áut  - Stanislav Pekarovič
+	 - [ ] blinkre  - Adam Petro
+	 - [ ] implementovať konkrétnych 15 križovatiek - Matej Friedel, Stanislav Pekarovič, Adam Petro
  - [ ] Kalendár menín
-	 - [ ] načítanie údajov z XML
-	 - [ ] dohľadanie mena na základe zadaného dátumu
-	 - [ ] dohľadanie dátumu na základe zadaného mena
-	 - [ ] kontrola pre zadané inputy
+	 - [X] načítanie údajov z XML  - Adam Petro
+	 - [X] dohľadanie mena na základe zadaného dátumu  - Adam Petro
+	 - [X] dohľadanie dátumu na základe zadaného mena  - Adam Petro
+	 - [ ] kontrola pre zadané inputy - Matej Friedel
  - [ ] Osobné počítadlo návštev stránky
-	 - [x] JavaScript pre prácu s cookies
-	 - [ ] CSS pre widget počítadla
- - [ ] Kontakt na autorov
+	 - [x] JavaScript pre prácu s cookies - Stanislav Pekarovič
+	 - [ ] CSS pre widget počítadla - Matej Friedel
+ - [ ] Kontakt na autorov - Matej Friedel
  - [x] Favicon
- - [ ] Dizajn stránky
+ - [ ] Dizajn stránky - Matej Friedel
 
 ## Autori
 
