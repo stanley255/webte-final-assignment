@@ -1,12 +1,20 @@
 let currentJunction;
+
 let JUNCTION_CLASS_ACTIVE = "active";
 let JUNCTION_CLASS_INACTIVE = "waves-effect";
 let JUNCTION_IMAGES_PATH = "./img/junctions/";
+let JUNCTION_IMAGE_EXTENSION = ".png";
 
+let CAR_SVG_PATH = "./img/cars/";
+let CAR_SVG_PREFIX = "cars-";
+let CAR_SVG_EXTENSION = ".svg";
+
+// Function that does initialization routine on page load
 function initializeJunctionPage() {
     bindJunctionChangeFunction();
     currentJunction = $(".active");
     changeSvgBackground(formJunctionPath("01"));
+    loadCarSvg("blue");
 }
 
 function bindJunctionChangeFunction() {
@@ -17,6 +25,25 @@ function bindJunctionChangeFunction() {
     });
 }
 
+function loadCarSvg(inputColor) {
+    $.get(formCarSvgPath(inputColor), function(data) {
+        let junctionSvg = document.getElementById("svg");
+        junctionSvg.appendChild(createCarSvgElement(data));
+    });
+}
+
+function createCarSvgElement(data) {
+    let loadedCarSvg = document.createElement("svg");
+    loadedCarSvg.innerHTML = new XMLSerializer().serializeToString(data.documentElement);
+    return loadedCarSvg.firstChild;
+}
+
+function formCarSvgPath(color) {
+    let carColor = color.toLowerCase();
+    return CAR_SVG_PATH + CAR_SVG_PREFIX + carColor + CAR_SVG_EXTENSION;
+}
+
+// Function that triggers when junction is about to switch to next one
 function changeJunction(listItem) {
     // Change classes of current active junction to newly clicked
     toggleClassesToCurrentActive(listItem);
@@ -24,7 +51,6 @@ function changeJunction(listItem) {
     currentJunction = listItem;
     // Switch to new junction image
     setToCorrespongindJunctionImage(listItem);
-    
 }
 
 function toggleClassesToCurrentActive(listItem) {
@@ -52,7 +78,7 @@ function getJunctionNumberFromListItem(listItem) {
 }
 
 function formJunctionPath(junctionNumber) {
-    return "url(\""+JUNCTION_IMAGES_PATH+junctionNumber+".png\")";
+    return "url(\""+JUNCTION_IMAGES_PATH+junctionNumber+JUNCTION_IMAGE_EXTENSION+"\")";
 }
 
 function changeSvgBackground(path) {
