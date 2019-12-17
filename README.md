@@ -26,7 +26,7 @@ Odkaz na [XML súbor](https://github.com/stanley255/webte-final-assignment/blob/
 
  - [ ] Križovatkový trenažér
 	 - [ ] navrhnúť štruktúru JSON-u s informáciami o križovatke - Stanislav Pekarovič
-	 - [ ] implementovať pozadie križovatiek  - Stanislav Pekarovič
+	 - [X] implementovať pozadie križovatiek  - Stanislav Pekarovič
 	 - [ ] implementovať pohyb áut  - Stanislav Pekarovič
 	 - [ ] blinkre  - Adam Petro
 	 - [ ] implementovať konkrétnych 15 križovatiek - Matej Friedel, Stanislav Pekarovič, Adam Petro
