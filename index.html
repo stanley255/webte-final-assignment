@@ -7,8 +7,8 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shorcut icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./script.js"></script>
     <title>Finálne zadanie</title>
 </head>
@@ -29,16 +29,26 @@
                 </label>
               </div>
             <form id="namesday-form"></form>
-            <div class="input-field col s6 input-box">
+            <div class="input-field col s6 input-box" id="name-input-box">
                 <!-- <i class="material-icons prefix">account_circle</i> -->
-                <input id="name-input" type="text" class="validate" id="name-input-box">
+                <input id="name-input" type="text" class="validate">
                 <label for="name-input">Search name</label>
               </div>
-            <div class="input-field col s6 input-box" id="date-input-box">
-                <!-- <i class="material-icons prefix">account_circle</i> -->
-                <input id="date-input" type="text" class="validate">
-                <label for="date-input">Search date</label>
+            <!-- <div class="input-field col s6 input-box" id="date-input-box">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="date-input" type="text" class="validate">
+              <label for="date-input">Search date</label>
+            </div> -->
+            <div class="input-field col s12 input-box" id="date-input-box">
+              <div id="select-box-wrapper">
+                <select id="select-day">
+                  <!-- <option value="h">1</option> -->
+                </select>
+                <select id="select-month">
+                  <!-- <option value="s">2</option> -->
+                </select>
               </div>
+            </div>
             <a class="waves-effect waves-light btn" id="search-date-button">Search date</a>
             <p id="result"></p>
           </div>

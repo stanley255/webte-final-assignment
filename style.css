@@ -13,5 +13,15 @@
 }
 
 #name-input-box {
-    display: block;
+    display: block
+}
+
+#select-box-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 1em 0;
+}
+
+.select-wrapper {
+    margin: 0 .5em;
 }
