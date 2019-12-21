@@ -16,7 +16,7 @@ let CAR_COLORS = [
     "green"
 ];
 
-let CARS = {};
+let cars = {};
 
 window.addEventListener("load", initializeJunctionPage(), false);
 
@@ -25,7 +25,8 @@ function initializeJunctionPage() {
     bindJunctionChangeFunction();
     currentJunction = $(".active");
     changeSvgBackground(formJunctionPath(STARTING_JUNCTION_NUMBER));
-    loadCar("blue"); // TODO replace with loadSvgsOfCars()
+    loadCarSvg("blue"); // TODO replace with loadSvgsOfCars()
+    loadCarsObjects();
 }
 
 function bindJunctionChangeFunction() {
@@ -38,17 +39,21 @@ function bindJunctionChangeFunction() {
 
 function loadSvgsOfCars() {
     CAR_COLORS.forEach(color => {
-        loadCar(color);
+        loadCarSvg(color);
     });
 }
 
-function loadCar(inputColor) {
+function loadCarSvg(inputColor) {
     $.get(formCarSvgPath(inputColor), function(data) {
         let junctionSvg = document.getElementById("svg");
         junctionSvg.appendChild(createCarSvgElement(data));
-    }).done(function() {
-        CARS[inputColor] = new Car(inputColor);
-    });
+    }).done();
+}
+
+function loadCarsObjects() {
+    cars.blue = new Car("blue");
+    cars.red = new Car("red");
+    cars.green = new Car("green");
 }
 
 function createCarSvgElement(data) {
