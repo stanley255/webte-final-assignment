@@ -1,3 +1,5 @@
+window.addEventListener("load", showCounter(), false);
+
 function showCounter() {
     let visitCounter = getCookie("counter");
     if (visitCounter === "") {
