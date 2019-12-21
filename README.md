@@ -9,7 +9,7 @@ Projekt ku skúške na predmet **Webové technológie 1** pozostáva z troch úl
  3. Osobné počítadlo návštev stránky
 
 Viac informácií o [zadaní ](https://github.com/stanley255/webte-final-assignment/blob/master/zadanie.pdf)
-Odkaz na [XML súbor](https://github.com/stanley255/webte-final-assignment/blob/master/meniny.xml), ktorý je určený na načítavanie menín
+Odkaz na [XML súbor](https://github.com/stanley255/webte-final-assignment/blob/master/resources/meniny.xml), ktorý je určený na načítavanie menín
 
 ## Povinné požiadavky
 
@@ -35,11 +35,11 @@ Odkaz na [XML súbor](https://github.com/stanley255/webte-final-assignment/blob/
 	 - [X] dohľadanie mena na základe zadaného dátumu  - Adam Petro
 	 - [X] dohľadanie dátumu na základe zadaného mena  - Adam Petro
 	 - [ ] kontrola pre zadané inputy - Matej Friedel
- - [ ] Osobné počítadlo návštev stránky
-	 - [x] JavaScript pre prácu s cookies - Stanislav Pekarovič
-	 - [ ] CSS pre widget počítadla - Matej Friedel
+ - [X] Osobné počítadlo návštev stránky
+	 - [X] JavaScript pre prácu s cookies - Stanislav Pekarovič
+	 - [X] CSS pre widget počítadla - Stanislav Pekarovič
  - [ ] Kontakt na autorov - Matej Friedel
- - [x] Favicon
+ - [X] Favicon
  - [ ] Dizajn stránky - Matej Friedel
 
 ## Autori
