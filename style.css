@@ -1,3 +1,31 @@
+.box-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.box-container {
+    width: 20%;
+}
+
+#date-input-box {
+    display: none;
+}
+
+#name-input-box {
+    display: block
+}
+
+#select-box-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 1em 0;
+}
+
+.select-wrapper {
+    margin: 0 .5em;
+}
+
 #svg {
     background-repeat: no-repeat;
     width: 1000px;
