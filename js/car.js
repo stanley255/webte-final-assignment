@@ -29,4 +29,12 @@ class Car {
         this.setVisibilityLayerStates("hidden", "hidden", "visible");
     }
 
+    hideCar() {
+        this.setVisibilityLayerStates("hidden", "hidden", "hidden");
+    }
+
+    showCar() {
+        this.setVisibilityLayerStates("visible", "hidden", "hidden");
+    }
+
 }
