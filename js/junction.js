@@ -1,6 +1,6 @@
 let currentJunction;
 
-let JUNCTION_CLASS_ACTIVE = "active";
+let JUNCTION_CLASS_ACTIVE = "active teal";
 let JUNCTION_CLASS_INACTIVE = "waves-effect";
 let JUNCTION_IMAGES_PATH = "./img/junctions/";
 let JUNCTION_IMAGE_EXTENSION = ".png";
@@ -8,6 +8,8 @@ let JUNCTION_IMAGE_EXTENSION = ".png";
 let CAR_SVG_PATH = "./img/cars/";
 let CAR_SVG_PREFIX = "cars-";
 let CAR_SVG_EXTENSION = ".svg";
+
+window.addEventListener("load", initializeJunctionPage(), false);
 
 // Function that does initialization routine on page load
 function initializeJunctionPage() {

@@ -22,7 +22,7 @@ function setupHandlers() {
 
 function loadNamesday(data) {
     return $.ajax({
-        url:  './meniny.xml',
+        url:  './resources/meniny.xml',
         type: 'GET',
         data: data
     });
