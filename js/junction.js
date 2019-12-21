@@ -25,7 +25,7 @@ function initializeJunctionPage() {
     bindJunctionChangeFunction();
     currentJunction = $(".active");
     changeSvgBackground(formJunctionPath(STARTING_JUNCTION_NUMBER));
-    loadCar("blue"); // TODO replace with loadSvgsOfCars()
+    loadCar("blue"); // TODO replace with loadCars()
 }
 
 function bindJunctionChangeFunction() {
@@ -36,7 +36,7 @@ function bindJunctionChangeFunction() {
     });
 }
 
-function loadSvgsOfCars() {
+function loadCars() {
     CAR_COLORS.forEach(color => {
         loadCar(color);
     });
