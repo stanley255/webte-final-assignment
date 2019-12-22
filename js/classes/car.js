@@ -12,7 +12,7 @@ const DEFAULT_TRANSFORM_ORIGIN = "42px 84px";
 
 class Car {
 
-    constructor(color) {
+    constructor(color, position, angle) {
         this.color = color.toLowerCase();
         this.carOff = document.getElementById(this.color + BLINKER_OFF);
         this.carRight = document.getElementById(this.color + BLINKER_RIGHT);
@@ -23,6 +23,9 @@ class Car {
         this.transformX = 0;
         this.transformY = 0;
         this.angle = 0;
+
+        this.moveAbsolute(position.x, position.y);
+        this.rotateAbsolute(angle);
 
         this.carOff.addEventListener('click', function(){
             JUNCTION.addCarToSolution(CARS[color]);

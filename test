@@ -1,0 +1,3 @@
+CARS.blue.moveAbsolute(0,0);
+CARS.red.moveAbsolute(100,0);
+CARS.green.moveAbsolute(200,0);

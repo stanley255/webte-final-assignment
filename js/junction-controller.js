@@ -16,11 +16,6 @@ let JUNCTION_OBJECTS_PATH = "/resources/junctions/";
 let JUNCTION_OBJECTS_EXTENSION = ".json";
 
 let STARTING_JUNCTION_NUMBER = "01";
-let CAR_COLORS = [
-    "blue",
-    "red",
-    "green"
-];
 
 window.addEventListener("load", initializeJunctionPage(), false);
 
@@ -48,25 +43,18 @@ function loadJunction(junctionNumber) {
     });
 }
 
-function loadCars(carColors) {
-    carColors.forEach(color => {
-        console.log(color + " car loaded"); // TODO Remove - only for testing purposes
-        loadCar(color);
+function loadCars(cars) {
+    cars.forEach(car => {
+        loadCar(car);
     });
 }
 
-function loadAllCars() {
-    CAR_COLORS.forEach(color => {
-        loadCar(color);
-    });
-}
-
-function loadCar(inputColor) {
-    $.get(formCarSvgPath(inputColor), function(data) {
+function loadCar(car) {
+    $.get(formCarSvgPath(car.color), function(data) {
         let junctionSvg = document.getElementById("svg");
         junctionSvg.appendChild(createCarSvgElement(data));
     }).done(function() {
-        CARS[inputColor] = new Car(inputColor);
+        CARS[car.color] = new Car(car.color, car.position, car.angle);
     });
 }
 
@@ -89,8 +77,9 @@ function changeJunction(listItem) {
     currentJunctionItem = listItem;
     // Switch to new junction image
     setToCorrespongindJunctionImage(listItem);
-    // TODO Implement deleting previous cars
-    
+    // Deleting previous cars
+    clearCarsFromJunction();
+    // Load new junction
     let junctionNumber = getJunctionNumberFromListItem(listItem);
     loadJunction(junctionNumber);
 }
@@ -112,6 +101,11 @@ function setToCorrespongindJunctionImage(listItem) {
     let junctionNumber = getJunctionNumberFromListItem(listItem);
     let junctionPath = formJunctionSvgPath(junctionNumber);
     changeSvgBackground(junctionPath);
+}
+
+function clearCarsFromJunction() {
+    CARS = {};
+    $("#svg").empty();
 }
 
 function getJunctionNumberFromListItem(listItem) {

@@ -1,7 +1,14 @@
 {
     "number": "01",
     "cars": [
-        "blue"
+        {
+            "color": "blue",
+            "position": {
+                "x": 45,
+                "y": 350
+            },
+            "angle": 90
+        }
     ],
     "solutions": [
         ["blue"]
