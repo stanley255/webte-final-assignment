@@ -9,6 +9,11 @@ class Car {
         this.carOff = document.getElementById(this.color + BLINKER_OFF);
         this.carRight = document.getElementById(this.color + BLINKER_RIGHT);
         this.carLeft = document.getElementById(this.color + BLINKER_LEFT);
+
+        this.carOff.addEventListener('click', function(){
+            JUNCTION.addCarToSolution(CARS[color]);
+        });
+
     }
 
     setVisibilityLayerStates(off, right, left) {

@@ -17,6 +17,7 @@ let CAR_COLORS = [
 ];
 
 let CARS = {};
+let JUNCTION = {};
 
 window.addEventListener("load", initializeJunctionPage(), false);
 
