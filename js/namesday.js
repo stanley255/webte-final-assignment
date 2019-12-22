@@ -6,8 +6,6 @@ $(document).ready(function() {
     loadNamesday(namesdayList).done(function(data) {
         namesdayList = $(data).find('zaznam');
         injectTodaysName();
-        setSelectorValueList();
-        $('select').formSelect();
     });
     setupHandlers();
 });
@@ -17,7 +15,6 @@ function setupHandlers() {
     $('#name-input').on('change', switchLastUpdated);
     $('#date-input').on('change', switchLastUpdated);
     $('#input-toggle').on('change', changeInputType);    
-    $('#select-month').on('change', adjustDayCount);
 }
 
 function loadNamesday(data) {
@@ -175,42 +172,84 @@ function normalizeName(name){
     return name;
 }
 
-function parseDateInput(){
-    // Create and adjust day output
-    let day = $('#select-day').val()
-    if(day.length==1) 
-        day = '0' + day;
-    // Create and adjust month output
-    let month = $('#select-month').val();
-    if(month.length==1) 
-        month = '0' + month;
+// function parseDateInput(){
+//     // Create and adjust day output
+//     let day = $('#select-day').val()
+//     if(day.length==1) 
+//         day = '0' + day;
+//     // Create and adjust month output
+//     let month = $('#select-month').val();
+//     if(month.length==1) 
+//         month = '0' + month;
     
-    let output = month + day;
+//     let output = month + day;
+//     return output;
+// }
+
+function parseDateInput(){
+    //thanks to trimDateInput function, the date will always be in format dd.dd or dd.d, so we
+    //can suppose that number before dot is day of month and number after dot is month of year
+    let value = $("#date-input").val();
+    let output;
+    //has two digits after dot
+    if (value.length==5){
+        output = [value[3]+value[4]+value[0]+value[1]].join('');
+    }
+
+    //has one digit after dot
+    else if(value.length==4){
+        output = ['0'+value[3]+value[0]+value[1]].join('');
+    }
+    
     return output;
 }
 
+$(function trimDateInput(){
+    $("#date-input").keyup(function(event) {
+        var value = $("#date-input").val();
+        //check number of chars before dot, after dot ctrl+v and max month and day
+        //if key is backspace, dont do any special action
+        if(event.keyCode==8){
+            return;
+        }
+        //if value is length two, one of which is number and one of which is dot
+        //prepend 0
+        else if(value.length==2 && value.includes('.')){
+            $("#date-input").val('0'+value);
+            console.log('case3');
+        }
+        //if key is dot and there is no dot yet, insert
+        else if(event.key=='.' && (value.match(/\./g) || []).length==1){
+            console.log('case0')
+            return;
+        }
+        //if length of date is greater than 2 and it does not include dot or is greater than 5,
+        //dont allow to insert anything more
+        else if(value.length>2 && !value.includes('.') || value.length>5){
+            $("#date-input").val(value.replace(event.key,''));
+            console.log('case1');
+        }
+        //if length of input is 2 and first two values are digits, append dot
+        else if (value.length==2 && !isNaN(parseInt(value[0])) && !isNaN(parseInt(value[1]))){
+            $("#date-input").val(value+'.');
+            console.log('case2');
+        }
+        //if there's 1 dot, don't allow to insert any more
+        else if((value.match(/\./g) || []).length>1){
+            $("#date-input").val(value.replace(event.key,''));
+            console.log('case4');
+        }
+        //if you try to insert anything other than digit, don't allow
+        else if(isNaN(parseInt(event.key))){
+            $("#date-input").val(value.replace(event.key,''));
+            console.log('case5');
+        }
+    });
+});
+
 function switchLastUpdated(){
-    if($('#input-toggle').prop('checked')) {
-        lastUpdated = 'date-input';
-        resetText();
-    } else {
-        lastUpdated = 'name-input';
-        resetDate();
-    }
+    lastUpdated = this.id;
 }
-
-function resetText() {
-    $('#name-input').val('');
-    $('#name-input').removeClass('valid');
-    $("label[for='name-input']").removeClass('active');
-}
-
-function resetDate() {
-    $('#select-day').val(1);
-    $('#select-day').formSelect();
-    $('#select-month').val(1);
-    $('#select-month').formSelect();
- }
 
 // If this function is called it means that toggle was switched, therefore we can assume
 // that we should change the input type
@@ -219,56 +258,6 @@ function changeInputType() {
         $(this).toggle();
     })
     switchLastUpdated();
-    if($("#input-toggle").is(":checked")){
-        $("#search-button").html("Vyhľadaj meno");
-    }
-    else{
-        $("#search-button").html("Vyhľadaj dátum");
-    }
-}
-
-const monthsEnum = {
-    "január":01, 
-    "február":02, 
-    "marec":03, 
-    "apríl":04, 
-    "máj":05, 
-    "jún":06, 
-    "júl":07, 
-    "august":08, 
-    "september":09, 
-    "október":10, 
-    "november":11, 
-    "december":12
-};
-
-function adjustDayCount() {
-    // Get selected month as a value
-    let month = $('#select-month').find(":selected").val();
-    // Empty day list and fill it with appropriate number of days in the selected month
-    $('#select-day').empty();
-    let dayNum = getNumberOfDaysOfMonth(month);
-    for (let i = 1; i <= dayNum; i++) {
-        $('#select-day').append(new Option(i.toString() + '.', i.toString()));
-    }
-    // Update element <- SCREW YOU MATERIALIZE for this!!
-    $('#select-day').formSelect();
-}
-
-function setSelectorValueList() {
-    $.each(monthsEnum, function(index, val) {
-        $('#select-month').append(new Option(index, val));
-    });
-    adjustDayCount();
-}
-
-function getNumberOfDaysOfMonth(month) {
-    let count = 0;
-    $(namesdayList).each(function(index, value){
-        let monthValue = value.children[0].textContent.toString().substr(0,2);
-        if(+month == +monthValue) {
-            count++;
-        }
-    });
-    return count;
+    let htmlText = $("#input-toggle").is(":checked") ? "Vyhľadaj meno" : "Vyhľadaj dátum";
+    $("#search-button").html(htmlText);
 }
