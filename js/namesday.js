@@ -217,6 +217,12 @@ function changeInputType() {
         $(this).toggle();
     })
     switchLastUpdated();
+    if($("#input-toggle").is(":checked")){
+        $("#search-button").html("Vyhľadaj meno");
+    }
+    else{
+        $("#search-button").html("Vyhľadaj dátum");
+    }
 }
 
 const monthsEnum = {
