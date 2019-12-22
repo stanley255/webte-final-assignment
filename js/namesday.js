@@ -29,12 +29,15 @@ function loadNamesday(data) {
 }
 
 function injectTodaysName() {
-    $("#namesday-today").append(retrieveNameFromDate(getToday()));
+    let names = retrieveNameFromDate(getToday());
+    let output = names[0].names.textContent;
+    output = output.split(',');
+    $("#namesday-today").append('<em><b>' + output[0] + '</em></b>');
 }
 
 function retrieveNameFromDate(date){
-    var names=[];
-    var name;
+    let names=[];
+    let name;
 
     $(namesdayList).each(function(index,value){
         if(value.children[0].textContent==date){
@@ -52,16 +55,15 @@ function retrieveNameFromDate(date){
             return false;
         }
     });
-    
     return names;
 }
 
 function getToday() {
-    var d = new Date();
-    var day = d.getDate();
+    let d = new Date();
+    let day = d.getDate();
 
     //JS months start from zero, so to get the correct notation, add 1
-    var month = d.getMonth()+1;
+    let month = d.getMonth()+1;
 
     //Prepend zero if needed to match the date format of the attached XML
     if (day.toString().length==1){
@@ -80,13 +82,13 @@ function getToday() {
 
 function namesDayLookup() {
     if (lastUpdated=="date-input"){
-        var date = parseDateInput();
-        var names = retrieveNameFromDate(date);
+        let date = parseDateInput();
+        let names = retrieveNameFromDate(date);
         printName(names,date);
     }
     else if(lastUpdated=="name-input"){
-        var name = $("#name-input").val();
-        var dates = retrieveDateFromName(name);
+        let name = $("#name-input").val();
+        let dates = retrieveDateFromName(name);
         printDate(name,dates);
     }
 } 
@@ -96,8 +98,8 @@ function printName(names, date){
         console.log("Pre zadaný dátum nebolo v kalendári nájdene meno");
         return;
     }
-    var output = "V deň "+formatDate(date)+" majú sviatok tieto mená: ";
-    for (var i=0;i<names.length;++i){
+    let output = "V deň "+formatDate(date)+" majú sviatok tieto mená: ";
+    for (let i=0;i<names.length;++i){
         console.log(names[i].nationality);
         output+=" "+names[i].nationality+": ";
         output+=names[i].names.textContent+";";
@@ -110,8 +112,8 @@ function printDate(name,dates){
         console.log("Pre vstup "+name+" nebol nájdený záznam v kalendári");
         return;
     }
-    var output = "Meno "+name.toString()+" má sviatok v tieto dni: ";
-    for (var i=0;i<dates.length;++i){
+    let output = "Meno "+name.toString()+" má sviatok v tieto dni: ";
+    for (let i=0;i<dates.length;++i){
         output+=dates[i].name.nodeName+": ";
         output+=(formatDate(dates[i].date));
         output+=" ("+dates[i].name.textContent+") ";
@@ -120,14 +122,14 @@ function printDate(name,dates){
 }
 
 function formatDate(date){
-    var month = date[0].toString()+date[1].toString();
-    var day = date[2].toString()+date[3].toString();
+    let month = date[0].toString()+date[1].toString();
+    let day = date[2].toString()+date[3].toString();
     return (day+"."+month);
 }
 
 function retrieveDateFromName(input){
-    var dates=[];
-    var date;
+    let dates=[];
+    let date;
     $(namesdayList).each(function(index,value){
         $(value.children).each(function(index2,value2){
             if (checkifNameEquals(input,value2.textContent)) {
@@ -153,7 +155,7 @@ function checkifNameEquals(input1,input2){
     // There might be multiple names on this date that have namesday
     // so we separate them to array and check each
     if (input2.includes(",")){
-        var inputAr = input2.split(",");
+        let inputAr = input2.split(",");
         if (inputAr.includes(input1)){            
             return true;
         }
