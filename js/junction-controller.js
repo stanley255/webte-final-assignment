@@ -50,7 +50,7 @@ function loadJunction(junctionNumber) {
 
 function loadCars(carColors) {
     carColors.forEach(color => {
-        console.log(color + " car loaded"); // TODO Remove only for testing purposes
+        console.log(color + " car loaded"); // TODO Remove - only for testing purposes
         loadCar(color);
     });
 }
