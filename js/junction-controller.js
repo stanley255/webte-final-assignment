@@ -1,4 +1,7 @@
-let currentJunction;
+let CARS = {};
+let JUNCTION = {};
+let currentJunctionItem;
+
 
 let JUNCTION_CLASS_ACTIVE = "active teal";
 let JUNCTION_CLASS_INACTIVE = "waves-effect";
@@ -9,6 +12,9 @@ let CAR_SVG_PATH = "./img/cars/";
 let CAR_SVG_PREFIX = "cars-";
 let CAR_SVG_EXTENSION = ".svg";
 
+let JUNCTION_OBJECTS_PATH = "/resources/junctions/";
+let JUNCTION_OBJECTS_EXTENSION = ".json";
+
 let STARTING_JUNCTION_NUMBER = "01";
 let CAR_COLORS = [
     "blue",
@@ -16,17 +22,14 @@ let CAR_COLORS = [
     "green"
 ];
 
-let CARS = {};
-let JUNCTION = {};
-
 window.addEventListener("load", initializeJunctionPage(), false);
 
 // Function that does initialization routine on page load
 function initializeJunctionPage() {
     bindJunctionChangeFunction();
-    currentJunction = $(".active");
-    changeSvgBackground(formJunctionPath(STARTING_JUNCTION_NUMBER));
-    loadCar("blue"); // TODO replace with loadCars()
+    currentJunctionItem = $(".active");
+    changeSvgBackground(formJunctionSvgPath(STARTING_JUNCTION_NUMBER));
+    loadJunction(STARTING_JUNCTION_NUMBER);
 }
 
 function bindJunctionChangeFunction() {
@@ -37,7 +40,22 @@ function bindJunctionChangeFunction() {
     });
 }
 
-function loadCars() {
+function loadJunction(junctionNumber) {
+    $.get(formJunctionObjectPath(junctionNumber), function(data) {
+        JUNCTION = new Junction(data);
+    }).done(function() {
+        loadCars(JUNCTION.cars);
+    });
+}
+
+function loadCars(carColors) {
+    carColors.forEach(color => {
+        console.log(color + " car loaded"); // TODO Remove only for testing purposes
+        loadCar(color);
+    });
+}
+
+function loadAllCars() {
     CAR_COLORS.forEach(color => {
         loadCar(color);
     });
@@ -68,13 +86,17 @@ function changeJunction(listItem) {
     // Change classes of current active junction to newly clicked
     toggleClassesToCurrentActive(listItem);
     // Set current junction to new one
-    currentJunction = listItem;
+    currentJunctionItem = listItem;
     // Switch to new junction image
     setToCorrespongindJunctionImage(listItem);
+    // TODO Implement deleting previous cars
+    
+    let junctionNumber = getJunctionNumberFromListItem(listItem);
+    loadJunction(junctionNumber);
 }
 
 function toggleClassesToCurrentActive(listItem) {
-    changeElementClassToInactive(currentJunction);
+    changeElementClassToInactive(currentJunctionItem);
     changeElementClassToActive(listItem);
 }
 
@@ -88,7 +110,7 @@ function changeElementClassToInactive(listItem) {
 
 function setToCorrespongindJunctionImage(listItem) {
     let junctionNumber = getJunctionNumberFromListItem(listItem);
-    let junctionPath = formJunctionPath(junctionNumber);
+    let junctionPath = formJunctionSvgPath(junctionNumber);
     changeSvgBackground(junctionPath);
 }
 
@@ -97,8 +119,12 @@ function getJunctionNumberFromListItem(listItem) {
     return junctionNumber < 10 ? "0"+junctionNumber : junctionNumber;
 }
 
-function formJunctionPath(junctionNumber) {
+function formJunctionSvgPath(junctionNumber) {
     return "url(\""+JUNCTION_IMAGES_PATH+junctionNumber+JUNCTION_IMAGE_EXTENSION+"\")";
+}
+
+function formJunctionObjectPath(junctionNumber) {
+    return JUNCTION_OBJECTS_PATH + junctionNumber + JUNCTION_OBJECTS_EXTENSION;
 }
 
 function changeSvgBackground(path) {

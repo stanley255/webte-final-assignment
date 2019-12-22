@@ -1,0 +1,11 @@
+{
+    "number": "02",
+    "cars": [
+        "blue",
+        "red",
+        "green"
+    ],
+    "solutions": [
+        ["blue", "red", "green"]
+    ]
+}
