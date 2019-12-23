@@ -37,8 +37,7 @@
         </h5>
       </div>
       <div class="row center">
-        <a href="./junction.html" id="download-button"
-          class="btn-large waves-effect waves-light teal">KRIŽOVATKYYY!</a>
+        <a href="./junction.html" id="download-button" class="btn-large waves-effect waves-light teal">KRIŽOVATKYYY!</a>
       </div>
       <br><br>
 
@@ -94,41 +93,23 @@
     <div class="box-wrapper">
       <div class="box-container">
         <p id="namesday-today">Dnes má meniny </p>
-        <div class="switch">
-          <label>
-            Meno
-            <input type="checkbox" id="input-toggle">
-            <span class="lever"></span>
-            Dátum
-          </label>
+
+        <div class="card teal lighten-1">
+          <div class="card-content white-text">
+            <span id="namesday-card-title" class="card-title">Meninový widget</span>
+
+            <form id="namesday-form"></form>
+            <div class="input-field col s6 input-box" id="name-input-box">
+              <input id="namesday-input" type="text" class="validate">
+              <label id="name-input-label" for="name-input" >Zadaj meno či dátum, podľa svojho ľúbenia</label>
+            </div>
+            <a class="waves-effect white waves-light btn" id="search-button">Vyhľadaj </a>
+            <p id="result"></p>
+          </div>
         </div>
-        <form id="namesday-form"></form>
-        <div class="input-field col s6 input-box" id="name-input-box">
-          <!-- <i class="material-icons prefix">account_circle</i> -->
-          <input id="name-input" type="text" class="validate">
-          <label for="name-input">Zadaj meno</label>
-        </div>
-        <!-- <div class="input-field col s6 input-box" id="date-input-box">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="date-input" type="text" class="validate">
-          <label for="date-input">Search date</label>
-        </div> -->
-        <div class="input-field col s12 input-box" id="date-input-box">
-          <input id="date-input" type="text" class="validate">
-          <label for="date-input">Search date</label>
-          <!-- <div id="select-box-wrapper">
-            <select id="select-day">
-              <option value="h">1</option>
-            </select>
-            <select id="select-month">
-              <option value="s">2</option>
-            </select>
-          </div> -->
-        </div>
-        <a class="waves-effect waves-light btn" id="search-date-button">Vyhľadaj dátum</a>
-        <p id="result"></p>
       </div>
     </div>
+
   </section>
 
 

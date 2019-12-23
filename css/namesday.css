@@ -25,3 +25,18 @@
 .select-wrapper {
     margin: 0 .5em;
 }
+
+#search-button{
+    color:teal;
+}
+#name-input-label{
+    color:white;
+}
+
+#namesday-card-title{
+    margin-bottom:20px;
+}
+
+#name-input{
+    color:white;
+}
