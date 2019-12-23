@@ -4,13 +4,23 @@
         {
             "color": "blue",
             "position": {
-                "x": 45,
-                "y": 350
+                "x": 280,
+                "y": 345
             },
-            "angle": 90
+            "angle": 90,
+            "blinker": "off"
+        },
+        {
+            "color": "red",
+            "position": {
+                "x": 595,
+                "y": 580
+            },
+            "angle": 0,
+            "blinker": "right"
         }
     ],
     "solutions": [
-        ["blue"]
+        ["blue", "red"]
     ]
 }

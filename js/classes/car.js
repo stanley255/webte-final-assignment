@@ -8,29 +8,63 @@ const LAYERS = {
     red: "layer3"
 }
 
+const BLINKERS = {
+    off: function (car) {
+        car.turnOffBlinkers()
+    },
+    right: function (car) {
+        car.turnOnRightBlinker()
+    },
+    left: function (car) {
+        car.turnOnLeftBlinker()
+    }
+}
+
+const CAR_BLINKER_STATES = [
+    "carOff",
+    "carRight",
+    "carLeft"
+]
+
 const DEFAULT_TRANSFORM_ORIGIN = "42px 84px";
 
 class Car {
 
-    constructor(color, position, angle) {
-        this.color = color.toLowerCase();
+    constructor(car) {
+        this.color = car.color.toLowerCase();
         this.carOff = document.getElementById(this.color + BLINKER_OFF);
         this.carRight = document.getElementById(this.color + BLINKER_RIGHT);
         this.carLeft = document.getElementById(this.color + BLINKER_LEFT);
 
-        this.layer = document.getElementById(LAYERS[color]);
+        this.layer = document.getElementById(LAYERS[this.color]);
         this.layer.style.transformOrigin = DEFAULT_TRANSFORM_ORIGIN;
         this.transformX = 0;
         this.transformY = 0;
         this.angle = 0;
 
+        this.setDefaultPosition(car.position, car.angle);
+        this.setDefaultBlinkers(car.blinker);
+
+        this.setOnClickActionToAllBlinkerStates(car);
+    }
+
+    setDefaultPosition(position, angle) {
         this.moveAbsolute(position.x, position.y);
         this.rotateAbsolute(angle);
+    }
 
-        this.carOff.addEventListener('click', function(){
-            JUNCTION.addCarToSolution(CARS[color]);
+    setDefaultBlinkers(blinker = 'off') {
+        BLINKERS[blinker](this);
+    }
+
+    setOnClickActionToAllBlinkerStates(car) {
+        CAR_BLINKER_STATES.forEach(state => {
+            this[state].addEventListener('click', function () {
+                console.log("Car color: " + car.color); // TODO Remove
+                JUNCTION.addCarToSolution(CARS[car.color]);
+                JUNCTION.checkSolution();
+            });
         });
-
     }
 
     setVisibilityLayerStates(off, right, left) {
@@ -58,7 +92,7 @@ class Car {
     showCar() {
         this.setVisibilityLayerStates("visible", "hidden", "hidden");
     }
-    
+
     moveRelative(a, b) {
         this.transformX += a;
         this.transformY += b;
@@ -70,7 +104,7 @@ class Car {
         this.transformY = y;
         this.updateCar();
     }
-    
+
     rotateRelative(angle) {
         this.angle += angle;
         this.updateCar();

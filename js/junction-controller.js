@@ -1,7 +1,7 @@
 let CARS = {};
 let JUNCTION = {};
+let DEMO_BUTTON;
 let currentJunctionItem;
-
 
 let JUNCTION_CLASS_ACTIVE = "active teal";
 let JUNCTION_CLASS_INACTIVE = "waves-effect";
@@ -17,6 +17,10 @@ let JUNCTION_OBJECTS_EXTENSION = ".json";
 
 let STARTING_JUNCTION_NUMBER = "01";
 
+let DEMO_BUTTON_ID = "#junction-demo-button";
+let DEMO_BUTTON_ACTIVE = "waves-effect waves-light btn-small";
+let DEMO_BUTTON_INACTIVE = "disabled btn-small";
+
 window.addEventListener("load", initializeJunctionPage(), false);
 
 // Function that does initialization routine on page load
@@ -25,6 +29,8 @@ function initializeJunctionPage() {
     currentJunctionItem = $(".active");
     changeSvgBackground(formJunctionSvgPath(STARTING_JUNCTION_NUMBER));
     loadJunction(STARTING_JUNCTION_NUMBER);
+    DEMO_BUTTON = $(DEMO_BUTTON_ID);
+    disableDemoButton();
 }
 
 function bindJunctionChangeFunction() {
@@ -54,7 +60,7 @@ function loadCar(car) {
         let junctionSvg = document.getElementById("svg");
         junctionSvg.appendChild(createCarSvgElement(data));
     }).done(function() {
-        CARS[car.color] = new Car(car.color, car.position, car.angle);
+        CARS[car.color] = new Car(car);
     });
 }
 
@@ -75,6 +81,8 @@ function changeJunction(listItem) {
     toggleClassesToCurrentActive(listItem);
     // Set current junction to new one
     currentJunctionItem = listItem;
+    // Disable junction demo button
+    disableDemoButton();
     // Switch to new junction image
     setToCorrespongindJunctionImage(listItem);
     // Deleting previous cars
@@ -95,6 +103,14 @@ function changeElementClassToActive(listItem) {
 
 function changeElementClassToInactive(listItem) {
     $(listItem).removeClass(JUNCTION_CLASS_ACTIVE).addClass(JUNCTION_CLASS_INACTIVE);
+}
+
+function enableDemoButton() {
+    $(DEMO_BUTTON_ID).removeClass(DEMO_BUTTON_INACTIVE).addClass(DEMO_BUTTON_ACTIVE);
+}
+
+function disableDemoButton() {
+    $(DEMO_BUTTON_ID).removeClass(DEMO_BUTTON_ACTIVE).addClass(DEMO_BUTTON_INACTIVE);
 }
 
 function setToCorrespongindJunctionImage(listItem) {

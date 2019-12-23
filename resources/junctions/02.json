@@ -1,5 +1,5 @@
 {
-    "number": "02",
+    "number": "01",
     "cars": [
         {
             "color": "blue",
@@ -8,17 +8,9 @@
                 "y": 350
             },
             "angle": 90
-        },
-        {
-            "color": "red",
-            "position": {
-                "x": 595,
-                "y": 580
-            },
-            "angle": 0
         }
     ],
     "solutions": [
-        ["blue", "red"]
+        ["blue"]
     ]
 }
