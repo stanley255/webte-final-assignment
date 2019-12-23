@@ -27,6 +27,17 @@
             "angle": 270
         }
     ],
+    "actions" : {
+        "blue": [
+            {}
+        ],
+        "red": [
+            {}
+        ],
+        "green": [
+            {}
+        ]
+    },
     "solutions": [
         ["blue", "green", "red"],
         ["green", "blue", "red"]

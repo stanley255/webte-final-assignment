@@ -11,6 +11,11 @@
             "angle": 90
         }
     ],
+    "actions" : {
+        "blue": [
+            {}
+        ]
+    },
     "solutions": [
         ["blue"]
     ],
