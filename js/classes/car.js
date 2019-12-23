@@ -64,7 +64,7 @@ class Car {
     setOnClickActionToAllBlinkerStates(car) {
         CAR_BLINKER_STATES.forEach(state => {
             this[state].addEventListener('click', function () {
-                console.log("Car color: " + car.color); // TODO Remove
+                JUNCTION.executeCarActions(CARS[car.color]);
                 JUNCTION.addCarToSolution(CARS[car.color]);
                 JUNCTION.checkSolution();
             });

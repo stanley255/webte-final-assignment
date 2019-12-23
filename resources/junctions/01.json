@@ -21,6 +21,14 @@
             "blinker": "right"
         }
     ],
+    "actions" : {
+        "blue": [
+            {}
+        ],
+        "red": [
+            {}
+        ]
+    },
     "solutions": [
         ["blue", "red"]
     ],

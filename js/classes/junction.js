@@ -6,6 +6,7 @@ class Junction {
         this.solutions = junction.solutions;
         this.userSolution = [];
         this.solved = false;
+        this.actions = junction.actions;
         this.setSolution(junction);
     }
 
@@ -61,6 +62,16 @@ class Junction {
 
     allowToShowSolution() {
         enableSolutionButton();
+    }
+
+    executeCarActions(car) {
+        let actions = this.getCarActions(car);
+        // TODO - implement actions execution
+        console.log(car.color + " car executing these actions: ", actions);
+    }
+
+    getCarActions(car) {
+        return JUNCTION.actions[car.color];
     }
 
 }
