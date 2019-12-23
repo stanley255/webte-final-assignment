@@ -1,5 +1,6 @@
 {
     "number": "03",
+    "title": "Križovatka 3",
     "cars": [
         {
             "color": "blue",
@@ -29,5 +30,6 @@
     "solutions": [
         ["blue", "green", "red"],
         ["green", "blue", "red"]
-    ]
+    ],
+    "solutionText": "Text is missing...for now :)"
 }

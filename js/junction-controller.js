@@ -1,25 +1,34 @@
 let CARS = {};
 let JUNCTION = {};
-let DEMO_BUTTON;
 let currentJunctionItem;
 
-let JUNCTION_CLASS_ACTIVE = "active teal";
-let JUNCTION_CLASS_INACTIVE = "waves-effect";
-let JUNCTION_IMAGES_PATH = "./img/junctions/";
-let JUNCTION_IMAGE_EXTENSION = ".png";
+const JUNCTION_CLASS_ACTIVE = "active teal";
+const JUNCTION_CLASS_INACTIVE = "waves-effect";
+const JUNCTION_IMAGES_PATH = "./img/junctions/";
+const JUNCTION_IMAGE_EXTENSION = ".png";
 
-let CAR_SVG_PATH = "./img/cars/";
-let CAR_SVG_PREFIX = "cars-";
-let CAR_SVG_EXTENSION = ".svg";
+const CAR_SVG_PATH = "./img/cars/";
+const CAR_SVG_PREFIX = "cars-";
+const CAR_SVG_EXTENSION = ".svg";
 
-let JUNCTION_OBJECTS_PATH = "/resources/junctions/";
-let JUNCTION_OBJECTS_EXTENSION = ".json";
+const JUNCTION_OBJECTS_PATH = "/resources/junctions/";
+const JUNCTION_OBJECTS_EXTENSION = ".json";
 
-let STARTING_JUNCTION_NUMBER = "01";
+const STARTING_JUNCTION_NUMBER = "01";
 
-let DEMO_BUTTON_ID = "#junction-demo-button";
-let DEMO_BUTTON_ACTIVE = "waves-effect waves-light btn-small";
-let DEMO_BUTTON_INACTIVE = "disabled btn-small";
+const DEMO_BUTTON_ID = "#junction-demo-button";
+const DEMO_BUTTON_ACTIVE = "waves-effect waves-light btn";
+const DEMO_BUTTON_INACTIVE = "waves-effect waves-light btn disabled";
+
+const SOLUTION_BUTTON_ID = "#junction-solution-button";
+const SOLUTION_BUTTON_ACTIVE = "waves-effect waves-light btn modal-trigger";
+const SOLUTION_BUTTON_INACTIVE = "waves-effect waves-light btn modal-trigger disabled";
+
+const CORRECT_ANSWER_POP_UP_ID = "#correct-answer";
+const INCORRECT_ANSWER_POP_UP_ID = "#incorrect-answer";
+
+const JUNCTION_SOLUTION_TITLE_ID = "#junction-solution-title"
+const JUNCTION_SOLUTION_TEXT_ID = "#junction-solution-text"
 
 window.addEventListener("load", initializeJunctionPage(), false);
 
@@ -29,8 +38,6 @@ function initializeJunctionPage() {
     currentJunctionItem = $(".active");
     changeSvgBackground(formJunctionSvgPath(STARTING_JUNCTION_NUMBER));
     loadJunction(STARTING_JUNCTION_NUMBER);
-    DEMO_BUTTON = $(DEMO_BUTTON_ID);
-    disableDemoButton();
 }
 
 function bindJunctionChangeFunction() {
@@ -81,8 +88,9 @@ function changeJunction(listItem) {
     toggleClassesToCurrentActive(listItem);
     // Set current junction to new one
     currentJunctionItem = listItem;
-    // Disable junction demo button
+    // Disable junction demo&solution button
     disableDemoButton();
+    disableSolutionButton();
     // Switch to new junction image
     setToCorrespongindJunctionImage(listItem);
     // Deleting previous cars
@@ -98,19 +106,31 @@ function toggleClassesToCurrentActive(listItem) {
 }
 
 function changeElementClassToActive(listItem) {
-    $(listItem).removeClass(JUNCTION_CLASS_INACTIVE).addClass(JUNCTION_CLASS_ACTIVE);
+    removeAndAddClassToElement(listItem, JUNCTION_CLASS_INACTIVE, JUNCTION_CLASS_ACTIVE);
 }
 
 function changeElementClassToInactive(listItem) {
-    $(listItem).removeClass(JUNCTION_CLASS_ACTIVE).addClass(JUNCTION_CLASS_INACTIVE);
+    removeAndAddClassToElement(listItem, JUNCTION_CLASS_ACTIVE, JUNCTION_CLASS_INACTIVE);
 }
 
 function enableDemoButton() {
-    $(DEMO_BUTTON_ID).removeClass(DEMO_BUTTON_INACTIVE).addClass(DEMO_BUTTON_ACTIVE);
+    removeAndAddClassToElement(DEMO_BUTTON_ID, DEMO_BUTTON_INACTIVE, DEMO_BUTTON_ACTIVE);
 }
 
 function disableDemoButton() {
-    $(DEMO_BUTTON_ID).removeClass(DEMO_BUTTON_ACTIVE).addClass(DEMO_BUTTON_INACTIVE);
+    removeAndAddClassToElement(DEMO_BUTTON_ID, DEMO_BUTTON_ACTIVE, DEMO_BUTTON_INACTIVE);
+}
+
+function enableSolutionButton() {
+    removeAndAddClassToElement(SOLUTION_BUTTON_ID, SOLUTION_BUTTON_INACTIVE, SOLUTION_BUTTON_ACTIVE);
+}
+
+function disableSolutionButton() {
+    removeAndAddClassToElement(SOLUTION_BUTTON_ID, SOLUTION_BUTTON_ACTIVE, SOLUTION_BUTTON_INACTIVE);
+}
+
+function removeAndAddClassToElement(element, removeClass, addClass) {
+    $(element).removeClass(removeClass).addClass(addClass);
 }
 
 function setToCorrespongindJunctionImage(listItem) {
@@ -139,4 +159,16 @@ function formJunctionObjectPath(junctionNumber) {
 
 function changeSvgBackground(path) {
     $("#svg").css("background-image", path);
+}
+
+function showCorrectAnswerPopUp() {
+    showPopUpById(CORRECT_ANSWER_POP_UP_ID);
+}
+
+function showIncorrectAnswerPopUp() {
+    showPopUpById(INCORRECT_ANSWER_POP_UP_ID);
+}
+
+function showPopUpById(elementId) {
+    M.Modal.getInstance($(elementId)).open();
 }

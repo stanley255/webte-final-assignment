@@ -31,9 +31,10 @@
 
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
-
+            <!-- SVG pre križovatku -->
             <svg id="svg">
             </svg>
+            <!-- Select pre všetky križovatky -->
             <ul id="junction-select" class="pagination">
                 <li class="active teal"><a>1</a></li>
                 <li class="waves-effect"><a>2</a></li>
@@ -51,8 +52,41 @@
                 <li class="waves-effect"><a>14</a></li>
                 <li class="waves-effect"><a>15</a></li>
             </ul>
-            <button id="junction-demo-button" class="btn waves-effect waves-light" type="submit" name="action">Demo
+            <!-- Tlačidlo pre DEMO -->
+            <button id="junction-demo-button" class="waves-effect waves-light btn disabled" type="submit" name="action">Demo
             </button>
+            <!-- Tlačidlo pre zobrazenie riešenia -->
+            <a id="junction-solution-button" class="waves-effect waves-light btn modal-trigger disabled" href="#modal-junction-solution">Riešenie</a>
+            <!-- Modálna štruktúra s riešením -->
+            <div id="modal-junction-solution" class="modal">
+                <div class="modal-content">
+                    <h4 id="junction-solution-title">Križovatka 01</h4>
+                    <p id="junction-solution-text">Tuto bude text riešenia danej križovatky</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+                </div>
+            </div>
+            <!-- Pop-up pre správne riešenie -->
+            <div id="correct-answer" class="modal">
+                <div class="modal-content">
+                    <h4>Gratulujeme :)</h4>
+                    <p>✔ Skvelé, túto križovatku sa ti podarilo vyriešiť správne, pozri si demo alebo vyskúšaj ďalšiu z našich križovatiek ✔</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+                </div>
+            </div>
+            <!-- Pop-up pre nesprávne riešenie -->
+            <div id="incorrect-answer" class="modal">
+                <div class="modal-content">
+                    <h4>Škoda :(</h4>
+                    <p>❌ Je nám to ľúto ale tvoje riešenie nie je správne, môžeš si však prečítať správne riešenie a pozrieť demo ❌</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -6,6 +6,12 @@ class Junction {
         this.solutions = junction.solutions;
         this.userSolution = [];
         this.solved = false;
+        this.setSolution(junction);
+    }
+
+    setSolution(junction) {
+        $(JUNCTION_SOLUTION_TITLE_ID).html(junction.title);
+        $(JUNCTION_SOLUTION_TEXT_ID).html(junction.solutionText);
     }
 
     addCarColorToSolution(carColor) {
@@ -24,6 +30,7 @@ class Junction {
         else
             this.junctionNotSolved()
         this.allowToWatchDemo();
+        this.allowToShowSolution();
     }
 
     isUserSolutionValid() {
@@ -40,16 +47,20 @@ class Junction {
 
     junctionSolved() {
         this.solved = true;
-        alert("✔✔✔");
+        showCorrectAnswerPopUp();
     }
 
     junctionNotSolved() {
         this.solved = false;
-        alert("❌❌❌");
+        showIncorrectAnswerPopUp();
     }
 
     allowToWatchDemo() {
         enableDemoButton();
+    }
+
+    allowToShowSolution() {
+        enableSolutionButton();
     }
 
 }

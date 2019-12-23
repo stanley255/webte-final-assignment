@@ -1,5 +1,6 @@
 {
     "number": "01",
+    "title": "Križovatka 1",
     "cars": [
         {
             "color": "blue",
@@ -22,5 +23,6 @@
     ],
     "solutions": [
         ["blue", "red"]
-    ]
+    ],
+    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na vedľajšej ceste."
 }
