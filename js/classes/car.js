@@ -27,6 +27,10 @@ const CAR_BLINKER_STATES = [
 ]
 
 const DEFAULT_TRANSFORM_ORIGIN = "42px 84px";
+const DEFAULT_POSITION = {x: 0, y: 0};
+const DEFAULT_ANGLE = 0;
+
+const DEFAULT_BLINKER_STATE = "off";
 
 class Car {
 
@@ -38,9 +42,9 @@ class Car {
 
         this.layer = document.getElementById(LAYERS[this.color]);
         this.layer.style.transformOrigin = DEFAULT_TRANSFORM_ORIGIN;
-        this.transformX = 0;
-        this.transformY = 0;
-        this.angle = 0;
+        this.transformX = DEFAULT_POSITION.x;
+        this.transformY = DEFAULT_POSITION.y;
+        this.angle = DEFAULT_ANGLE;
 
         this.setDefaultPosition(car.position, car.angle);
         this.setDefaultBlinkers(car.blinker);
@@ -48,12 +52,12 @@ class Car {
         this.setOnClickActionToAllBlinkerStates(car);
     }
 
-    setDefaultPosition(position, angle) {
+    setDefaultPosition(position = DEFAULT_POSITION, angle = DEFAULT_ANGLE) {
         this.moveAbsolute(position.x, position.y);
         this.rotateAbsolute(angle);
     }
 
-    setDefaultBlinkers(blinker = 'off') {
+    setDefaultBlinkers(blinker = DEFAULT_BLINKER_STATE) {
         BLINKERS[blinker](this);
     }
 
