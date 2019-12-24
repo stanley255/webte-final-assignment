@@ -6,15 +6,12 @@ $(document).ready(function() {
     loadNamesday(namesdayList).done(function(data) {
         namesdayList = $(data).find('zaznam');
         injectTodaysName();
+        // console.log(namesdayList[0].children[0]);
     });
     setupHandlers();
 });
 
 function setupHandlers() {
-    $('#search-date-button').on('click', namesDayLookup);
-    $('#name-input').on('change', switchLastUpdated);
-    $('#date-input').on('change', switchLastUpdated);
-    $('#input-toggle').on('change', changeInputType);    
 }
 
 function loadNamesday(data) {
@@ -79,27 +76,6 @@ function formatDate(date){
     return (day+"."+month);
 }
 
-function retrieveDateFromName(input){
-    let dates=[];
-    let date;
-    $(namesdayList).each(function(index,value){
-        $(value.children).each(function(index2,value2){
-            if (checkifNameEquals(input,value2.textContent)) {
-                //SKd is the same as SK but extended, so we do not need SK
-                if(value2.nodeName!="SK"){
-                    date=
-                    {
-                        "date":value.children[0].textContent,
-                        "name":value2
-                    };
-                    dates.push(date);
-                }
-            }
-        });
-    });
-    return dates;
-}
-
 
 function normalize(input){
     input = input.toLowerCase();
@@ -109,26 +85,41 @@ function normalize(input){
 }
 
 
-function parseDateInput(){
-    //thanks to trimDateInput function, the date will always be in format dd.dd or dd.d, so we
-    //can suppose that number before dot is day of month and number after dot is month of year
-    let value = $("#date-input").val();
-    let output;
-    //has two digits after dot
-    if (value.length==5){
-        output = [value[3]+value[4]+value[0]+value[1]].join('');
-    }
-
-    //has one digit after dot
-    else if(value.length==4){
-        output = ['0'+value[3]+value[0]+value[1]].join('');
-    }
-    
-    return output;
-}
 
 $("#namesday-input").on("keyup",function(){
-    var value = $(this.val()).toLowerCase();
-    
+    var value = $(this).val().toLowerCase();
+    var result = jQuery.grep(namesdayList,function(n,i){
+
+        for(var i=0;i<n.children.length;++i){
+            if(normalize(n.children[i].textContent).startsWith(normalize(value))){
+                return (n)
+            }
+        }
+    },false);
+
+    $("#result").empty();
+    printResults(result);
+    if(!value){
+        $("#result").empty();
+    }
 });
 
+function printResults(input){
+    input.forEach(element => {
+        var arr = [].slice.call(element.children);
+        var toAppend="<li class=\"collection-item\">"+arr[0].textContent+"<span> :<br></span>";
+        for(var i=1;i<arr.length;++i){
+            toAppend= toAppend.concat(arr[i].textContent+"<b> ["+arr[i].tagName+"]</b><br>");
+        }
+        toAppend=toAppend.concat("</li>");
+        $("#result").append(toAppend);
+    });
+    
+}
+
+
+//TODO: Search all regions, not just slovak namesday
+//TODO: Search dates
+//TODO: Format dates in output
+//TODO: Filter tagnames(dont display all)
+//TODO: Format tagnames 
