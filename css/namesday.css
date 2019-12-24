@@ -44,3 +44,13 @@
 #result{
     color:black;
 }
+
+
+/* Input does not activate upon clicking on a label without this piece of beautiful code i found on stackoverflow */
+input[type="text"] + label {
+    pointer-events: none;
+
+    * {
+        pointer-events: all;
+    }
+}
