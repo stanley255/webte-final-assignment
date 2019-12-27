@@ -15,6 +15,7 @@ class Car {
         this.setDefaultPosition(car.position, car.angle);
         this.setDefaultBlinkers(car.blinker);
 
+        this._listener = () => this.handleCarClick(car);
         this.setOnClickActionToAllBlinkerStates(car);
     }
 
@@ -27,14 +28,23 @@ class Car {
         BLINKERS[blinker](this);
     }
 
-    setOnClickActionToAllBlinkerStates(car) {
-        CAR_BLINKER_STATES.forEach(state => {
-            this[state].addEventListener('click', function () {
-                JUNCTION.executeCarActions(CARS[car.color]);
-                JUNCTION.addCarToSolution(CARS[car.color]);
-                JUNCTION.checkSolution();
+    // TODO - konstanta CAR_BLINKER_STATES je po tejto uprave DEPRECATED
+    setOnClickActionToAllBlinkerStates() {
+        this.layer.addEventListener('click', this._listener);
+    }
+
+    removeOnClickActionToAllBlinkerStates() {
+        this.layer.removeEventListener('click', this._listener);
+    }
+
+    handleCarClick(car) {
+        JUNCTION.turnOffOnClickListenerForCars();
+        JUNCTION.addCarToSolution(CARS[car.color]);
+        JUNCTION.executeCarActions(CARS[car.color])
+            .then(() => {
+                JUNCTION.checkSolution()
+                JUNCTION.turnOnOnClickListenerForCars()
             });
-        });
     }
 
     setVisibilityLayerStates(off, right, left) {

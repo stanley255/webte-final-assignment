@@ -1,5 +1,3 @@
-const TIMEOUT = 20;
-
 class Junction {
 
     constructor(junction) {
@@ -23,6 +21,18 @@ class Junction {
 
     addCarToSolution(car) {
         this.userSolution.push(car.color);
+    }
+
+    turnOffOnClickListenerForCars() {
+        for (const key in CARS) {
+            CARS[key].removeOnClickActionToAllBlinkerStates()
+        }
+    }
+
+    turnOnOnClickListenerForCars() {
+        for (const key in CARS) {
+            CARS[key].setOnClickActionToAllBlinkerStates()
+        }
     }
 
     checkSolution() {
@@ -70,7 +80,6 @@ class Junction {
 
     async executeCarActions(car) {
         let actions = this.getCarActions(car);
-        console.log(car.color + " car executing these actions: ", actions); // TODO - remove
 
         for (const action of actions) {
             if (action.type.toLowerCase() === "turn") {
@@ -85,11 +94,9 @@ class Junction {
         return JUNCTION.actions[car.color];
     }
 
-    sleep = (m) => new Promise(resolve => setTimeout(resolve, m)); // TODO - change origin
+    sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-    async turnCarBasedOnAction(car, action) {        
-        console.log(car.color + " car is turning!"); // TODO - remove
-
+    async turnCarBasedOnAction(car, action) { 
         let carStartX = car.transformX;
         let carStartY = car.transformY;
 
@@ -97,7 +104,7 @@ class Junction {
 
         for (let i = quadrant.start; i != (quadrant.end + quadrant.increment); i += quadrant.increment) {
             this.turnCar(car, i, action.distance, carStartX, carStartY, quadrant);
-            await this.sleep(TIMEOUT);
+            await this.sleep(TURN_ANIMATION_PAUSE_DURATION);
         }
     }
 
@@ -111,14 +118,12 @@ class Junction {
     }
 
     async moveCarBasedOnAction(car, action) {
-        console.log(car.color + " car is moving!"); // TODO - remove
-
         let distance = action.distance;
         let dir_vec = DIRECTIONS_VECTOR[action.direction];
 
         for(let i = 0; i < distance; i++) {
             car.moveRelative(dir_vec[0], dir_vec[1]);
-            await this.sleep(TIMEOUT / 4); // TODO / remove magic!
+            await this.sleep(STRIAGHT_ANIMATION_PAUSE_DURATION);
         }
     }
 

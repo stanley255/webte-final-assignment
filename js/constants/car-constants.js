@@ -20,7 +20,7 @@ const BLINKERS = {
     }
 }
 
-const CAR_BLINKER_STATES = [
+const CAR_BLINKER_STATES = [ // TODO - probably gonna be deprecated
     "carOff",
     "carRight",
     "carLeft"
@@ -41,3 +41,5 @@ const DIRECTIONS_VECTOR = {
     left:   [-1,  0]
 }
 
+const TURN_ANIMATION_PAUSE_DURATION = 20;
+const STRIAGHT_ANIMATION_PAUSE_DURATION = 5;
