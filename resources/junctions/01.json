@@ -5,28 +5,38 @@
         {
             "color": "blue",
             "position": {
-                "x": 280,
+                "x": 360,
                 "y": 345
             },
             "angle": 90,
-            "blinker": "off"
+            "blinker": "left"
         },
         {
             "color": "red",
             "position": {
-                "x": 595,
-                "y": 580
+                "x": 510,
+                "y": 100
             },
-            "angle": 0,
-            "blinker": "right"
+            "angle": 180,
+            "blinker": "left"
         }
     ],
     "actions" : {
         "blue": [
-            {}
+            {
+                "type": "turn",
+                "quadrant": 4,
+                "clockwise": false,
+                "distance": 205
+            }
         ],
         "red": [
-            {}
+            {
+                "type": "turn",
+                "quadrant": 3,
+                "clockwise": false,
+                "distance": 205
+            }
         ]
     },
     "solutions": [

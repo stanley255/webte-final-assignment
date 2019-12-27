@@ -32,6 +32,8 @@ const DEFAULT_ANGLE = 0;
 
 const DEFAULT_BLINKER_STATE = "off";
 
+const CAR_HALF_WIDTH = 40;
+
 class Car {
 
     constructor(car) {
