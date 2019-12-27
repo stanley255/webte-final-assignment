@@ -28,6 +28,11 @@
                 "quadrant": 4,
                 "clockwise": false,
                 "distance": 205
+            },
+            {
+                "type": "straight",
+                "direction": "up",
+                "distance": 300
             }
         ],
         "red": [
@@ -36,6 +41,11 @@
                 "quadrant": 3,
                 "clockwise": false,
                 "distance": 205
+            },
+            {
+                "type": "straight",
+                "direction": "right",
+                "distance": 300
             }
         ]
     },

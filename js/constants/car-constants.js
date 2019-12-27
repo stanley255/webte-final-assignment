@@ -34,3 +34,10 @@ const DEFAULT_BLINKER_STATE = "off";
 
 const CAR_HALF_WIDTH = 40;
 
+const DIRECTIONS_VECTOR = {
+    up:     [ 0, -1],
+    right:  [ 1,  0],
+    down:   [ 0,  1],
+    left:   [-1,  0]
+}
+
