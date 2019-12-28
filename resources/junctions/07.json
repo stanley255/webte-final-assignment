@@ -1,0 +1,52 @@
+{
+    "number": "15",
+    "title": "Križovatka 15",
+    "objects": [
+        {
+            "id": "car01",
+            "type": "Car",
+            "color": "blue",
+            "position": {
+                "x": 310,
+                "y": 445
+            },
+            "angle": 90,
+            "blinker": "left"
+        },
+        {
+            "id": "tram01",
+            "type": "Tram",
+            "position": {
+                "x": 70,
+                "y": 110
+            },
+            "angle": 90
+        }
+    ],
+    "actions" : {
+        "car01": [
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 4,
+                "clockwise": false,
+                "distance": 255
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "up",
+                "distance": 325
+            }
+        ],
+        "tram01": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 1190
+            }
+        ]
+    },
+    "solutions": [
+        ["tram01", "car01"]
+    ],
+    "solutionText": ""
+}

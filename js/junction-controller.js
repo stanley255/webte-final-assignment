@@ -2,7 +2,7 @@ let JUNCTION = {};
 let JUNCTION_OBJECTS = {};
 let currentJunctionItem;
 
-const CLASSES = { Car, Pedestrian, Cyclist };
+const CLASSES = { Car, Pedestrian, Cyclist, Tram };
 
 window.addEventListener("load", initializeJunctionPage(), false);
 

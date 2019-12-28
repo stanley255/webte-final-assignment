@@ -4,13 +4,15 @@ const LAYERS = {
     car02: "layer2",
     car03: "layer3",
     pedestrian01: "pedestrian-layer",
-    cyclist01: "cyclist-layer"
+    cyclist01: "cyclist-layer",
+    tram01: "tram-layer"
 }
 
 const DEFAULT_TRANSFORM_ORIGINS = {
     car: "42px 84px",
-    pedestrian: "23px 24px",
-    cyclist: "22px 42.5px"
+    pedestrian: "23px 23.5px",
+    cyclist: "22px 42.5px",
+    tram: "48.5px 310px"
 }
 
 
