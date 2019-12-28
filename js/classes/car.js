@@ -6,19 +6,8 @@ class Car extends JunctionObject {
         this.carOff = document.getElementById(this.color + BLINKER_OFF);
         this.carRight = document.getElementById(this.color + BLINKER_RIGHT);
         this.carLeft = document.getElementById(this.color + BLINKER_LEFT);
-
-        this.layer.style.transformOrigin = DEFAULT_TRANSFORM_ORIGIN;
-        this.transformX = DEFAULT_POSITION.x;
-        this.transformY = DEFAULT_POSITION.y;
-        this.angle = DEFAULT_ANGLE;
-
-        this.setDefaultPosition(car.position, car.angle);
+        
         this.setDefaultBlinkers(car.blinker);
-    }
-
-    setDefaultPosition(position = DEFAULT_POSITION, angle = DEFAULT_ANGLE) {
-        this.moveAbsolute(position.x, position.y);
-        this.rotateAbsolute(angle);
     }
 
     setDefaultBlinkers(blinker = DEFAULT_BLINKER_STATE) {
@@ -51,35 +40,6 @@ class Car extends JunctionObject {
         this.setVisibilityLayerStates("visible", "hidden", "hidden");
     }
 
-    moveRelative(a, b) {
-        this.transformX += a;
-        this.transformY += b;
-        this.updateCar();
-    }
-
-    moveAbsolute(x, y) {
-        this.transformX = x;
-        this.transformY = y;
-        this.updateCar();
-    }
-
-    rotateRelative(angle) {
-        this.angle += angle;
-        this.updateCar();
-    }
-
-    rotateAbsolute(angle) {
-        this.angle = angle;
-        this.updateCar();
-    }
-
-    updateCar() {
-        $(this.layer).attr("transform", "translate(" + this.transformX + "," + this.transformY + ") rotate(" + this.angle + ")");
-    }
-
-    // IMPLEMENTATION OF ACTIONS
-    sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
     async turnCarBasedOnAction(car, action) { 
         let carStartX = car.transformX;
         let carStartY = car.transformY;
@@ -99,16 +59,6 @@ class Car extends JunctionObject {
         var y = centerY + Math.sin(-angle * Math.PI / 180) * (distance + CAR_HALF_WIDTH);
         car.moveAbsolute(x, y);
         car.rotateAbsolute(quadrant.baseAngle + -1 * angle);
-    }
-
-    async moveCarBasedOnAction(car, action) {
-        let distance = action.distance;
-        let dir_vec = DIRECTIONS_VECTOR[action.direction];
-
-        for(let i = 0; i < distance; i++) {
-            car.moveRelative(dir_vec[0], dir_vec[1]);
-            await this.sleep(STRIAGHT_ANIMATION_PAUSE_DURATION);
-        }
     }
 
 }

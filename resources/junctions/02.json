@@ -1,20 +1,20 @@
 {
-    "number": "04",
-    "title": "Križovatka 4",
+    "number": "02",
+    "title": "Križovatka 2",
     "objects": [
         {
             "id": "car01",
             "type": "Car",
             "color": "blue",
             "position": {
-                "x": 360,
+                "x": 340,
                 "y": 345
             },
             "angle": 90,
             "blinker": "left"
         },
         {
-            "id": "car02",
+            "id": "car03",
             "type": "Car",
             "color": "red",
             "position": {
@@ -34,12 +34,12 @@
                 "distance": 205
             },
             {
-                "type": "moveCarBasedOnAction",
+                "type": "moveObjectBasedOnAction",
                 "direction": "up",
                 "distance": 300
             }
         ],
-        "car02": [
+        "car03": [
             {
                 "type": "turnCarBasedOnAction",
                 "quadrant": 3,
@@ -47,14 +47,14 @@
                 "distance": 205
             },
             {
-                "type": "moveCarBasedOnAction",
+                "type": "moveObjectBasedOnAction",
                 "direction": "right",
                 "distance": 300
             }
         ]
     },
     "solutions": [
-        ["car01", "car02"]
+        ["car01", "car03"]
     ],
-    "solutionText": "Tralalala"
+    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na vedľajšej ceste."
 }

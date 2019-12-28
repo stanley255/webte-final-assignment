@@ -80,7 +80,8 @@ class Junction {
 
     async executeActions(object) {
         let actions = this.getActionsForObject(object);
-
+        if (!actions)
+            return;
         for (const action of actions) {
             await object[action.type](object, action);
         }

@@ -7,30 +7,40 @@
             "type": "Car",
             "color": "blue",
             "position": {
-                "x": 360,
-                "y": 345
+                "x": 270,
+                "y": 450
             },
             "angle": 90,
             "blinker": "left"
         },
         {
-            "id": "car03",
+            "id": "car02",
             "type": "Car",
-            "color": "red",
+            "color": "green",
             "position": {
-                "x": 510,
-                "y": 100
+                "x": 575,
+                "y": 200
             },
             "angle": 180,
-            "blinker": "left"
+            "blinker": "right"
         },
         {
             "id": "pedestrian01",
-            "type": "Pedestrian"
+            "type": "Pedestrian",
+            "position": {
+                "x": 430,
+                "y": 595
+            },
+            "angle": 0
         }
     ],
     "actions" : {
         "car01": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 155
+            },
             {
                 "type": "turnCarBasedOnAction",
                 "quadrant": 4,
@@ -38,27 +48,35 @@
                 "distance": 205
             },
             {
-                "type": "moveCarBasedOnAction",
+                "type": "moveObjectBasedOnAction",
                 "direction": "up",
-                "distance": 300
+                "distance": 375
             }
         ],
-        "car03": [
+        "car02": [
             {
                 "type": "turnCarBasedOnAction",
-                "quadrant": 3,
-                "clockwise": false,
-                "distance": 205
+                "quadrant": 4,
+                "clockwise": true,
+                "distance": 105
             },
             {
-                "type": "moveCarBasedOnAction",
-                "direction": "right",
-                "distance": 300
+                "type": "moveObjectBasedOnAction",
+                "direction": "left",
+                "distance": 560
+            }
+        ],
+        "pedestrian01": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "up",
+                "distance": 270
             }
         ]
     },
     "solutions": [
-        ["car01", "car03"]
+        ["pedestrian01", "car01", "car02"],
+        ["pedestrian01", "car02", "car01"]
     ],
     "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na vedľajšej ceste."
 }
