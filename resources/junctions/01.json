@@ -68,7 +68,7 @@
         ],
         "pedestrian01": [
             {
-                "type": "moveObjectBasedOnAction",
+                "type": "moveObjectBasedOnActionWithAnimation",
                 "direction": "up",
                 "distance": 270
             }

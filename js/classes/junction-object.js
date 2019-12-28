@@ -46,6 +46,14 @@ class JunctionObject {
         $(this.layer).attr("transform", "translate(" + this.transformX + "," + this.transformY + ") rotate(" + this.angle + ")");
     }
 
+    setVisibilityLayerStates(states) {
+        if (!(this.layerVisibilityStates) || (this.layerVisibilityStates.length !== states.length))
+            return;
+        states.forEach((state, i) => {
+            this.layerVisibilityStates[i].style.visibility = state;
+        });
+    }
+
     handleClick(object) {
         JUNCTION.turnOffOnClickListenerForJunctionObjects();
         JUNCTION.addObjectToSolution(JUNCTION_OBJECTS[object.id]);
@@ -74,6 +82,29 @@ class JunctionObject {
             object.moveRelative(dir_vec[0], dir_vec[1]);
             await this.sleep(STRIAGHT_ANIMATION_PAUSE_DURATION);
         }
+    }
+
+    async moveObjectBasedOnActionWithAnimation(object, action) {
+        let distance = action.distance;
+        let dir_vec = DIRECTIONS_VECTOR[action.direction];
+        let switched = false;
+
+        for(let i = 0; i < distance; i++) {
+            object.moveRelative(dir_vec[0], dir_vec[1]);
+            switched = this.switchLayersVisibility(i, switched);
+            await this.sleep(STRIAGHT_ANIMATION_PAUSE_DURATION);
+        }
+    }
+
+    switchLayersVisibility(i, switched) {
+        if (i%SVG_LAYER_SWITCHING_DURATION === 0) {
+            if (switched)
+                this.setVisibilityLayerStates(["visible", "hidden"]);
+            else
+                this.setVisibilityLayerStates(["hidden", "visible"]);
+            return !switched;
+        }
+        return switched;
     }
 
 }

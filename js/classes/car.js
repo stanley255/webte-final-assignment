@@ -6,7 +6,8 @@ class Car extends JunctionObject {
         this.carOff = document.getElementById(this.color + BLINKER_OFF);
         this.carRight = document.getElementById(this.color + BLINKER_RIGHT);
         this.carLeft = document.getElementById(this.color + BLINKER_LEFT);
-        
+        this.layerVisibilityStates = [this.carOff, this.carRight, this.carLeft];
+
         this.setDefaultBlinkers(car.blinker);
     }
 
@@ -14,30 +15,24 @@ class Car extends JunctionObject {
         BLINKERS[blinker](this);
     }
 
-    setVisibilityLayerStates(off, right, left) {
-        this.carOff.style.visibility = off;
-        this.carRight.style.visibility = right;
-        this.carLeft.style.visibility = left;
-    }
-
     turnOffBlinkers() {
-        this.setVisibilityLayerStates("visible", "hidden", "hidden");
+        this.setVisibilityLayerStates(["visible", "hidden", "hidden"]);
     }
 
     turnOnRightBlinker() {
-        this.setVisibilityLayerStates("hidden", "visible", "hidden");
+        this.setVisibilityLayerStates(["hidden", "visible", "hidden"]);
     }
 
     turnOnLeftBlinker() {
-        this.setVisibilityLayerStates("hidden", "hidden", "visible");
+        this.setVisibilityLayerStates(["hidden", "hidden", "visible"]);
     }
 
     hideCar() {
-        this.setVisibilityLayerStates("hidden", "hidden", "hidden");
+        this.setVisibilityLayerStates(["hidden", "hidden", "hidden"]);
     }
 
     showCar() {
-        this.setVisibilityLayerStates("visible", "hidden", "hidden");
+        this.setVisibilityLayerStates(["visible", "hidden", "hidden"]);
     }
 
     async turnCarBasedOnAction(car, action) { 

@@ -24,6 +24,7 @@ const DIRECTIONS_VECTOR = {
 
 const TURN_ANIMATION_PAUSE_DURATION = 20;
 const STRIAGHT_ANIMATION_PAUSE_DURATION = 5;
+const SVG_LAYER_SWITCHING_DURATION = 35;
 
 // Constants for cars
 const BLINKER_OFF = "-car-blinker-off";
@@ -47,3 +48,6 @@ const DEFAULT_TRANSFORM_ORIGIN = "42px 84px";
 const DEFAULT_BLINKER_STATE = "off";
 
 const CAR_HALF_WIDTH = 40;
+
+// Constants for pedestrian & cyclist
+const DEFAULT_LAYERS_VISIBILITY_STATES = ["visible", "hidden"];
