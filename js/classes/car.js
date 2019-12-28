@@ -45,6 +45,7 @@ class Car extends JunctionObject {
             this.turnCar(car, i, action.distance, carStartX, carStartY, quadrant);
             await this.sleep(TURN_ANIMATION_PAUSE_DURATION);
         }
+        this.turnOffBlinkers();
     }
 
     turnCar(car, angle, distance, startX, startY, quadrant) {

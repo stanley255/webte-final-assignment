@@ -9,9 +9,14 @@ window.addEventListener("load", initializeJunctionPage(), false);
 // Function that does initialization routine on page load
 function initializeJunctionPage() {
     bindJunctionChangeFunction();
-    currentJunctionItem = $(".active");
+
+    // enableDemoButton(); // TODO - remove
+
+    // currentJunctionItem = $(".active");
+    currentJunctionItem = $("#junction-select li")[0];
     changeSvgBackground(formJunctionSvgPath(STARTING_JUNCTION_NUMBER));
     loadJunction(STARTING_JUNCTION_NUMBER);
+    bindControlButtonFunction();
 }
 
 function bindJunctionChangeFunction() {
@@ -19,6 +24,20 @@ function bindJunctionChangeFunction() {
         $(li).click(function() {
             changeJunction(li);
         });
+    });
+}
+
+function bindControlButtonFunction() {
+    $("#junction-demo-button").click(() => {   
+        clearCarsFromJunction();
+        let junctionNumber = getJunctionNumberFromListItem(currentJunctionItem);
+        console.log('num: ' + junctionNumber);
+        // loadJunction(num).done(() => {
+        //     for (const car of JUNCTION.solutions[0]) {
+        //         console.log(JUNCTION_OBJECTS);
+        //         JUNCTION.executeActions(JUNCTION_OBJECTS[car]);
+        //     }
+        // });
     });
 }
 
