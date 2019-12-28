@@ -2,7 +2,7 @@ class Junction {
 
     constructor(junction) {
         this.number = junction.number;
-        this.cars = junction.cars;
+        this.objects = junction.objects;
         this.solutions = junction.solutions;
         this.userSolution = [];
         this.solved = false;
@@ -15,23 +15,23 @@ class Junction {
         $(JUNCTION_SOLUTION_TEXT_ID).html(junction.solutionText);
     }
 
-    addCarColorToSolution(carColor) {
-        this.userSolution.push(carColor);
+    addIdToSolution(id) {
+        this.userSolution.push(id);
     }
 
-    addCarToSolution(car) {
-        this.userSolution.push(car.color);
+    addObjectToSolution(object) {
+        this.userSolution.push(object.id);
     }
 
-    turnOffOnClickListenerForCars() {
-        for (const key in CARS) {
-            CARS[key].removeOnClickActionToAllBlinkerStates()
+    turnOnOnClickListenerForJunctionObjects() {
+        for (const key in JUNCTION_OBJECTS) {
+            JUNCTION_OBJECTS[key].setOnClickAction()
         }
     }
 
-    turnOnOnClickListenerForCars() {
-        for (const key in CARS) {
-            CARS[key].setOnClickActionToAllBlinkerStates()
+    turnOffOnClickListenerForJunctionObjects() {
+        for (const key in JUNCTION_OBJECTS) {
+            JUNCTION_OBJECTS[key].removeOnClickAction()
         }
     }
 
@@ -78,53 +78,16 @@ class Junction {
         enableSolutionButton();
     }
 
-    async executeCarActions(car) {
-        let actions = this.getCarActions(car);
+    async executeActions(object) {
+        let actions = this.getActionsForObject(object);
 
         for (const action of actions) {
-            if (action.type.toLowerCase() === "turn") {
-                await this.turnCarBasedOnAction(car, action);
-            } else{
-                await this.moveCarBasedOnAction(car, action);
-            }
+            await object[action.type](object, action);
         }
     }
 
-    getCarActions(car) {
-        return JUNCTION.actions[car.color];
-    }
-
-    sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-    async turnCarBasedOnAction(car, action) { 
-        let carStartX = car.transformX;
-        let carStartY = car.transformY;
-
-        let quadrant = QUADRANTS[action.quadrant][action.clockwise ? "clockwise" : "counterclockwise"];
-
-        for (let i = quadrant.start; i != (quadrant.end + quadrant.increment); i += quadrant.increment) {
-            this.turnCar(car, i, action.distance, carStartX, carStartY, quadrant);
-            await this.sleep(TURN_ANIMATION_PAUSE_DURATION);
-        }
-    }
-
-    turnCar(car, angle, distance, startX, startY, quadrant) {
-        var centerX = startX + quadrant.vector[0] * CAR_HALF_WIDTH + quadrant.vector[1] * distance;
-        var centerY = startY + quadrant.vector[2] * CAR_HALF_WIDTH + quadrant.vector[3] * distance;
-        var x = centerX + Math.cos(-angle * Math.PI / 180) * (distance + CAR_HALF_WIDTH);
-        var y = centerY + Math.sin(-angle * Math.PI / 180) * (distance + CAR_HALF_WIDTH);
-        car.moveAbsolute(x, y);
-        car.rotateAbsolute(quadrant.baseAngle + -1 * angle);
-    }
-
-    async moveCarBasedOnAction(car, action) {
-        let distance = action.distance;
-        let dir_vec = DIRECTIONS_VECTOR[action.direction];
-
-        for(let i = 0; i < distance; i++) {
-            car.moveRelative(dir_vec[0], dir_vec[1]);
-            await this.sleep(STRIAGHT_ANIMATION_PAUSE_DURATION);
-        }
+    getActionsForObject(object) {
+        return JUNCTION.actions[object.id];
     }
 
 }

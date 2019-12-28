@@ -1,6 +1,6 @@
 {
-    "number": "01",
-    "title": "Križovatka 1",
+    "number": "04",
+    "title": "Križovatka 4",
     "objects": [
         {
             "id": "car01",
@@ -14,7 +14,7 @@
             "blinker": "left"
         },
         {
-            "id": "car03",
+            "id": "car02",
             "type": "Car",
             "color": "red",
             "position": {
@@ -39,7 +39,7 @@
                 "distance": 300
             }
         ],
-        "car03": [
+        "car02": [
             {
                 "type": "turnCarBasedOnAction",
                 "quadrant": 3,
@@ -54,7 +54,7 @@
         ]
     },
     "solutions": [
-        ["car01", "car03"]
+        ["car01", "car02"]
     ],
-    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na vedľajšej ceste."
+    "solutionText": "Tralalala"
 }

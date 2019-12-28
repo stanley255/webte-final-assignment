@@ -30,7 +30,7 @@
             stroke-miterlimit: 10;
         }
     </style>
-    <g>
+    <g id="pedestrian-layer">
         <title>Chodec</title>
         <g stroke="null" id="pedestrian-1">
             <path stroke="null"

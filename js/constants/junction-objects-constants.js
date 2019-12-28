@@ -3,9 +3,9 @@ const BLINKER_RIGHT = "-car-blinker-right";
 const BLINKER_LEFT = "-car-blinker-left";
 
 const LAYERS = {
-    blue: "layer1",
-    green: "layer2",
-    red: "layer3"
+    car01: "layer1",
+    car02: "layer2",
+    car03: "layer3"
 }
 
 const BLINKERS = {
@@ -19,12 +19,6 @@ const BLINKERS = {
         car.turnOnLeftBlinker()
     }
 }
-
-const CAR_BLINKER_STATES = [ // TODO - probably gonna be deprecated
-    "carOff",
-    "carRight",
-    "carLeft"
-]
 
 const DEFAULT_TRANSFORM_ORIGIN = "42px 84px";
 const DEFAULT_POSITION = {x: 0, y: 0};

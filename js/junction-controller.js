@@ -1,6 +1,8 @@
-let CARS = {};
 let JUNCTION = {};
+let JUNCTION_OBJECTS = {};
 let currentJunctionItem;
+
+const CLASSES = { Car };
 
 window.addEventListener("load", initializeJunctionPage(), false);
 
@@ -24,22 +26,22 @@ function loadJunction(junctionNumber) {
     $.get(formJunctionObjectPath(junctionNumber), function(data) {
         JUNCTION = new Junction(data);
     }).done(function() {
-        loadCars(JUNCTION.cars);
+        loadObjects(JUNCTION.objects);
     });
 }
 
-function loadCars(cars) {
-    cars.forEach(car => {
-        loadCar(car);
+function loadObjects(objects) {
+    objects.forEach(object => {
+        loadObject(object);
     });
 }
 
-function loadCar(car) {
-    $.get(formCarSvgPath(car.color), function(data) {
+function loadObject(object) {
+    $.get(formSvgPath(object), function(data) {
         let junctionSvg = document.getElementById("svg");
         junctionSvg.appendChild(createCarSvgElement(data));
     }).done(function() {
-        CARS[car.color] = new Car(car);
+        JUNCTION_OBJECTS[object.id] = new CLASSES[object.type](object);
     });
 }
 
@@ -49,9 +51,17 @@ function createCarSvgElement(data) {
     return loadedCarSvg.firstChild;
 }
 
-function formCarSvgPath(color) {
-    let carColor = color.toLowerCase();
+function formSvgPath(object) {
+    return object.type.toLowerCase() === "car" ? formCarSvgPath(object) : formOthersSvgPath(object);
+}
+
+function formCarSvgPath(object) {
+    let carColor = object.color.toLowerCase();
     return CAR_SVG_PATH + CAR_SVG_PREFIX + carColor + CAR_SVG_EXTENSION;
+}
+
+function formOthersSvgPath(object) {
+    return OTHERS_SVG_PATH + object.type.toLowerCase() + OTHERS_SVG_EXTENSION;
 }
 
 // Function that triggers when junction is about to switch to next one
@@ -112,7 +122,7 @@ function setToCorrespongindJunctionImage(listItem) {
 }
 
 function clearCarsFromJunction() {
-    CARS = {};
+    JUNCTION_OBJECTS = {};
     $("#svg").empty();
 }
 

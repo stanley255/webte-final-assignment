@@ -7,6 +7,9 @@ const CAR_SVG_PATH = "./img/cars/";
 const CAR_SVG_PREFIX = "cars-";
 const CAR_SVG_EXTENSION = ".svg";
 
+const OTHERS_SVG_PATH = "./img/others/";
+const OTHERS_SVG_EXTENSION = ".svg";
+
 const JUNCTION_OBJECTS_PATH = "/resources/junctions/";
 const JUNCTION_OBJECTS_EXTENSION = ".json";
 
