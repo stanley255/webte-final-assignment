@@ -23,6 +23,10 @@
             },
             "angle": 180,
             "blinker": "left"
+        },
+        {
+            "id": "pedestrian01",
+            "type": "Pedestrian"
         }
     ],
     "actions" : {

@@ -5,7 +5,8 @@ const BLINKER_LEFT = "-car-blinker-left";
 const LAYERS = {
     car01: "layer1",
     car02: "layer2",
-    car03: "layer3"
+    car03: "layer3",
+    pedestrian01: "pedestrian-layer"
 }
 
 const BLINKERS = {
