@@ -1,0 +1,82 @@
+{
+    "number": "15",
+    "title": "Križovatka 15",
+    "objects": [
+        {
+            "id": "car01",
+            "type": "Car",
+            "color": "blue",
+            "position": {
+                "x": 120,
+                "y": 325
+            },
+            "angle": 90,
+            "blinker": "left"
+        },
+        {
+            "id": "car02",
+            "type": "Car",
+            "color": "green",
+            "position": {
+                "x": 580,
+                "y": 80
+            },
+            "angle": 180,
+            "blinker": "right"
+        },
+        {
+            "id": "cyclist01",
+            "type": "Cyclist",
+            "position": {
+                "x": 300,
+                "y": 510
+            },
+            "angle": 0
+        }
+    ],
+    "actions" : {
+        "car01": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 355
+            },
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 4,
+                "clockwise": false,
+                "distance": 205
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "up",
+                "distance": 275
+            }
+        ],
+        "car02": [
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 4,
+                "clockwise": true,
+                "distance": 105
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "left",
+                "distance": 560
+            }
+        ],
+        "cyclist01": [
+            {
+                "type": "moveObjectBasedOnActionWithAnimation",
+                "direction": "up",
+                "distance": 600
+            }
+        ]
+    },
+    "solutions": [
+        ["cyclist01", "car01", "car02"],
+        ["cyclist01", "car02", "car01"]
+    ],
+    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na vedľajšej ceste."
+}

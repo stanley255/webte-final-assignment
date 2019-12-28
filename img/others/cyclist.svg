@@ -1,4 +1,4 @@
-<svg width="44" height="85" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg">
     <style type="text/css">
         .cyc_st0 {
             stroke: #000000;
@@ -35,7 +35,7 @@
             stroke-miterlimit: 10;
         }
     </style>
-    <g>
+    <g id="cyclist-layer">
         <title>Cyklista</title>
         <g stroke="null" id="cyclist-1">
             <ellipse stroke="null" id="svg_1" ry="5.001106" rx="1.667035" cy="5.926637" cx="21.628104"
