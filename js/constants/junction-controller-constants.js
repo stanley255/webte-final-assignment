@@ -13,7 +13,7 @@ const OTHERS_SVG_EXTENSION = ".svg";
 const JUNCTION_OBJECTS_PATH = "/resources/junctions/";
 const JUNCTION_OBJECTS_EXTENSION = ".json";
 
-const STARTING_JUNCTION_NUMBER = "07";
+const STARTING_JUNCTION_NUMBER = "01";
 
 const DEMO_BUTTON_ID = "#junction-demo-button";
 const DEMO_BUTTON_ACTIVE = "waves-effect waves-light btn";

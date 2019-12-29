@@ -1,6 +1,7 @@
 let JUNCTION = {};
 let JUNCTION_OBJECTS = {};
 let currentJunctionItem;
+let deferreds = [];
 
 const CLASSES = { Car, Pedestrian, Cyclist, Tram };
 
@@ -9,13 +10,10 @@ window.addEventListener("load", initializeJunctionPage(), false);
 // Function that does initialization routine on page load
 function initializeJunctionPage() {
     bindJunctionChangeFunction();
-
     // enableDemoButton(); // TODO - remove
-
-    // currentJunctionItem = $(".active");
     currentJunctionItem = $("#junction-select li")[0];
     changeSvgBackground(formJunctionSvgPath(STARTING_JUNCTION_NUMBER));
-    loadJunction(STARTING_JUNCTION_NUMBER);
+    loadJunction(STARTING_JUNCTION_NUMBER, loadCallback);
     bindControlButtonFunction();
 }
 
@@ -31,37 +29,43 @@ function bindControlButtonFunction() {
     $("#junction-demo-button").click(() => {   
         clearCarsFromJunction();
         let junctionNumber = getJunctionNumberFromListItem(currentJunctionItem);
-        console.log('num: ' + junctionNumber);
-        // loadJunction(num).done(() => {
-        //     for (const car of JUNCTION.solutions[0]) {
-        //         console.log(JUNCTION_OBJECTS);
-        //         JUNCTION.executeActions(JUNCTION_OBJECTS[car]);
-        //     }
-        // });
+        loadJunction(junctionNumber, reloadCallback);
     });
 }
 
-function loadJunction(junctionNumber) {
+function loadJunction(junctionNumber, callback) {
     $.get(formJunctionObjectPath(junctionNumber), function(data) {
         JUNCTION = new Junction(data);
-    }).done(function() {
-        loadObjects(JUNCTION.objects);
+    }).done(callback);
+}
+
+function loadCallback() {
+    loadObjects(JUNCTION.objects, loadObject);
+}
+
+function reloadCallback() {
+    deferreds = [];
+    loadObjects(JUNCTION.objects);
+    $.when.apply(null, deferreds).done(function() {
+        for (const carId of JUNCTION.solutions[0]) {
+            JUNCTION.executeActions(JUNCTION_OBJECTS[carId]);
+        }
     });
 }
 
 function loadObjects(objects) {
-    objects.forEach(object => {
+    $(objects).each((i, object) => {
         loadObject(object);
     });
 }
 
 function loadObject(object) {
-    $.get(formSvgPath(object), function(data) {
+    deferreds.push($.get(formSvgPath(object), function(data) {
         let junctionSvg = document.getElementById("svg");
         junctionSvg.appendChild(createCarSvgElement(data));
     }).done(function() {
         JUNCTION_OBJECTS[object.id] = new CLASSES[object.type](object);
-    });
+    }));
 }
 
 function createCarSvgElement(data) {
@@ -98,7 +102,9 @@ function changeJunction(listItem) {
     clearCarsFromJunction();
     // Load new junction
     let junctionNumber = getJunctionNumberFromListItem(listItem);
-    loadJunction(junctionNumber);
+    // Empty promise array for object loading
+    deferreds = [];
+    loadJunction(junctionNumber, loadCallback);
 }
 
 function toggleClassesToCurrentActive(listItem) {
