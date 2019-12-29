@@ -1,7 +1,11 @@
-.box-wrapper {
+.box-wrapper {    
     width: 100%;
-    display: flex;
-    justify-content: center;
+    margin: 0;
+}
+
+.inner {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .box-container {

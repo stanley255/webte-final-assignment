@@ -15,3 +15,7 @@ main {
 .icon-block .material-icons {
     font-size: inherit;
 }
+
+.switch {
+    margin: .2vh 0;
+}

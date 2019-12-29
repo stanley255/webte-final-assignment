@@ -10,7 +10,9 @@ window.addEventListener("load", initializeJunctionPage(), false);
 // Function that does initialization routine on page load
 function initializeJunctionPage() {
     bindJunctionChangeFunction();
-    // enableDemoButton(); // TODO - remove
+
+    enableDemoButton(); // TODO - remove
+
     currentJunctionItem = $("#junction-select li")[0];
     changeSvgBackground(formJunctionSvgPath(STARTING_JUNCTION_NUMBER));
     loadJunction(STARTING_JUNCTION_NUMBER, loadCallback);
@@ -19,14 +21,19 @@ function initializeJunctionPage() {
 
 function bindJunctionChangeFunction() {
     $("#junction-select li").each(function(id, li) {
-        $(li).click(function() {
-            changeJunction(li);
-        });
+        $(li).on('click', () => changeJunction(li));
+    });
+}
+
+function unbindJunctionChangeFunction() {
+    $("#junction-select li").each(function(id, li) {
+        $(li).off('click');
     });
 }
 
 function bindControlButtonFunction() {
-    $("#junction-demo-button").click(() => {   
+    $("#junction-demo-button").click(() => {
+        unbindJunctionChangeFunction();   
         clearCarsFromJunction();
         let junctionNumber = getJunctionNumberFromListItem(currentJunctionItem);
         loadJunction(junctionNumber, reloadCallback);
@@ -59,8 +66,10 @@ function runDemoActions() {
 
 function runActionsRecursively(carIndex) {
     JUNCTION.turnOffOnClickListenerForJunctionObjects();
+    unbindJunctionChangeFunction()
     JUNCTION.executeActions(JUNCTION_OBJECTS[JUNCTION.solutions[0][carIndex]]).then(() => {
         JUNCTION.turnOnOnClickListenerForJunctionObjects();
+        bindJunctionChangeFunction();
         if (JUNCTION.solutions[0][carIndex + 1])
             runActionsRecursively(carIndex + 1);
     });

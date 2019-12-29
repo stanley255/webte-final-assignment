@@ -31,7 +31,7 @@
                 "type": "turnCarBasedOnAction",
                 "quadrant": 4,
                 "clockwise": false,
-                "distance": 205
+                "distance": 246
             },
             {
                 "type": "moveObjectBasedOnAction",
