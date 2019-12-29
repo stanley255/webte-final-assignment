@@ -47,9 +47,22 @@ function reloadCallback() {
     deferreds = [];
     loadObjects(JUNCTION.objects);
     $.when.apply(null, deferreds).done(function() {
-        for (const carId of JUNCTION.solutions[0]) {
-            JUNCTION.executeActions(JUNCTION_OBJECTS[carId]);
-        }
+        runDemoActions();
+    });
+}
+
+// TODO: - refactor runDemoActions() & runActionsRecursively()
+//       - disable ul for junction change or stop demo after junction change
+function runDemoActions() {
+    runActionsRecursively(0);
+}
+
+function runActionsRecursively(carIndex) {
+    JUNCTION.turnOffOnClickListenerForJunctionObjects();
+    JUNCTION.executeActions(JUNCTION_OBJECTS[JUNCTION.solutions[0][carIndex]]).then(() => {
+        JUNCTION.turnOnOnClickListenerForJunctionObjects();
+        if (JUNCTION.solutions[0][carIndex + 1])
+            runActionsRecursively(carIndex + 1);
     });
 }
 
