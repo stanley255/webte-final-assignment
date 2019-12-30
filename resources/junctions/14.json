@@ -1,50 +1,44 @@
 {
-    "number": "02",
-    "title": "Križovatka 2",
+    "number": "06",
+    "title": "Križovatka 6",
     "objects": [
         {
             "id": "car01",
             "type": "Car",
             "color": "blue",
             "position": {
-                "x": 340,
-                "y": 345
+                "x": 360,
+                "y": 360
             },
             "angle": 90,
-            "blinker": "left"
+            "blinker": "off"
         },
         {
             "id": "car03",
             "type": "Car",
             "color": "red",
             "position": {
-                "x": 510,
-                "y": 100
+                "x": 590,
+                "y": 520
             },
-            "angle": 180,
-            "blinker": "left"
+            "angle": 0,
+            "blinker": "right"
         }
     ],
     "actions" : {
         "car01": [
             {
-                "type": "turnCarBasedOnAction",
-                "quadrant": 4,
-                "clockwise": false,
-                "distance": 230
-            },
-            {
                 "type": "moveObjectBasedOnAction",
-                "direction": "up",
-                "distance": 300
+                "direction": "right",
+                "distance": 700
             }
         ],
         "car03": [
             {
                 "type": "turnCarBasedOnAction",
-                "quadrant": 3,
-                "clockwise": false,
-                "distance": 205
+                "quadrant": 2,
+                "clockwise": true,
+                "distance": 120
             },
             {
                 "type": "moveObjectBasedOnAction",
@@ -56,5 +50,5 @@
     "solutions": [
         ["car01", "car03"]
     ],
-    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na vedľajšej ceste."
+    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na napájacej ceste."
 }

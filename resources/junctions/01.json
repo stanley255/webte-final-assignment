@@ -7,7 +7,7 @@
             "type": "Car",
             "color": "blue",
             "position": {
-                "x": 270,
+                "x": 250,
                 "y": 450
             },
             "angle": 90,
@@ -19,7 +19,7 @@
             "color": "green",
             "position": {
                 "x": 575,
-                "y": 200
+                "y": 150
             },
             "angle": 180,
             "blinker": "right"
@@ -39,13 +39,13 @@
             {
                 "type": "moveObjectBasedOnAction",
                 "direction": "right",
-                "distance": 155
+                "distance": 165
             },
             {
                 "type": "turnCarBasedOnAction",
                 "quadrant": 4,
                 "clockwise": false,
-                "distance": 205
+                "distance": 220
             },
             {
                 "type": "moveObjectBasedOnAction",
@@ -54,6 +54,11 @@
             }
         ],
         "car02": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "down",
+                "distance": 50
+            },
             {
                 "type": "turnCarBasedOnAction",
                 "quadrant": 4,
@@ -78,5 +83,5 @@
         ["pedestrian01", "car01", "car02"],
         ["pedestrian01", "car02", "car01"]
     ],
-    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na vedľajšej ceste."
+    "solutionText": "Najprv prejde <b>chodec</b>, potom <b>modré auto</b> a <b>červené auto</b> prejdú križovatkou naraz."
 }

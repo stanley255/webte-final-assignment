@@ -1,0 +1,54 @@
+{
+    "number": "06",
+    "title": "Križovatka 6",
+    "objects": [
+        {
+            "id": "car01",
+            "type": "Car",
+            "color": "blue",
+            "position": {
+                "x": 620,
+                "y": 500
+            },
+            "angle": 0,
+            "blinker": "left"
+        },
+        {
+            "id": "car02",
+            "type": "Car",
+            "color": "green",
+            "position": {
+                "x": 250,
+                "y": 330
+            },
+            "angle": 90,
+            "blinker": "off"
+        }
+    ],
+    "actions" : {
+        "car01": [
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 1,
+                "clockwise": true,
+                "distance": 220
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "left",
+                "distance": 500
+            }
+        ],
+        "car02": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 810
+            }
+        ]
+    },
+    "solutions": [
+        ["car01", "car02"]
+    ],
+    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa má na neoznačenej križovatke prednosť sprava, následne pôjde <b>zelené auto</b>."
+}

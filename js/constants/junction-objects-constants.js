@@ -20,10 +20,10 @@ const DEFAULT_POSITION = {x: 0, y: 0};
 const DEFAULT_ANGLE = 0;
 
 const DIRECTIONS_VECTOR = {
-    up:     [ 0, -1],
-    right:  [ 1,  0],
-    down:   [ 0,  1],
-    left:   [-1,  0]
+    up:         [ 0, -1],
+    right:      [ 1,  0],
+    down:       [ 0,  1],
+    left:       [-1,  0]
 }
 
 const TURN_ANIMATION_PAUSE_DURATION = 20;

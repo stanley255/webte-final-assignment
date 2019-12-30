@@ -1,17 +1,17 @@
 {
-    "number": "02",
-    "title": "Križovatka 2",
+    "number": "05",
+    "title": "Križovatka 5",
     "objects": [
         {
             "id": "car01",
             "type": "Car",
             "color": "blue",
             "position": {
-                "x": 340,
-                "y": 345
+                "x": 250,
+                "y": 350
             },
             "angle": 90,
-            "blinker": "left"
+            "blinker": "off"
         },
         {
             "id": "car03",
@@ -19,37 +19,25 @@
             "color": "red",
             "position": {
                 "x": 510,
-                "y": 100
+                "y": 50
             },
             "angle": 180,
-            "blinker": "left"
+            "blinker": "off"
         }
     ],
     "actions" : {
         "car01": [
             {
-                "type": "turnCarBasedOnAction",
-                "quadrant": 4,
-                "clockwise": false,
-                "distance": 230
-            },
-            {
                 "type": "moveObjectBasedOnAction",
-                "direction": "up",
-                "distance": 300
+                "direction": "right",
+                "distance": 800
             }
         ],
         "car03": [
             {
-                "type": "turnCarBasedOnAction",
-                "quadrant": 3,
-                "clockwise": false,
-                "distance": 205
-            },
-            {
                 "type": "moveObjectBasedOnAction",
-                "direction": "right",
-                "distance": 300
+                "direction": "down",
+                "distance": 700
             }
         ]
     },

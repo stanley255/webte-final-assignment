@@ -58,7 +58,7 @@
                 "type": "turnCarBasedOnAction",
                 "quadrant": 4,
                 "clockwise": true,
-                "distance": 105
+                "distance": 100
             },
             {
                 "type": "moveObjectBasedOnAction",
@@ -78,5 +78,5 @@
         ["cyclist01", "car01", "car02"],
         ["cyclist01", "car02", "car01"]
     ],
-    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na vedľajšej ceste."
+    "solutionText": "Najprv prejde <b>cyklista</b>, potom <b>modré auto</b> súčasne s <b>červeným autom</b>."
 }

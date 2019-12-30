@@ -1,60 +1,76 @@
 {
-    "number": "02",
-    "title": "Križovatka 2",
+    "number": "06",
+    "title": "Križovatka 6",
     "objects": [
         {
-            "id": "car01",
+            "id": "car02",
             "type": "Car",
-            "color": "blue",
+            "color": "green",
             "position": {
-                "x": 340,
-                "y": 345
+                "x": 200,
+                "y": 270
             },
             "angle": 90,
-            "blinker": "left"
+            "blinker": "right"
         },
         {
             "id": "car03",
             "type": "Car",
             "color": "red",
             "position": {
-                "x": 510,
-                "y": 100
+                "x": 390,
+                "y": 140
             },
             "angle": 180,
-            "blinker": "left"
+            "blinker": "off"
         }
     ],
     "actions" : {
-        "car01": [
+        "car02": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 50
+            },
             {
                 "type": "turnCarBasedOnAction",
-                "quadrant": 4,
+                "quadrant": 1,
                 "clockwise": false,
-                "distance": 230
+                "distance": 250
             },
             {
                 "type": "moveObjectBasedOnAction",
-                "direction": "up",
+                "direction": "down",
                 "distance": 300
             }
         ],
         "car03": [
             {
+                "type": "moveObjectBasedOnAction",
+                "direction": "down",
+                "distance": 150
+            },
+            {
                 "type": "turnCarBasedOnAction",
                 "quadrant": 3,
                 "clockwise": false,
-                "distance": 205
+                "distance": 80
+            },
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 1,
+                "clockwise": false,
+                "distance": 10
             },
             {
                 "type": "moveObjectBasedOnAction",
-                "direction": "right",
+                "direction": "down",
                 "distance": 300
             }
         ]
     },
     "solutions": [
-        ["car01", "car03"]
+        ["car02", "car03"]
     ],
     "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na vedľajšej ceste."
 }

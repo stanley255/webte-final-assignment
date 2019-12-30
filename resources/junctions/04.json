@@ -1,0 +1,82 @@
+{
+    "number": "05",
+    "title": "Križovatka 5",
+    "objects": [
+        {
+            "id": "car02",
+            "type": "Car",
+            "color": "green",
+            "position": {
+                "x": 200,
+                "y": 270
+            },
+            "angle": 90,
+            "blinker": "right"
+        },
+        {
+            "id": "car03",
+            "type": "Car",
+            "color": "red",
+            "position": {
+                "x": 390,
+                "y": 140
+            },
+            "angle": 180,
+            "blinker": "off"
+        }
+    ],
+    "actions" : {
+        "car02": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 50
+            },
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 1,
+                "clockwise": false,
+                "distance": 250
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "down",
+                "distance": 300
+            }
+        ],
+        "car03": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "down",
+                "distance": 10
+            },
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 3,
+                "clockwise": false,
+                "distance": 250
+            },
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 4,
+                "clockwise": false,
+                "distance": 60
+            },
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 2,
+                "clockwise": true,
+                "distance": 40
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 300
+            }
+        ]
+    },
+    "solutions": [
+        ["car03", "car02"]
+    ],
+    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na vedľajšej ceste."
+}
