@@ -45,103 +45,117 @@
     </div>
   </div>
 
+  <!-- <div class="div-wrapper"><div class="divider"></div></div> -->
 
   <div class="container">
+    <br><br>
     <div class="section">
-
       <div class="row">
         <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center teal-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Adam Petro</h5>
-
-            <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-              ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-              ut aliquip ex ea commodo consequat.</p>
+          <div class="card">
+            <div class="card-image">
+              <img class="author-photo" src="img/authors/adam.jpg" alt="Adam Petro">
+              <span class="card-title">Adam Petro"</span>
+              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">mail</i></a>
+            </div>
+            <div class="card-content">
+              <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquip ex ea commodo consequat. </p>
+            </div>
           </div>
         </div>
 
         <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center teal-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">Matej Friedel</h5>
-
-            <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-              ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-              ut aliquip ex ea commodo consequat. </p>
+          <div class="card">
+            <div class="card-image">
+              <img class="author-photo" src="img/authors/stano.jpg" alt="Stanislav Pekarovič">
+              <span class="card-title">Stanislav Pekarovič</span>
+              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">mail</i></a>
+            </div>
+            <div class="card-content">
+              <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquip ex ea commodo consequat. </p>
+            </div>
           </div>
         </div>
 
         <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center teal-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Stanislav Pekarovič</h5>
-
-            <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-              ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-              ut aliquip ex ea commodo consequat. </p>
+          <div class="card">
+            <div class="card-image">
+              <img class="author-photo" src="img/authors/matej.jpg" alt="Matej Friedel">
+              <span class="card-title">Matej Friedel</span>
+              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">mail</i></a>
+            </div>
+            <div class="card-content">
+              <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquip ex ea commodo consequat. </p>
+            </div>
           </div>
         </div>
       </div>
-
     </div>
     <br><br>
   </div>
 
-
-
-  <section>
-    <div class="box-wrapper">
-      <div class="box-container">
-        <p id="namesday-today">Dnes má meniny </p>
-        <div class="switch">
-          <label>
-            Meno
-            <input type="checkbox" id="input-toggle">
-            <span class="lever"></span>
-            Dátum
-          </label>
-        </div>
-        <form id="namesday-form"></form>
-        <div class="input-field col s6 input-box" id="name-input-box">
-          <!-- <i class="material-icons prefix">account_circle</i> -->
-          <input id="name-input" type="text" class="validate">
-          <label for="name-input">Search name</label>
-        </div>
-        <!-- <div class="input-field col s6 input-box" id="date-input-box">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="date-input" type="text" class="validate">
-          <label for="date-input">Search date</label>
-        </div> -->
-        <div class="input-field col s12 input-box" id="date-input-box">
-          <div id="select-box-wrapper">
-            <select id="select-day">
-              <!-- <option value="h">1</option> -->
-            </select>
-            <select id="select-month">
-              <!-- <option value="s">2</option> -->
-            </select>
+  <footer class="page-footer teal lighten-5" >
+    <div class="container">
+      <div class="row">
+        <div class="col l4 s12">
+          <div class="card teal lighten-1">
+            <div class="card-content white-text">
+              <span class="card-title"><b>Počítadlo návštev</b></span>
+              <p>Premýšľaš nad tým, koľko krát si už navštíval našu stránku? Bolo to presne:</p>
+              <span id="visit-counter"></span> krát
+            </div>
           </div>
         </div>
-        <a class="waves-effect waves-light btn" id="search-date-button">Search date</a>
-        <p id="result"></p>
-      </div>
-    </div>
-  </section>
-
-
-
-  <div class="row">
-    <div class="col s12 m6">
-      <div class="card teal lighten-1">
-        <div class="card-content white-text">
-          <span class="card-title"><b>Počítadlo návštev</b></span>
-          <p>Premýšľaš nad tým, koľko krát si už navštíval našu stránku? Bolo to presne:</p>
-          <span id="visit-counter"></span> krát
+        <div class="col l4 offset-l4 s12">
+          <div class="card teal lighten-1">
+            <div class="card-content white-text">
+              <span class="card-title" id="namesday-today"><b>Dnes má meniny </b></span>
+              <div class="switch">
+                <label class="white-text">
+                  Meno
+                  <input type="checkbox" id="input-toggle">
+                  <span class="lever"></span>
+                  Dátum
+                </label>
+              </div>
+              <form id="namesday-form"></form>
+              <div class="box-wrapper">
+                <div class="inner">
+                  <div class="input-field col input-box white-text" id="name-input-box">
+                    <input id="name-input" type="text" class="validate">
+                    <label for="name-input" class="white-text">Search name</label>
+                  </div>
+                  <div class="input-field col input-box white-text" id="date-input-box">
+                    <div id="select-box-wrapper">  
+                      <select id="select-day" class="white-text"></select>
+                      <select id="select-month" class="white-text"></select>
+                    </div>
+                  </div>
+                </div>
+                <div class="inner">
+                  <a class="waves-effect waves-light btn #00796b teal darken-1" id="search-date-button">Search date</a>
+                </div>
+              </div>
+              <p id="result"></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    
+    <div class="footer-copyright teal lighten-1"">
+      <div class="container">
+      © 2019 Webové technológie 1
+      <a class="grey-text text-lighten-4 right" href="./junction.html">Križovatky</a>
+      </div>
+    </div>
+  </footer>
 
 
 

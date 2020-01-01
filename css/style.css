@@ -15,3 +15,23 @@ main {
 .icon-block .material-icons {
     font-size: inherit;
 }
+
+.div-wrapper  {
+    text-align: center;
+}
+
+.divider {
+    display: inline-block;
+    width: 70%;
+}
+
+.author-photo {
+    width: 15em;
+    height: auto;
+    filter: drop-shadow();
+    border-radius: 50%;
+}
+
+.icon-block {
+    text-align: center;
+}
