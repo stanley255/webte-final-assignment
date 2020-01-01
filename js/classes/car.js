@@ -57,4 +57,11 @@ class Car extends JunctionObject {
         car.rotateAbsolute(quadrant.baseAngle + -1 * angle);
     }
 
+    async turnCarBasedOnActionWithTrafficLight(object, action) {
+        await this.turnCarBasedOnAction(object, action);
+        action.trafficLightActions.forEach(trafficLightAction => {
+            JUNCTION_OBJECTS[trafficLightAction.trafficLightId][trafficLightAction.trafficLightAction]();
+        });
+    }
+
 }

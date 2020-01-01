@@ -29,12 +29,14 @@ class TrafficLight extends JunctionObject {
         this.setYellowLight();
         await this.sleep(TRAFFIC_LIGHT_COLOR_SWITCHING_DURATION);
         this.setRedLight();
+        await this.sleep(TRAFFIC_LIGHT_COLOR_SWITCHING_DURATION);
     }
     
     async switchTrafficLightToGreen() {
         this.setYellowLight();
         await this.sleep(TRAFFIC_LIGHT_COLOR_SWITCHING_DURATION);
         this.setGreenLight();
+        await this.sleep(TRAFFIC_LIGHT_COLOR_SWITCHING_DURATION);
     }
 
 }

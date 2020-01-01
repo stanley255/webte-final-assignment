@@ -134,9 +134,11 @@ class JunctionObject {
 
     async moveObjectBasedOnActionWithTrafficLight(object, action) {
         await this.moveObjectBasedOnAction(object, action);
+        let deferreds = [];
         action.trafficLightActions.forEach(trafficLightAction => {
-            JUNCTION_OBJECTS[trafficLightAction.trafficLightId][trafficLightAction.trafficLightAction]();
+            deferreds.push(JUNCTION_OBJECTS[trafficLightAction.trafficLightId][trafficLightAction.trafficLightAction]());
         });
+        await $.when.apply(null, deferreds).done(function() { });
     }
 
     switchLayersVisibility(i, switched) {
