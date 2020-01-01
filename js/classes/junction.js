@@ -126,4 +126,8 @@ class Junction {
         this.simultaneousPassageObjectId = "";
     }
 
+    hasSimultaneousPassage() {
+        return !(this.solutions.length === 1);
+    }
+
 }

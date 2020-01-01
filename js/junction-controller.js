@@ -10,9 +10,6 @@ window.addEventListener("load", initializeJunctionPage(), false);
 // Function that does initialization routine on page load
 function initializeJunctionPage() {
     bindJunctionChangeFunction();
-
-    enableDemoButton(); // TODO - remove
-
     currentJunctionItem = $("#junction-select li")[0];
     changeSvgBackground(formJunctionSvgPath(STARTING_JUNCTION_NUMBER));
     loadJunction(STARTING_JUNCTION_NUMBER, loadCallback);
@@ -66,13 +63,37 @@ function runDemoActions() {
 
 function runActionsRecursively(carIndex) {
     JUNCTION.turnOffOnClickListenerForJunctionObjects();
-    unbindJunctionChangeFunction()
-    JUNCTION.executeActions(JUNCTION_OBJECTS[JUNCTION.solutions[0][carIndex]]).then(() => {
-        JUNCTION.turnOnOnClickListenerForJunctionObjects();
-        bindJunctionChangeFunction();
-        if (JUNCTION.solutions[0][carIndex + 1])
-            runActionsRecursively(carIndex + 1);
+    unbindJunctionChangeFunction();
+    if (JUNCTION.hasSimultaneousPassage() && JUNCTION.isObjectPartOfSimultaneousPassage(getObjectFromSolution(carIndex)))
+        simultaneousPassageActionExecution(carIndex);
+    else
+        basicActionExecution(carIndex);
+}
+
+function basicActionExecution(carIndex) {
+    JUNCTION.executeActions(getObjectFromSolution(carIndex)).then(() => {
+        afterDemoActionExecutionRoutine(carIndex, 1);
     });
+}
+
+function simultaneousPassageActionExecution(carIndex) {
+    let firstObjectPromise = JUNCTION.executeActions(getObjectFromSolution(carIndex));
+    let secondObjectPromise = JUNCTION.executeActions(getObjectFromSolution(carIndex + 1));
+
+    $.when( firstObjectPromise, secondObjectPromise ).done(function() {
+        afterDemoActionExecutionRoutine(carIndex, 2);
+    });
+}
+
+function afterDemoActionExecutionRoutine(carIndex, increment) {
+    JUNCTION.turnOnOnClickListenerForJunctionObjects();
+    bindJunctionChangeFunction();
+    if (JUNCTION.solutions[0][carIndex + increment])
+        runActionsRecursively(carIndex + increment);
+}
+
+function getObjectFromSolution(carIndex) {
+    return JUNCTION_OBJECTS[JUNCTION.solutions[0][carIndex]];
 }
 
 function loadObjects(objects) {
