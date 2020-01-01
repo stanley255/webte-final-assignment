@@ -56,13 +56,45 @@ class JunctionObject {
     }
 
     handleClick(object) {
+        let junctionObject = JUNCTION_OBJECTS[object.id];
+        JUNCTION.addObjectToSolution(junctionObject);
+        if (!JUNCTION.isObjectPartOfSimultaneousPassage(junctionObject)) {
+            this.handleBasicSituation(junctionObject);
+        } else if (!JUNCTION.isWaitingForSimultaneousPassage) {
+            this.handleFirstObjectOfSimultaneousPassage(junctionObject);
+        } else {
+            this.handleSecondObjectOfSimultaneousPassage(junctionObject);
+        }
+    }
+
+    handleBasicSituation(object) {
         JUNCTION.turnOffOnClickListenerForJunctionObjects();
-        JUNCTION.addObjectToSolution(JUNCTION_OBJECTS[object.id]);
-        JUNCTION.executeActions(JUNCTION_OBJECTS[object.id])
+            JUNCTION.executeActions(object)
             .then(() => {
                 JUNCTION.checkSolution()
                 JUNCTION.turnOnOnClickListenerForJunctionObjects()
             });
+    }
+
+    handleFirstObjectOfSimultaneousPassage(object) {
+        console.log("Simultaneous Passage First Object"); // TODO remove
+        object.removeOnClickAction();
+        JUNCTION.isWaitingForSimultaneousPassage = true;
+    }
+
+    handleSecondObjectOfSimultaneousPassage(object) {
+        console.log("Simultaneous Passage Second Object"); // TODO remove
+        JUNCTION.turnOffOnClickListenerForJunctionObjects();
+
+        let firstObjectPromise = JUNCTION.executeActions(JUNCTION.getPartnerForSimultaneousPassage(object));
+        let secondObjectPromise = JUNCTION.executeActions(object);
+
+        $.when( firstObjectPromise, secondObjectPromise ).done(function() {
+            console.log("Simultaneous Passage Done"); // TODO remove
+            JUNCTION.turnOnOnClickListenerForJunctionObjects();
+            JUNCTION.isWaitingForSimultaneousPassage = false;
+            JUNCTION.checkSolution();
+        });
     }
 
     setOnClickAction() {

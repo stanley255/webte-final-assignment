@@ -8,6 +8,7 @@ class Junction {
         this.solved = false;
         this.actions = junction.actions;
         this.setSolution(junction);
+        this.isWaitingForSimultaneousPassage = false;
     }
 
     setSolution(junction) {
@@ -89,7 +90,21 @@ class Junction {
     }
 
     getActionsForObject(object) {
-        return JUNCTION.actions[object.id];
+        return this.actions[object.id];
+    }
+
+    isObjectPartOfSimultaneousPassage(object) {
+        if (this.solutions.length === 1)
+            return false;
+        let objectIndexInSolution = this.solutions[0].indexOf(object.id);
+        if (JUNCTION.solutions[1][objectIndexInSolution] === object.id)
+            return false;
+        return true;
+    }
+
+    getPartnerForSimultaneousPassage(object) {
+        let objectIndexInSolution = this.solutions[0].indexOf(object.id);
+        return JUNCTION_OBJECTS[JUNCTION.solutions[1][objectIndexInSolution]];
     }
 
 }
