@@ -190,8 +190,16 @@ function setToCorrespongindJunctionImage(listItem) {
 }
 
 function clearObjectsFromJunction() {
+    stopCarActions();
     JUNCTION_OBJECTS = {};
     $("#svg").empty();
+}
+
+function stopCarActions() {    
+    $.each(JUNCTION_OBJECTS, (obj) => {
+        if(JUNCTION_OBJECTS[obj] instanceof Car)
+            JUNCTION_OBJECTS[obj].stopBlinker();
+    });
 }
 
 function getJunctionNumberFromListItem(listItem) {

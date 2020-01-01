@@ -30,6 +30,7 @@ const DIRECTIONS_VECTOR = {
 
 const TURN_ANIMATION_PAUSE_DURATION = 20;
 const STRAIGHT_ANIMATION_PAUSE_DURATION = 5;
+const BLINKER_LAYER_SWITCHING_DURATION = 400;
 const SVG_LAYER_SWITCHING_DURATION = 35;
 const TRAFFIC_LIGHT_COLOR_SWITCHING_DURATION = 450;
 
@@ -58,6 +59,7 @@ const CAR_HALF_WIDTH = 40;
 
 // Constants for pedestrian & cyclist
 const DEFAULT_LAYERS_VISIBILITY_STATES_DOUBLE = ["visible", "hidden"];
+const ALTERNATIVE_LAYERS_VISIBILITY_STATES_DOUBLE = ["hidden", "visible"];
 
 // Constants for traffic light
 const DEFAULT_LAYERS_VISIBILITY_STATES_TRIPPLE = ["visible", "hidden", "hidden"];

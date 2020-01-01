@@ -7,12 +7,30 @@ class Car extends JunctionObject {
         this.carRight = document.getElementById(this.color + BLINKER_RIGHT);
         this.carLeft = document.getElementById(this.color + BLINKER_LEFT);
         this.layerVisibilityStates = [this.carOff, this.carRight, this.carLeft];
+        this.blinker = car.blinker;
 
-        this.setDefaultBlinkers(car.blinker);
+        this.isTurnedOff = this.exitBlinker = this.setDefaultBlinkers(car.blinker);
+        this.startBlinker(car.blinker);
+    }
+
+    setIntervalAsync = (fn, ms) => {
+        if(this.exitBlinker) return;
+        let promise = fn();
+        $.when(promise).done(() => setTimeout(() => this.setIntervalAsync(fn, ms), ms));
+      };
+
+    startBlinker() {
+        this.setIntervalAsync(() => {this.blinkBlinkers(this)}, BLINKER_LAYER_SWITCHING_DURATION);
+    }
+
+    stopBlinker() {
+        this.turnOffBlinkers();
+        this.exitBlinker = true;
     }
 
     setDefaultBlinkers(blinker = DEFAULT_BLINKER_STATE) {
         BLINKERS[blinker](this);
+        return (blinker == DEFAULT_BLINKER_STATE) ? true : false;
     }
 
     turnOffBlinkers() {
@@ -42,10 +60,10 @@ class Car extends JunctionObject {
         let quadrant = QUADRANTS[action.quadrant][action.clockwise ? "clockwise" : "counterclockwise"];
 
         for (let i = quadrant.start; i != (quadrant.end + quadrant.increment); i += quadrant.increment) {
-            this.turnCar(car, i, action.distance, carStartX, carStartY, quadrant);
+            this.turnCar(car, i, action.distance, carStartX, carStartY, quadrant);            
             await this.sleep(TURN_ANIMATION_PAUSE_DURATION);
         }
-        this.turnOffBlinkers();
+        this.stopBlinker();
     }
 
     turnCar(car, angle, distance, startX, startY, quadrant) {
@@ -62,6 +80,15 @@ class Car extends JunctionObject {
         action.trafficLightActions.forEach(trafficLightAction => {
             JUNCTION_OBJECTS[trafficLightAction.trafficLightId][trafficLightAction.trafficLightAction]();
         });
+    }
+
+    async blinkBlinkers() {
+        if (this.isTurnedOff)
+            this.setDefaultBlinkers(this.blinker);
+        else
+            this.turnOffBlinkers();
+
+        this.isTurnedOff = !this.isTurnedOff;
     }
 
 }

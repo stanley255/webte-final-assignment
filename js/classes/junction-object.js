@@ -141,12 +141,12 @@ class JunctionObject {
         await $.when.apply(null, deferreds).done(function() { });
     }
 
-    switchLayersVisibility(i, switched) {
-        if (i%SVG_LAYER_SWITCHING_DURATION === 0) {
+    switchLayersVisibility(increment, switched) {
+        if (increment % SVG_LAYER_SWITCHING_DURATION === 0) {
             if (switched)
-                this.setVisibilityLayerStates(["visible", "hidden"]);
+                this.setVisibilityLayerStates(DEFAULT_LAYERS_VISIBILITY_STATES_DOUBLE);
             else
-                this.setVisibilityLayerStates(["hidden", "visible"]);
+                this.setVisibilityLayerStates(ALTERNATIVE_LAYERS_VISIBILITY_STATES_DOUBLE);
             return !switched;
         }
         return switched;
