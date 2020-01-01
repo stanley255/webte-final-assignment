@@ -8,6 +8,7 @@ class TrafficLight extends JunctionObject {
             document.getElementById("green-light-" + trafficLight.layerSuffixId)
         ];
         LIGHTS[trafficLight.light](this);
+        this.currentLight = trafficLight.light;
     }
 
     setGreenLight() {
@@ -20,6 +21,20 @@ class TrafficLight extends JunctionObject {
 
     setRedLight() {
         this.setVisibilityLayerStates(["visible", "hidden", "hidden"]);
+    }
+
+    handleClick() {}
+
+    async switchTrafficLightToRed() {
+        this.setYellowLight();
+        await this.sleep(TRAFFIC_LIGHT_COLOR_SWITCHING_DURATION);
+        this.setRedLight();
+    }
+    
+    async switchTrafficLightToGreen() {
+        this.setYellowLight();
+        await this.sleep(TRAFFIC_LIGHT_COLOR_SWITCHING_DURATION);
+        this.setGreenLight();
     }
 
 }

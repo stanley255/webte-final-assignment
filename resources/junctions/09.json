@@ -30,12 +30,12 @@
             "fileName": "trafficlight1",
             "layerSuffixId": "1",
             "layer": "traffic-light-layer-1",
-            "light": "red",
+            "light": "green",
             "position": {
-                "x": 50,
-                "y": 50
+                "x": 430,
+                "y": 450
             },
-            "angle": 0
+            "angle": 90
         },
         {
             "id": "trafficlight02",
@@ -45,8 +45,8 @@
             "layer": "traffic-light-layer-2",
             "light": "red",
             "position": {
-                "x": 50,
-                "y": 50
+                "x": 715,
+                "y": 470
             },
             "angle": 0
         }
@@ -67,14 +67,24 @@
         ],
         "car02": [
             {
-                "type": "moveObjectBasedOnAction",
+                "type": "moveObjectBasedOnActionWithTrafficLight",
                 "direction": "right",
-                "distance": 810
+                "distance": 810,
+                "trafficLightActions": [
+                    {
+                        "trafficLightId": "trafficlight01",
+                        "trafficLightAction": "switchTrafficLightToRed"
+                    },
+                    {
+                        "trafficLightId": "trafficlight02",
+                        "trafficLightAction": "switchTrafficLightToGreen"
+                    }
+                ]
             }
         ]
     },
     "solutions": [
-        ["car01", "car02"]
+        ["car02", "car01"]
     ],
     "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa má na neoznačenej križovatke prednosť sprava, následne pôjde <b>zelené auto</b>."
 }

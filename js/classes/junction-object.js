@@ -116,7 +116,7 @@ class JunctionObject {
 
         for(let i = 0; i < distance; i++) {
             object.moveRelative(dir_vec[0], dir_vec[1]);
-            await this.sleep(STRIAGHT_ANIMATION_PAUSE_DURATION);
+            await this.sleep(STRAIGHT_ANIMATION_PAUSE_DURATION);
         }
     }
 
@@ -128,8 +128,15 @@ class JunctionObject {
         for(let i = 0; i < distance; i++) {
             object.moveRelative(dir_vec[0], dir_vec[1]);
             switched = this.switchLayersVisibility(i, switched);
-            await this.sleep(STRIAGHT_ANIMATION_PAUSE_DURATION);
+            await this.sleep(STRAIGHT_ANIMATION_PAUSE_DURATION);
         }
+    }
+
+    async moveObjectBasedOnActionWithTrafficLight(object, action) {
+        await this.moveObjectBasedOnAction(object, action);
+        action.trafficLightActions.forEach(trafficLightAction => {
+            JUNCTION_OBJECTS[trafficLightAction.trafficLightId][trafficLightAction.trafficLightAction]();
+        });
     }
 
     switchLayersVisibility(i, switched) {

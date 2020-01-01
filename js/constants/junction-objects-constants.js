@@ -13,8 +13,8 @@ const DEFAULT_TRANSFORM_ORIGINS = {
     pedestrian: "23px 23.5px",
     cyclist: "22px 42.5px",
     tram: "48.5px 310px",
-    trafficlight1: "0px 0px", // TODO
-    trafficlight2: "0px 0px" // TODO
+    trafficlight1: "16.5px 52px",
+    trafficlight2: "23.5px 52px"
 }
 
 
@@ -29,8 +29,9 @@ const DIRECTIONS_VECTOR = {
 }
 
 const TURN_ANIMATION_PAUSE_DURATION = 20;
-const STRIAGHT_ANIMATION_PAUSE_DURATION = 5;
+const STRAIGHT_ANIMATION_PAUSE_DURATION = 5;
 const SVG_LAYER_SWITCHING_DURATION = 35;
+const TRAFFIC_LIGHT_COLOR_SWITCHING_DURATION = 250;
 
 // Constants for cars
 const BLINKER_OFF = "-car-blinker-off";
