@@ -23,6 +23,32 @@
             },
             "angle": 90,
             "blinker": "off"
+        },
+        {
+            "id": "trafficlight01",
+            "type": "TrafficLight",
+            "fileName": "trafficlight1",
+            "layerSuffixId": "1",
+            "layer": "traffic-light-layer-1",
+            "light": "red",
+            "position": {
+                "x": 50,
+                "y": 50
+            },
+            "angle": 0
+        },
+        {
+            "id": "trafficlight02",
+            "type": "TrafficLight",
+            "fileName": "trafficlight2",
+            "layerSuffixId": "2",
+            "layer": "traffic-light-layer-2",
+            "light": "red",
+            "position": {
+                "x": 50,
+                "y": 50
+            },
+            "angle": 0
         }
     ],
     "actions" : {

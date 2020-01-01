@@ -6,7 +6,7 @@ class Cyclist extends JunctionObject {
             document.getElementById("cyclist-1"),
             document.getElementById("cyclist-2")
         ];
-        this.setVisibilityLayerStates(DEFAULT_LAYERS_VISIBILITY_STATES);
+        this.setVisibilityLayerStates(DEFAULT_LAYERS_VISIBILITY_STATES_DOUBLE);
     }
 
 }

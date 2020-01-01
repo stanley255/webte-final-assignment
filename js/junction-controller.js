@@ -3,7 +3,7 @@ let JUNCTION_OBJECTS = {};
 let currentJunctionItem;
 let deferreds = [];
 
-const CLASSES = { Car, Pedestrian, Cyclist, Tram };
+const CLASSES = { Car, Pedestrian, Cyclist, Tram, TrafficLight };
 
 window.addEventListener("load", initializeJunctionPage(), false);
 
@@ -127,7 +127,7 @@ function formCarSvgPath(object) {
 }
 
 function formOthersSvgPath(object) {
-    return OTHERS_SVG_PATH + object.type.toLowerCase() + OTHERS_SVG_EXTENSION;
+    return OTHERS_SVG_PATH + (object.fileName || object.type).toLowerCase() + OTHERS_SVG_EXTENSION;
 }
 
 // Function that triggers when junction is about to switch to next one

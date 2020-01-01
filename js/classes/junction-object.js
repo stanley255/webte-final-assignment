@@ -2,8 +2,8 @@ class JunctionObject {
 
     constructor(object) {
         this.id = object.id;
-        this.layer = document.getElementById(LAYERS[object.id]);
-        this.layer.style.transformOrigin = DEFAULT_TRANSFORM_ORIGINS[object.type.toLowerCase()];
+        this.layer = document.getElementById(object.layer || LAYERS[object.id]);
+        this.layer.style.transformOrigin = DEFAULT_TRANSFORM_ORIGINS[object.fileName || object.type.toLowerCase()];
 
         this.transformX = DEFAULT_POSITION.x;
         this.transformY = DEFAULT_POSITION.y;

@@ -6,7 +6,7 @@ class Pedestrian extends JunctionObject {
             document.getElementById("pedestrian-1"),
             document.getElementById("pedestrian-2")
         ];
-        this.setVisibilityLayerStates(DEFAULT_LAYERS_VISIBILITY_STATES);
+        this.setVisibilityLayerStates(DEFAULT_LAYERS_VISIBILITY_STATES_DOUBLE);
     }
 
 }

@@ -12,7 +12,9 @@ const DEFAULT_TRANSFORM_ORIGINS = {
     car: "42px 84px",
     pedestrian: "23px 23.5px",
     cyclist: "22px 42.5px",
-    tram: "48.5px 310px"
+    tram: "48.5px 310px",
+    trafficlight1: "0px 0px", // TODO
+    trafficlight2: "0px 0px" // TODO
 }
 
 
@@ -54,4 +56,19 @@ const DEFAULT_BLINKER_STATE = "off";
 const CAR_HALF_WIDTH = 40;
 
 // Constants for pedestrian & cyclist
-const DEFAULT_LAYERS_VISIBILITY_STATES = ["visible", "hidden"];
+const DEFAULT_LAYERS_VISIBILITY_STATES_DOUBLE = ["visible", "hidden"];
+
+// Constants for traffic light
+const DEFAULT_LAYERS_VISIBILITY_STATES_TRIPPLE = ["visible", "hidden", "hidden"];
+
+const LIGHTS = {
+    red: function (trafficLight) {
+        trafficLight.setRedLight()
+    },
+    yellow: function (trafficLight) {
+        trafficLight.setYellowLight()
+    },
+    green: function (trafficLight) {
+        trafficLight.setGreenLight()
+    }
+}
