@@ -25,6 +25,7 @@ const SOLUTION_BUTTON_INACTIVE = "waves-effect waves-light btn modal-trigger dis
 
 const CORRECT_ANSWER_POP_UP_ID = "#correct-answer";
 const INCORRECT_ANSWER_POP_UP_ID = "#incorrect-answer";
+const CRASH_ANSWER_POP_UP_ID = "#crash-answer";
 
 const JUNCTION_SOLUTION_TITLE_ID = "#junction-solution-title"
 const JUNCTION_SOLUTION_TEXT_ID = "#junction-solution-text"

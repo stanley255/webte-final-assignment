@@ -8,7 +8,9 @@ class Junction {
         this.solved = false;
         this.actions = junction.actions;
         this.setSolution(junction);
+
         this.isWaitingForSimultaneousPassage = false;
+        this.simultaneousPassageObjectId = "";
     }
 
     setSolution(junction) {
@@ -72,6 +74,13 @@ class Junction {
         showIncorrectAnswerPopUp();
     }
 
+    handleCrashSolution() {
+        this.solved = false;
+        showCrashAnswerPopUp();
+        this.allowToWatchDemo();
+        this.allowToShowSolution();
+    }
+
     allowToWatchDemo() {
         enableDemoButton();
     }
@@ -105,6 +114,16 @@ class Junction {
     getPartnerForSimultaneousPassage(object) {
         let objectIndexInSolution = this.solutions[0].indexOf(object.id);
         return JUNCTION_OBJECTS[JUNCTION.solutions[1][objectIndexInSolution]];
+    }
+
+    setSimultaneousPassage(object) {
+        this.isWaitingForSimultaneousPassage = true;
+        this.simultaneousPassageObjectId = object.id;
+    }
+
+    clearSimultaneousPassage() {
+        this.isWaitingForSimultaneousPassage = false;
+        this.simultaneousPassageObjectId = "";
     }
 
 }

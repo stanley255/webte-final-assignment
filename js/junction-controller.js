@@ -198,6 +198,10 @@ function showIncorrectAnswerPopUp() {
     showPopUpById(INCORRECT_ANSWER_POP_UP_ID);
 }
 
+function showCrashAnswerPopUp() {
+    showPopUpById(CRASH_ANSWER_POP_UP_ID);
+}
+
 function showPopUpById(elementId) {
     M.Modal.getInstance($(elementId)).open();
 }

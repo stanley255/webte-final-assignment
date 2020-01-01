@@ -58,7 +58,7 @@ class JunctionObject {
     handleClick(object) {
         let junctionObject = JUNCTION_OBJECTS[object.id];
         JUNCTION.addObjectToSolution(junctionObject);
-        if (!JUNCTION.isObjectPartOfSimultaneousPassage(junctionObject)) {
+        if (!JUNCTION.isObjectPartOfSimultaneousPassage(junctionObject) && !JUNCTION.isWaitingForSimultaneousPassage) {
             this.handleBasicSituation(junctionObject);
         } else if (!JUNCTION.isWaitingForSimultaneousPassage) {
             this.handleFirstObjectOfSimultaneousPassage(junctionObject);
@@ -77,22 +77,24 @@ class JunctionObject {
     }
 
     handleFirstObjectOfSimultaneousPassage(object) {
-        console.log("Simultaneous Passage First Object"); // TODO remove
         object.removeOnClickAction();
-        JUNCTION.isWaitingForSimultaneousPassage = true;
+        JUNCTION.setSimultaneousPassage(object);
     }
 
     handleSecondObjectOfSimultaneousPassage(object) {
-        console.log("Simultaneous Passage Second Object"); // TODO remove
         JUNCTION.turnOffOnClickListenerForJunctionObjects();
 
-        let firstObjectPromise = JUNCTION.executeActions(JUNCTION.getPartnerForSimultaneousPassage(object));
+        if (this.isCurrentlyAddedObjectCausingCrash(object)) {
+            JUNCTION.handleCrashSolution();
+            return;
+        }
+
+        let firstObjectPromise = JUNCTION.executeActions(JUNCTION_OBJECTS[JUNCTION.simultaneousPassageObjectId]);
         let secondObjectPromise = JUNCTION.executeActions(object);
 
         $.when( firstObjectPromise, secondObjectPromise ).done(function() {
-            console.log("Simultaneous Passage Done"); // TODO remove
             JUNCTION.turnOnOnClickListenerForJunctionObjects();
-            JUNCTION.isWaitingForSimultaneousPassage = false;
+            JUNCTION.clearSimultaneousPassage();
             JUNCTION.checkSolution();
         });
     }
@@ -139,6 +141,10 @@ class JunctionObject {
             return !switched;
         }
         return switched;
+    }
+
+    isCurrentlyAddedObjectCausingCrash(object) {
+        return JUNCTION.getPartnerForSimultaneousPassage(object).id !== JUNCTION.simultaneousPassageObjectId;
     }
 
 }
