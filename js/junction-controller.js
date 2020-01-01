@@ -31,7 +31,7 @@ function unbindJunctionChangeFunction() {
 function bindControlButtonFunction() {
     $("#junction-demo-button").click(() => {
         unbindJunctionChangeFunction();   
-        clearCarsFromJunction();
+        clearObjectsFromJunction();
         let junctionNumber = getJunctionNumberFromListItem(currentJunctionItem);
         loadJunction(junctionNumber, reloadCallback);
     });
@@ -61,39 +61,39 @@ function runDemoActions() {
     runActionsRecursively(0);
 }
 
-function runActionsRecursively(carIndex) {
+function runActionsRecursively(objectIndex) {
     JUNCTION.turnOffOnClickListenerForJunctionObjects();
     unbindJunctionChangeFunction();
-    if (JUNCTION.hasSimultaneousPassage() && JUNCTION.isObjectPartOfSimultaneousPassage(getObjectFromSolution(carIndex)))
-        simultaneousPassageActionExecution(carIndex);
+    if (JUNCTION.hasSimultaneousPassage() && JUNCTION.isObjectPartOfSimultaneousPassage(getObjectFromSolution(objectIndex)))
+        simultaneousPassageActionExecution(objectIndex);
     else
-        basicActionExecution(carIndex);
+        basicActionExecution(objectIndex);
 }
 
-function basicActionExecution(carIndex) {
-    JUNCTION.executeActions(getObjectFromSolution(carIndex)).then(() => {
-        afterDemoActionExecutionRoutine(carIndex, 1);
+function basicActionExecution(objectIndex) {
+    JUNCTION.executeActions(getObjectFromSolution(objectIndex)).then(() => {
+        afterDemoActionExecutionRoutine(objectIndex, 1);
     });
 }
 
-function simultaneousPassageActionExecution(carIndex) {
-    let firstObjectPromise = JUNCTION.executeActions(getObjectFromSolution(carIndex));
-    let secondObjectPromise = JUNCTION.executeActions(getObjectFromSolution(carIndex + 1));
+function simultaneousPassageActionExecution(objectIndex) {
+    let firstObjectPromise = JUNCTION.executeActions(getObjectFromSolution(objectIndex));
+    let secondObjectPromise = JUNCTION.executeActions(getObjectFromSolution(objectIndex + 1));
 
     $.when( firstObjectPromise, secondObjectPromise ).done(function() {
-        afterDemoActionExecutionRoutine(carIndex, 2);
+        afterDemoActionExecutionRoutine(objectIndex, 2);
     });
 }
 
-function afterDemoActionExecutionRoutine(carIndex, increment) {
+function afterDemoActionExecutionRoutine(objectIndex, increment) {
     JUNCTION.turnOnOnClickListenerForJunctionObjects();
     bindJunctionChangeFunction();
-    if (JUNCTION.solutions[0][carIndex + increment])
-        runActionsRecursively(carIndex + increment);
+    if (JUNCTION.solutions[0][objectIndex + increment])
+        runActionsRecursively(objectIndex + increment);
 }
 
-function getObjectFromSolution(carIndex) {
-    return JUNCTION_OBJECTS[JUNCTION.solutions[0][carIndex]];
+function getObjectFromSolution(objectIndex) {
+    return JUNCTION_OBJECTS[JUNCTION.solutions[0][objectIndex]];
 }
 
 function loadObjects(objects) {
@@ -105,16 +105,16 @@ function loadObjects(objects) {
 function loadObject(object) {
     deferreds.push($.get(formSvgPath(object), function(data) {
         let junctionSvg = document.getElementById("svg");
-        junctionSvg.appendChild(createCarSvgElement(data));
+        junctionSvg.appendChild(createSvgElement(data));
     }).done(function() {
         JUNCTION_OBJECTS[object.id] = new CLASSES[object.type](object);
     }));
 }
 
-function createCarSvgElement(data) {
-    let loadedCarSvg = document.createElement("svg");
-    loadedCarSvg.innerHTML = new XMLSerializer().serializeToString(data.documentElement);
-    return loadedCarSvg.firstChild;
+function createSvgElement(data) {
+    let loadedObjectSvg = document.createElement("svg");
+    loadedObjectSvg.innerHTML = new XMLSerializer().serializeToString(data.documentElement);
+    return loadedObjectSvg.firstChild;
 }
 
 function formSvgPath(object) {
@@ -141,8 +141,8 @@ function changeJunction(listItem) {
     disableSolutionButton();
     // Switch to new junction image
     setToCorrespongindJunctionImage(listItem);
-    // Deleting previous cars
-    clearCarsFromJunction();
+    // Deleting previous objects
+    clearObjectsFromJunction();
     // Load new junction
     let junctionNumber = getJunctionNumberFromListItem(listItem);
     // Empty promise array for object loading
@@ -189,7 +189,7 @@ function setToCorrespongindJunctionImage(listItem) {
     changeSvgBackground(junctionPath);
 }
 
-function clearCarsFromJunction() {
+function clearObjectsFromJunction() {
     JUNCTION_OBJECTS = {};
     $("#svg").empty();
 }
