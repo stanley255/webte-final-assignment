@@ -21,6 +21,7 @@ class Junction {
 
     addObjectToSolution(object) {
         this.userSolution.push(object.id);
+        object.addedToJunctionSolution = true;
     }
 
     turnOnOnClickListenerForJunctionObjects() {

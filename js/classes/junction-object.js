@@ -8,8 +8,9 @@ class JunctionObject {
         this.transformX = DEFAULT_POSITION.x;
         this.transformY = DEFAULT_POSITION.y;
         this.angle = DEFAULT_ANGLE;
-
         this.setDefaultPosition(object.position, object.angle);
+
+        this.addedToJunctionSolution = false;
 
         this._listener = () => this.handleClick(object);
         this.setOnClickAction();
@@ -65,7 +66,8 @@ class JunctionObject {
     }
 
     setOnClickAction() {
-        this.layer.addEventListener('click', this._listener);
+        if (!this.addedToJunctionSolution)
+            this.layer.addEventListener('click', this._listener);
     }
 
     removeOnClickAction() {
