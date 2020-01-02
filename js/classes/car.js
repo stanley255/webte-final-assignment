@@ -17,15 +17,15 @@ class Car extends JunctionObject {
         if(this.exitBlinker) return;
         let promise = fn();
         $.when(promise).done(() => setTimeout(() => this.setIntervalAsync(fn, ms), ms));
-      };
+    };
 
     startBlinker() {
         this.setIntervalAsync(() => {this.blinkBlinkers(this)}, BLINKER_LAYER_SWITCHING_DURATION);
     }
 
     stopBlinker() {
-        this.turnOffBlinkers();
         this.exitBlinker = true;
+        this.turnOffBlinkers();
     }
 
     setDefaultBlinkers(blinker = DEFAULT_BLINKER_STATE) {

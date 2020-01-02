@@ -19,3 +19,7 @@ main {
 .switch {
     margin: .2vh 0;
 }
+
+i.right {
+    margin-left: .2em;
+}

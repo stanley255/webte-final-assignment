@@ -30,7 +30,8 @@ function unbindJunctionChangeFunction() {
 
 function bindControlButtonFunction() {
     $("#junction-demo-button").click(() => {
-        unbindJunctionChangeFunction();   
+        disableDemoButton();
+        unbindJunctionChangeFunction();
         clearObjectsFromJunction();
         let junctionNumber = getJunctionNumberFromListItem(currentJunctionItem);
         loadJunction(junctionNumber, reloadCallback);
@@ -55,8 +56,6 @@ function reloadCallback() {
     });
 }
 
-// TODO: - refactor runDemoActions() & runActionsRecursively()
-//       - disable ul for junction change or stop demo after junction change
 function runDemoActions() {
     runActionsRecursively(0);
 }
@@ -64,6 +63,7 @@ function runDemoActions() {
 function runActionsRecursively(objectIndex) {
     JUNCTION.turnOffOnClickListenerForJunctionObjects();
     unbindJunctionChangeFunction();
+    disableDemoButton();
     if (JUNCTION.hasSimultaneousPassage() && JUNCTION.isObjectPartOfSimultaneousPassage(getObjectFromSolution(objectIndex)))
         simultaneousPassageActionExecution(objectIndex);
     else
@@ -88,6 +88,7 @@ function simultaneousPassageActionExecution(objectIndex) {
 function afterDemoActionExecutionRoutine(objectIndex, increment) {
     JUNCTION.turnOnOnClickListenerForJunctionObjects();
     bindJunctionChangeFunction();
+    enableDemoButton();
     if (JUNCTION.solutions[0][objectIndex + increment])
         runActionsRecursively(objectIndex + increment);
 }
