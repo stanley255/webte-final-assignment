@@ -1,6 +1,6 @@
 {
-    "number": "05",
-    "title": "Križovatka 5",
+    "number": "03",
+    "title": "Križovatka 3",
     "objects": [
         {
             "id": "car01",
@@ -12,6 +12,17 @@
             },
             "angle": 90,
             "blinker": "off"
+        },
+        {
+            "id": "car02",
+            "type": "Car",
+            "color": "green",
+            "position": {
+                "x": 850,
+                "y": 240
+            },
+            "angle": 270,
+            "blinker": "left"
         },
         {
             "id": "car03",
@@ -33,6 +44,24 @@
                 "distance": 800
             }
         ],
+        "car02": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "left",
+                "distance": 110
+            },
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 2,
+                "clockwise": false,
+                "distance": 200
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "down",
+                "distance": 300
+            }
+        ],
         "car03": [
             {
                 "type": "moveObjectBasedOnAction",
@@ -42,7 +71,7 @@
         ]
     },
     "solutions": [
-        ["car01", "car03"]
+        ["car01", "car02", "car03"]
     ],
-    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na vedľajšej ceste."
+    "solutionText": "Najprv prejde <b>modré auto</b>, potom <b>zelené auto</b> nakoľko sa nachádzajú na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na vedľajšej ceste."
 }

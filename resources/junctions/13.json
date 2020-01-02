@@ -1,6 +1,6 @@
 {
-    "number": "06",
-    "title": "Križovatka 6",
+    "number": "13",
+    "title": "Križovatka 13",
     "objects": [
         {
             "id": "car02",
@@ -72,5 +72,5 @@
     "solutions": [
         ["car02", "car03"]
     ],
-    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na vedľajšej ceste."
+    "solutionText": "Najprv prejde <b>zelené auto</b> nakoľko podľa prednosti sprava mu <b>červené auto</b> musí udeliť prednosť."
 }

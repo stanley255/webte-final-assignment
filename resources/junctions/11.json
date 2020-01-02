@@ -1,31 +1,69 @@
 {
-    "number": "06",
-    "title": "Križovatka 6",
+    "number": "11",
+    "title": "Križovatka 11",
     "objects": [
+        {
+            "id": "car01",
+            "type": "Car",
+            "color": "blue",
+            "position": {
+                "x": 420,
+                "y": 650
+            },
+            "angle": 0,
+            "blinker": "left"
+        },
         {
             "id": "car02",
             "type": "Car",
             "color": "green",
             "position": {
-                "x": 200,
-                "y": 270
+                "x": 100,
+                "y": 479
             },
             "angle": 90,
-            "blinker": "right"
+            "blinker": "left"
         },
         {
             "id": "car03",
             "type": "Car",
             "color": "red",
             "position": {
-                "x": 390,
-                "y": 140
+                "x": 320,
+                "y": -10
             },
             "angle": 180,
-            "blinker": "off"
+            "blinker": "right"
+        },
+        {
+            "id": "tram01",
+            "type": "Tram",
+            "position": {
+                "x": 900,
+                "y": 20
+            },
+            "angle": 270
         }
     ],
     "actions" : {
+        "car01": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "up",
+                "distance": 220
+            },
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 1,
+                "clockwise": true,
+                "distance": 250
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "left",
+                "distance": 260
+            }
+        ],
         "car02": [
             {
                 "type": "moveObjectBasedOnAction",
@@ -34,43 +72,44 @@
             },
             {
                 "type": "turnCarBasedOnAction",
-                "quadrant": 1,
+                "quadrant": 4,
                 "clockwise": false,
-                "distance": 250
+                "distance": 240
             },
             {
                 "type": "moveObjectBasedOnAction",
-                "direction": "down",
-                "distance": 300
+                "direction": "up",
+                "distance": 370
             }
         ],
         "car03": [
             {
                 "type": "moveObjectBasedOnAction",
                 "direction": "down",
-                "distance": 150
+                "distance": 60
             },
             {
                 "type": "turnCarBasedOnAction",
-                "quadrant": 3,
-                "clockwise": false,
-                "distance": 80
-            },
-            {
-                "type": "turnCarBasedOnAction",
-                "quadrant": 1,
-                "clockwise": false,
-                "distance": 10
+                "quadrant": 4,
+                "clockwise": true,
+                "distance": 50
             },
             {
                 "type": "moveObjectBasedOnAction",
-                "direction": "down",
-                "distance": 300
+                "direction": "left",
+                "distance": 360
+            }
+        ],
+        "tram01": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "left",
+                "distance": 1260
             }
         ]
     },
     "solutions": [
-        ["car02", "car03"]
+        ["tram01", "car02", "car03", "car01"]
     ],
-    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na vedľajšej ceste."
+    "solutionText": "<b>Modré auto</b> prichádza ku križovatke po vedľajšej ceste a na križovatke chce odbočiť vľavo.</br>V poradí prvá prejde cez križovatku <b>električka</b> idúca po hlavnej ceste.</br>Ako druhé prejde cez križovatku <b>zelené auto</b>, ktoré muselo dať pri odbočovaní vľavo prednosť v jazde protiidúcej <b>električke</b>.</br>Ako tretie prejde cez križovatku <b>červené auto</b>, ktoré muselo dať prednosť v jazde vozidlám idúcim po hlavnej ceste.</br>Nakoniec prejde <b>modré auto</b>, potom čo dalo prednosť v jazde vozidlám idúcim po hlavnej ceste a pri odbočovaní vľavo aj protiidúcemu <b>červenému autu</b>."
 }

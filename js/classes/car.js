@@ -13,14 +13,13 @@ class Car extends JunctionObject {
         this.startBlinker(car.blinker);
     }
 
-    setIntervalAsync = (fn, ms) => {
+    setIntervalAsync = async (fn, ms) => {
         if(this.exitBlinker) return;
-        let promise = fn();
-        $.when(promise).done(() => setTimeout(() => this.setIntervalAsync(fn, ms), ms));
-    };
+        fn().then(() => setTimeout(() => {this.setIntervalAsync(fn, ms);}, ms));
+    }
 
     startBlinker() {
-        this.setIntervalAsync(() => {this.blinkBlinkers(this)}, BLINKER_LAYER_SWITCHING_DURATION);
+        this.setIntervalAsync(() => this.blinkBlinkers(this), BLINKER_LAYER_SWITCHING_DURATION);
     }
 
     stopBlinker() {
@@ -30,7 +29,7 @@ class Car extends JunctionObject {
 
     setDefaultBlinkers(blinker = DEFAULT_BLINKER_STATE) {
         BLINKERS[blinker](this);
-        return (blinker == DEFAULT_BLINKER_STATE) ? true : false;
+        return blinker == DEFAULT_BLINKER_STATE;
     }
 
     turnOffBlinkers() {

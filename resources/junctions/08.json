@@ -1,6 +1,6 @@
 {
-    "number": "06",
-    "title": "Križovatka 6",
+    "number": "08",
+    "title": "Križovatka 8",
     "objects": [
         {
             "id": "car03",
@@ -22,7 +22,7 @@
                 "y": 350
             },
             "angle": 90,
-            "blinker": "off"
+            "blinker": "left"
         },
         {
             "id": "car01",
@@ -33,7 +33,7 @@
                 "y": 550
             },
             "angle": 0,
-            "blinker": "off"
+            "blinker": "left"
         }
     ],
     "actions" : {
@@ -52,21 +52,33 @@
         ],
         "car02": [
             {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 4,
+                "clockwise": false,
+                "distance": 260
+            },
+            {
                 "type": "moveObjectBasedOnAction",
-                "direction": "right",
-                "distance":  760
+                "direction": "up",
+                "distance": 220
             }
         ],
         "car01": [
             {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 1,
+                "clockwise": true,
+                "distance": 270
+            },
+            {
                 "type": "moveObjectBasedOnAction",
-                "direction": "up",
-                "distance": 740
+                "direction": "left",
+                "distance": 420
             }
         ]
     },
     "solutions": [
         ["car03", "car01", "car02"]
     ],
-    "solutionText": "Najprv prejde <b>červené auto</b>, potom <b>modré auto</b> nakoľko na neoznačenej križovatke musí dať prednosť sprava a následne pôjde <b>zelené auto</b>, ktoré dáva ako posledné prednosť."
+    "solutionText": "Ako prvé prejde cez križovatku <b>červené auto</b>, pretože k nemu neprichádza žiadne vozidlo sprava. Aj keď odbočuje vľavo neuplatňuje pravidlo o odbočovaní vľavo, nakoľko ak vodiči protiidúcich vozidiel odbočujú vľavo, vyhýbajú sa vľavo.</br>V poradí druhé prejde cez križovatku a odbočí vľavo <b>modré auto</b>, ktoré muselo dať prednosť v jazde <b>červenému autu</b> prichádzajúcemu k nemu sprava.</br>Nakoniec prejde cez križovatku <b>zelené auto</b>, pretože muselo dať prednosť v jazde <b>modrému autu</b> prichádzajúcemu k nemu sprava."
 }
