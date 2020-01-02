@@ -156,4 +156,6 @@ class JunctionObject {
         return JUNCTION.getPartnerForSimultaneousPassage(object).id !== JUNCTION.simultaneousPassageObjectId;
     }
 
+    clearObjectRoutine() {}
+
 }

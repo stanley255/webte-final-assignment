@@ -91,4 +91,8 @@ class Car extends JunctionObject {
         this.isTurnedOff = !this.isTurnedOff;
     }
 
+    clearObjectRoutine() {
+        this.stopBlinker();
+    }
+
 }

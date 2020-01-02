@@ -190,15 +190,14 @@ function setToCorrespongindJunctionImage(listItem) {
 }
 
 function clearObjectsFromJunction() {
-    stopCarActions();
+    callObjectsClearRoutine();
     JUNCTION_OBJECTS = {};
     $("#svg").empty();
 }
 
-function stopCarActions() {    
+function callObjectsClearRoutine() {    
     $.each(JUNCTION_OBJECTS, (obj) => {
-        if(JUNCTION_OBJECTS[obj] instanceof Car)
-            JUNCTION_OBJECTS[obj].stopBlinker();
+        JUNCTION_OBJECTS[obj].clearObjectRoutine();
     });
 }
 
