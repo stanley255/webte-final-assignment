@@ -35,3 +35,7 @@ main {
 .icon-block {
     text-align: center;
 }
+
+.task-span {
+    color: black;
+}
