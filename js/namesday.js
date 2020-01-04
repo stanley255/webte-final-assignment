@@ -90,36 +90,13 @@ $("#namesday-input").on("keyup", function() {
       //Check whether user is inputting date and if so, create a json with all
       //namesday on that day. The for cycle starts at 1 because 0 is the date value.
       if (n.children[0].textContent == convertDateToBigEndian(value)) {
-        for (var i = 1; i < n.children.length; ++i) {
-          var toReturn = {
-            name: n.children[i].textContent,
-            country: n.children[i].tagName,
-            date: n.children[0].textContent
-          };
-          result.push(toReturn);
-        }
+        addSearchResultsByDate(n.children, result);
       }
-
       //The user is propapbly inputting a name at this point, so check whether
       //we have the expected name in our data and return it in json in the
       //same fashion as before.
       else {
-        for (var i = 1; i < n.children.length; ++i) {
-          //Since SK is just a subset of SKd, we do not need it
-          if (n.children[i].tagName == "SK") {
-            continue;
-          }
-
-          if (normalize(n.children[i].textContent).includes(normalize(value))) {
-            var toReturn = {
-              name: n.children[i].textContent,
-              country: n.children[i].tagName,
-              date: n.children[0].textContent
-            };
-
-            result.push(toReturn);
-          }
-        }
+        addSearchResultsByName(n.children, value, result);
       }
     },
     false
@@ -131,16 +108,49 @@ $("#namesday-input").on("keyup", function() {
   }
 });
 
+function addSearchResultsByDate(collection, result) {
+  for (var i = 1; i < collection.length; ++i) {
+    if (collection[i].tagName == "SKdni" || collection[i].tagName == "SKsviatky" || collection[i].tagName == "CZsviatky" ) {
+      continue;
+    }
+    var toReturn = {
+      name: collection[i].textContent,
+      country: collection[i].tagName,
+      date: collection[0].textContent
+    };
+    result.push(toReturn);
+  }
+}
+
+function addSearchResultsByName(collection, userInput, result) {
+  for (var i = 1; i < collection.length; ++i) {
+    //Since SK is just a subset of SKd, we do not need it
+    if (collection[i].tagName == "SK" || collection[i].tagName == "SKdni" || collection[i].tagName == "SKsviatky" || collection[i].tagName == "CZsviatky") {
+      continue;
+    }
+
+    if (normalize(collection[i].textContent).includes(normalize(userInput))) {
+      var toReturn = {
+        name: collection[i].textContent,
+        country: collection[i].tagName,
+        date: collection[0].textContent
+      };
+
+      result.push(toReturn);
+    }
+  }
+}
+
 function printResults(input) {
+  // if ()
   input.forEach(element => {
     var toAppend =
       '<li class="collection-item">' +
       convertDateToLittleEndian(element.date) +
       "<span>: </span>" +
       element.name +
-      " [" +
-      element.country +
-      "]<br></li>";
+      " <i class=\"flag "+element.country.toLowerCase()+"\"></i>" +
+      "<br></li>";
     $("#result").append(toAppend);
   });
 }
