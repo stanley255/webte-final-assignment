@@ -1,43 +1,17 @@
-.box-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+#namesday-widget {
+    min-width: 260px;
+    min-height: 260px;
 }
 
-.box-container {
-    width: 20%;
-}
-
-#date-input-box {
-    display: none;
-}
-
-#name-input-box {
-    display: block
-}
-
-#select-box-wrapper {
-    display: flex;
-    justify-content: center;
-    margin: 1em 0;
-}
-
-.select-wrapper {
-    margin: 0 .5em;
-}
-
-#search-button{
-    color:teal;
-}
 #name-input-label{
-    color:white;
+    color:white;    
 }
 
 #namesday-card-title{
     margin-bottom:20px;
 }
 
-#name-input{
+#namesday-input{
     color:white;
 }
 

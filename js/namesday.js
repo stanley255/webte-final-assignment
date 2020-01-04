@@ -1,16 +1,20 @@
 var namesdayList;
 var lastUpdated;
+var helperBox;
 
 $(document).ready(function() {
   loadNamesday(namesdayList).done(function(data) {
     namesdayList = $(data).find("zaznam");
     injectTodaysName();
+    setupTooltipBoxValues();
     // console.log(namesdayList[0].children[0]);
   });
-  setupHandlers();
 });
 
-function setupHandlers() {}
+function setupTooltipBoxValues() {
+  let helperText = "Zadajte meno, ktoré sa nachádza v <b>slovenskom, českom, rakúskom, poľskom alebo maďarskom</b> kalendári<hr>Zadajte dátum vo formáte <b>dd.mm.</b> alebo <b>dd.mm</b>";
+  $('#namesday-input').attr("data-tooltip", helperText);
+}
 
 function loadNamesday(data) {
   return $.ajax({
@@ -24,7 +28,7 @@ function injectTodaysName() {
   let names = retrieveNameFromDate(getToday());
   let output = names[0].names.textContent;
   output = output.split(",");
-  $("#namesday-today").append("<em><b>" + output[0] + "</em></b>");
+  $("#namesday-today").append("<em><b>" + output + "</em></b>");
 }
 
 function retrieveNameFromDate(date) {
@@ -34,8 +38,8 @@ function retrieveNameFromDate(date) {
   $(namesdayList).each(function(index, value) {
     if (value.children[0].textContent == date) {
       $(value.children).each(function(index2, value2) {
-        //SKd is the same as SK but extended, so we do not need sk
-        if (value2.nodeName != "SK" && value2.nodeName != "den") {
+        //SKd is the same as SK but extended, so we do not need SKd
+        if (value2.nodeName != "SKd" && value2.nodeName != "den") {
           name = {
             nationality: value2.nodeName,
             names: value2
@@ -141,7 +145,27 @@ function addSearchResultsByName(collection, userInput, result) {
   }
 }
 
+function showError() {
+  $('#namesday-input').addClass("tooltipped");
+  // Set delay for the tooltip to close to 100seconds
+  $('.tooltipped').tooltip({exitDelay: 100000});
+  helperBox = M.Tooltip.getInstance(document.querySelector('.tooltipped'));
+  helperBox.open();
+}
+
+function hideError() {
+  if(!$('#namesday-input').hasClass("tooltipped")) return;
+  helperBox.close();
+  helperBox.destroy();
+  $('#namesday-input').removeClass("tooltipped");
+}
+
 function printResults(input) {
+  if(input.length === 0) {
+    showError();
+    return;
+  }  
+  hideError();
   input.forEach(element => {
     var toAppend =
       '<li class="collection-item">' +
@@ -150,7 +174,7 @@ function printResults(input) {
       element.name +
       "<br></li>";
     $("#result").append(toAppend);
-  });
+  }); 
 }
 
 function convertDateToLittleEndian(input) {
@@ -186,6 +210,7 @@ function convertDateToBigEndian(value) {
   else if (!value.includes(".")) {
     return value;
   }
+
 }
 
 //TODO: Format tagnames
