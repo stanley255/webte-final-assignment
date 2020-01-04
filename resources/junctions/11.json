@@ -5,7 +5,6 @@
         {
             "id": "car01",
             "type": "Car",
-            "color": "blue",
             "position": {
                 "x": 420,
                 "y": 650
@@ -16,7 +15,6 @@
         {
             "id": "car02",
             "type": "Car",
-            "color": "green",
             "position": {
                 "x": 100,
                 "y": 479
@@ -27,7 +25,6 @@
         {
             "id": "car03",
             "type": "Car",
-            "color": "red",
             "position": {
                 "x": 320,
                 "y": -10
@@ -56,7 +53,8 @@
                 "type": "turnCarBasedOnAction",
                 "quadrant": 1,
                 "clockwise": true,
-                "distance": 250
+                "distance": 250,
+                "blinkersAfter": "off"
             },
             {
                 "type": "moveObjectBasedOnAction",
@@ -74,7 +72,8 @@
                 "type": "turnCarBasedOnAction",
                 "quadrant": 4,
                 "clockwise": false,
-                "distance": 240
+                "distance": 240,
+                "blinkersAfter": "off"
             },
             {
                 "type": "moveObjectBasedOnAction",
@@ -92,7 +91,8 @@
                 "type": "turnCarBasedOnAction",
                 "quadrant": 4,
                 "clockwise": true,
-                "distance": 50
+                "distance": 50,
+                "blinkersAfter": "off"
             },
             {
                 "type": "moveObjectBasedOnAction",

@@ -2,7 +2,7 @@ class Car extends JunctionObject {
 
     constructor(car) {
         super(car);
-        this.color = car.color.toLowerCase();
+        this.color = COLORS[car.id];
         this.carOff = document.getElementById(this.color + BLINKER_OFF);
         this.carRight = document.getElementById(this.color + BLINKER_RIGHT);
         this.carLeft = document.getElementById(this.color + BLINKER_LEFT);
@@ -16,6 +16,15 @@ class Car extends JunctionObject {
     setIntervalAsync = async (fn, ms) => {
         if(this.exitBlinker) return;
         fn().then(() => setTimeout(() => {this.setIntervalAsync(fn, ms);}, ms));
+    }
+
+    async blinkBlinkers() {
+        if (this.isTurnedOff)
+            this.setDefaultBlinkers(this.blinker);
+        else
+            this.turnOffBlinkers();
+        
+        this.isTurnedOff = !this.isTurnedOff;
     }
 
     startBlinker() {
@@ -62,7 +71,15 @@ class Car extends JunctionObject {
             this.turnCar(car, i, action.distance, carStartX, carStartY, quadrant);            
             await this.sleep(TURN_ANIMATION_PAUSE_DURATION);
         }
-        this.stopBlinker();
+
+        if(action.blinkersAfter == DEFAULT_BLINKER_STATE)
+            this.stopBlinker();
+        else {
+            this.exitBlinker = this.isTurnedOff = this.setDefaultBlinkers(action.blinkersAfter);
+            this.blinker = action.blinkersAfter;
+            this.startBlinker();
+        }      
+
     }
 
     turnCar(car, angle, distance, startX, startY, quadrant) {
@@ -79,15 +96,6 @@ class Car extends JunctionObject {
         action.trafficLightActions.forEach(trafficLightAction => {
             JUNCTION_OBJECTS[trafficLightAction.trafficLightId][trafficLightAction.trafficLightAction]();
         });
-    }
-
-    async blinkBlinkers() {
-        if (this.isTurnedOff)
-            this.setDefaultBlinkers(this.blinker);
-        else
-            this.turnOffBlinkers();
-
-        this.isTurnedOff = !this.isTurnedOff;
     }
 
     clearObjectRoutine() {

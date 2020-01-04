@@ -5,7 +5,6 @@
         {
             "id": "car01",
             "type": "Car",
-            "color": "blue",
             "position": {
                 "x": 250,
                 "y": 450
@@ -16,7 +15,6 @@
         {
             "id": "car02",
             "type": "Car",
-            "color": "green",
             "position": {
                 "x": 574,
                 "y": 140
@@ -36,7 +34,8 @@
                 "type": "turnCarBasedOnAction",
                 "quadrant": 4,
                 "clockwise": false,
-                "distance": 344
+                "distance": 344,
+                "blinkersAfter": "off"
             },
             {
                 "type": "moveObjectBasedOnAction",

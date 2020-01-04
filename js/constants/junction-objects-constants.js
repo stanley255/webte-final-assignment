@@ -8,6 +8,12 @@ const LAYERS = {
     tram01: "tram-layer"
 }
 
+const COLORS = {
+    car01: "blue",
+    car02: "green",
+    car03: "red"
+}
+
 const DEFAULT_TRANSFORM_ORIGINS = {
     car: "42px 84px",
     pedestrian: "23px 23.5px",

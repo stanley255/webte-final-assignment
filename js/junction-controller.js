@@ -123,7 +123,7 @@ function formSvgPath(object) {
 }
 
 function formCarSvgPath(object) {
-    let carColor = object.color.toLowerCase();
+    let carColor = COLORS[object.id];
     return CAR_SVG_PATH + CAR_SVG_PREFIX + carColor + CAR_SVG_EXTENSION;
 }
 
@@ -184,7 +184,7 @@ function removeAndAddClassToElement(element, removeClass, addClass) {
     $(element).removeClass(removeClass).addClass(addClass);
 }
 
-function setToCorrespongindJunctionImage(listItem) {
+function setToCorrespondindJunctionImage(listItem) {
     let junctionNumber = getJunctionNumberFromListItem(listItem);
     let junctionPath = formJunctionSvgPath(junctionNumber);
     changeSvgBackground(junctionPath);
