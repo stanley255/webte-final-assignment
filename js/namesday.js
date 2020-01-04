@@ -142,14 +142,12 @@ function addSearchResultsByName(collection, userInput, result) {
 }
 
 function printResults(input) {
-  // if ()
   input.forEach(element => {
     var toAppend =
       '<li class="collection-item">' +
       convertDateToLittleEndian(element.date) +
-      "<span>: </span>" +
-      element.name +
       " <i class=\"flag "+element.country.toLowerCase()+"\"></i>" +
+      element.name +
       "<br></li>";
     $("#result").append(toAppend);
   });
