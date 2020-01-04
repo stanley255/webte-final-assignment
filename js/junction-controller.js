@@ -141,7 +141,7 @@ function changeJunction(listItem) {
     disableDemoButton();
     disableSolutionButton();
     // Switch to new junction image
-    setToCorrespongindJunctionImage(listItem);
+    setToCorrespondingJunctionImage(listItem);
     // Deleting previous objects
     clearObjectsFromJunction();
     // Load new junction
@@ -184,7 +184,7 @@ function removeAndAddClassToElement(element, removeClass, addClass) {
     $(element).removeClass(removeClass).addClass(addClass);
 }
 
-function setToCorrespondindJunctionImage(listItem) {
+function setToCorrespondingJunctionImage(listItem) {
     let junctionNumber = getJunctionNumberFromListItem(listItem);
     let junctionPath = formJunctionSvgPath(junctionNumber);
     changeSvgBackground(junctionPath);
