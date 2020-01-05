@@ -16,10 +16,39 @@ main {
     font-size: inherit;
 }
 
-.switch {
-    margin: .2vh 0;
+.div-wrapper  {
+    text-align: center;
 }
 
-i.right {
-    margin-left: .2em;
+.divider {
+    display: inline-block;
+    width: 70%;
+}
+
+.author-photo {
+    width: 15em;
+    height: auto;
+    filter: drop-shadow();
+    border-radius: 50%;
+}
+
+.icon-block {
+    text-align: center;
+}
+
+.task-span {
+    color: black;
+}
+
+.input-field .prefix.active {
+    /* color: #004d40 ; */
+    color: white;
+}
+
+body > .row {
+    margin: auto 0;
+}
+
+.helper-text {
+    display: hidden;
 }
