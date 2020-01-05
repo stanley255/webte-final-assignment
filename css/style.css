@@ -81,3 +81,11 @@ table.centered .task {
     -moz-box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.69);
     box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.69);
 }
+
+.card .card-title {
+    font-weight: normal;
+}
+
+.card-content {
+    padding-top: 12px;
+}
