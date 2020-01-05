@@ -31,9 +31,10 @@
 
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
-
+            <!-- SVG pre križovatku -->
             <svg id="svg">
             </svg>
+            <!-- Select pre všetky križovatky -->
             <ul id="junction-select" class="pagination">
                 <li class="active teal"><a>1</a></li>
                 <li class="waves-effect"><a>2</a></li>
@@ -51,7 +52,50 @@
                 <li class="waves-effect"><a>14</a></li>
                 <li class="waves-effect"><a>15</a></li>
             </ul>
-
+            <!-- Tlačidlo pre DEMO -->
+            <button id="junction-demo-button" class="waves-effect waves-light btn disabled" type="button" name="demo">Demo<i class="material-icons right">play_circle_outline</i></button>
+            <!-- Tlačidlo pre zobrazenie riešenia -->
+            <a id="junction-solution-button" class="waves-effect waves-light btn modal-trigger disabled" href="#modal-junction-solution">Riešenie<i class="material-icons right">lightbulb_outline</i></a>
+            <!-- Modálna štruktúra s riešením -->
+            <div id="modal-junction-solution" class="modal">
+                <div class="modal-content">
+                    <h4 id="junction-solution-title">Križovatka 01</h4>
+                    <p id="junction-solution-text">Tuto bude text riešenia danej križovatky</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+                </div>
+            </div>
+            <!-- Pop-up pre správne riešenie -->
+            <div id="correct-answer" class="modal">
+                <div class="modal-content">
+                    <h4>Gratulujeme :)</h4>
+                    <p>✔ Skvelé, túto križovatku sa ti podarilo vyriešiť správne, pozri si demo alebo vyskúšaj ďalšiu z našich križovatiek ✔</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+                </div>
+            </div>
+            <!-- Pop-up pre nesprávne riešenie -->
+            <div id="incorrect-answer" class="modal">
+                <div class="modal-content">
+                    <h4>Škoda :(</h4>
+                    <p>❌ Je nám to ľúto ale tvoje riešenie nie je správne, môžeš si však prečítať správne riešenie a pozrieť demo ❌</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+                </div>
+            </div>
+            <!-- Pop-up pre nesprávne riešenie spôsobujúce haváriu -->
+            <div id="crash-answer" class="modal">
+                <div class="modal-content">
+                    <h4>HAVÁRIA!</h4>
+                    <p>⚠ Je nám to ľúto ale tvoje riešenie by mohlo spôsobiť nehodu, môžeš si však prečítať správne riešenie a pozrieť demo ⚠</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -59,7 +103,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="js/init.js"></script>
-    <script src="js/junction.js"></script>
+    <script src="js/constants/junction-controller-constants.js"></script>
+    <script src="js/constants/junction-objects-constants.js"></script>
+    <script src="js/constants/quadrants.js"></script>
+    <script src="js/classes/junction-object.js"></script>
+    <script src="js/classes/pedestrian.js"></script>
+    <script src="js/classes/cyclist.js"></script>
+    <script src="js/classes/tram.js"></script>
+    <script src="js/classes/junction.js"></script>
+    <script src="js/classes/car.js"></script>
+    <script src="js/classes/traffic-light.js"></script>
+    <script src="js/junction-controller.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 #svg {
     background-repeat: no-repeat;
-    width: 1000px;
-    height: 750px;
+    height: 100%;
+    width: 100%;
+    background-size: contain;
 }

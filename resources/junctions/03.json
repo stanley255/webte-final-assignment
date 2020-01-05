@@ -1,0 +1,75 @@
+{
+    "number": "03",
+    "title": "Križovatka 3",
+    "objects": [
+        {
+            "id": "car01",
+            "type": "Car",
+            "position": {
+                "x": 250,
+                "y": 350
+            },
+            "angle": 90,
+            "blinker": "off"
+        },
+        {
+            "id": "car02",
+            "type": "Car",
+            "position": {
+                "x": 850,
+                "y": 240
+            },
+            "angle": 270,
+            "blinker": "left"
+        },
+        {
+            "id": "car03",
+            "type": "Car",
+            "position": {
+                "x": 510,
+                "y": 50
+            },
+            "angle": 180,
+            "blinker": "off"
+        }
+    ],
+    "actions" : {
+        "car01": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 800
+            }
+        ],
+        "car02": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "left",
+                "distance": 110
+            },
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 2,
+                "clockwise": false,
+                "distance": 200,
+                "blinkersAfter": "off"
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "down",
+                "distance": 300
+            }
+        ],
+        "car03": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "down",
+                "distance": 700
+            }
+        ]
+    },
+    "solutions": [
+        ["car01", "car02", "car03"]
+    ],
+    "solutionText": "Najprv prejde <b>modré auto</b>, potom <b>zelené auto</b> nakoľko sa nachádzajú na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na vedľajšej ceste."
+}

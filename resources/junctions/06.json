@@ -1,0 +1,77 @@
+{
+    "number": "06",
+    "title": "Križovatka 6",
+    "objects": [
+        {
+            "id": "car02",
+            "type": "Car",
+            "position": {
+                "x": 200,
+                "y": 270
+            },
+            "angle": 90,
+            "blinker": "right"
+        },
+        {
+            "id": "car03",
+            "type": "Car",
+            "position": {
+                "x": 390,
+                "y": 140
+            },
+            "angle": 180,
+            "blinker": "off"
+        }
+    ],
+    "actions" : {
+        "car02": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 50
+            },
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 1,
+                "clockwise": false,
+                "distance": 250,
+                "blinkersAfter": "off"
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "down",
+                "distance": 300
+            }
+        ],
+        "car03": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "down",
+                "distance": 150
+            },
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 3,
+                "clockwise": false,
+                "distance": 80,
+                "blinkersAfter": "right"
+            },
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 1,
+                "clockwise": false,
+                "distance": 10,
+                "blinkersAfter": "off"
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "down",
+                "distance": 300
+            }
+        ]
+    },
+    "solutions": [
+        ["car02", "car03"]
+    ],
+    "solutionText": "Najprv prejde <b>zelené auto</b> nakoľko podľa prednosti sprava mu <b>červené auto</b> musí udeliť prednosť."
+}

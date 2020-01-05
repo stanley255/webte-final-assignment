@@ -1,0 +1,58 @@
+{
+    "number": "12",
+    "title": "Križovatka 12",
+    "objects": [
+        {
+            "id": "car01",
+            "type": "Car",
+            "position": {
+                "x": 250,
+                "y": 450
+            },
+            "angle": 90,
+            "blinker": "left"
+        },
+        {
+            "id": "car02",
+            "type": "Car",
+            "position": {
+                "x": 574,
+                "y": 140
+            },
+            "angle": 180,
+            "blinker": "off"
+        }
+    ],
+    "actions" : {
+        "car01": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 50
+            },
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 4,
+                "clockwise": false,
+                "distance": 344,
+                "blinkersAfter": "off"
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "up",
+                "distance": 240
+            }
+        ],
+        "car02": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "down",
+                "distance": 610
+            }
+        ]
+    },
+    "solutions": [
+        ["car02", "car01"]
+    ],
+    "solutionText": "Najprv prejde <b>zelené auto</b> a následne pôjde <b>modré auto</b>, ktoré dáva prednosť."
+}

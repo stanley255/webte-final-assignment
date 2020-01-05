@@ -1,0 +1,82 @@
+{
+    "number": "10",
+    "title": "Križovatka 10",
+    "objects": [
+        {
+            "id": "car01",
+            "type": "Car",
+            "position": {
+                "x": 230,
+                "y": 0
+            },
+            "angle": 180,
+            "blinker": "left"
+        },
+        {
+            "id": "car02",
+            "type": "Car",
+            "position": {
+                "x": 335,
+                "y": 430
+            },
+            "angle": 0,
+            "blinker": "off"
+        },
+        {
+            "id": "car03",
+            "type": "Car",
+            "position": {
+                "x": 660,
+                "y": 130
+            },
+            "angle": 270,
+            "blinker": "left"
+        }
+    ],
+    "actions" : {
+        "car01": [
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 3,
+                "clockwise": false,
+                "distance": 200,
+                "blinkersAfter": "off"
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 600
+            }
+        ],
+        "car02": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "up",
+                "distance": 600
+            }
+        ],
+        "car03": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "left",
+                "distance": 200
+            },
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 2,
+                "clockwise": false,
+                "distance": 190,
+                "blinkersAfter": "off"
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "down",
+                "distance": 500
+            }
+        ]
+    },
+    "solutions": [
+        ["car01", "car02", "car03"]
+    ],
+    "solutionText": "<b>Zelené auto</b> prichádza ku križovatke po hlavnej ceste a pokračuje priamo, takže prejde cez križovatku ako prvé.</br>Ako druhé prejde cez križovatku <b>modré auto</b> prichádzajúce tiež po hlavnej ceste, ktoré muselo pri odbočovaní vľavo dať prednosť v jazde <b>zelenému autu</b>.</br>Ako posledné prejde cez križovatku <b>červené auto</b> prichádzajúce po vedľajšej ceste, ktoré muselo dať prednosť v jazde <b>zelenému</b> a <b>modrému autu</b> prichádzajúcemu po hlavnej ceste."
+}

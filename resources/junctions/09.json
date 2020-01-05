@@ -1,0 +1,89 @@
+{
+    "number": "09",
+    "title": "Križovatka 9",
+    "objects": [
+        {
+            "id": "car01",
+            "type": "Car",
+            "position": {
+                "x": 620,
+                "y": 500
+            },
+            "angle": 0,
+            "blinker": "left"
+        },
+        {
+            "id": "car02",
+            "type": "Car",
+            "position": {
+                "x": 250,
+                "y": 330
+            },
+            "angle": 90,
+            "blinker": "off"
+        },
+        {
+            "id": "trafficlight01",
+            "type": "TrafficLight",
+            "fileName": "trafficlight1",
+            "layerSuffixId": "1",
+            "layer": "traffic-light-layer-1",
+            "light": "green",
+            "position": {
+                "x": 430,
+                "y": 450
+            },
+            "angle": 90
+        },
+        {
+            "id": "trafficlight02",
+            "type": "TrafficLight",
+            "fileName": "trafficlight2",
+            "layerSuffixId": "2",
+            "layer": "traffic-light-layer-2",
+            "light": "red",
+            "position": {
+                "x": 715,
+                "y": 470
+            },
+            "angle": 0
+        }
+    ],
+    "actions" : {
+        "car01": [
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 1,
+                "clockwise": true,
+                "distance": 220,
+                "blinkersAfter": "off"
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "left",
+                "distance": 500
+            }
+        ],
+        "car02": [
+            {
+                "type": "moveObjectBasedOnActionWithTrafficLight",
+                "direction": "right",
+                "distance": 810,
+                "trafficLightActions": [
+                    {
+                        "trafficLightId": "trafficlight01",
+                        "trafficLightAction": "switchTrafficLightToRed"
+                    },
+                    {
+                        "trafficLightId": "trafficlight02",
+                        "trafficLightAction": "switchTrafficLightToGreen"
+                    }
+                ]
+            }
+        ]
+    },
+    "solutions": [
+        ["car02", "car01"]
+    ],
+    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa má na neoznačenej križovatke prednosť sprava, následne pôjde <b>zelené auto</b>."
+}
