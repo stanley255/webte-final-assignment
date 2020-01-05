@@ -39,3 +39,16 @@ main {
 .task-span {
     color: black;
 }
+
+.input-field .prefix.active {
+    /* color: #004d40 ; */
+    color: white;
+}
+
+body > .row {
+    margin: auto 0;
+}
+
+.helper-text {
+    display: hidden;
+}
