@@ -72,3 +72,11 @@ body > .row {
 table.centered .task {
     text-align: left;
 }
+
+#junc-thumbnail {
+    width: 60%;
+    height: auto;
+    -webkit-box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.69);
+    -moz-box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.69);
+    box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.69);
+}
