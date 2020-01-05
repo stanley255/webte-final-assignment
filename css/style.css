@@ -32,6 +32,7 @@ main {
     filter: drop-shadow();
     /* filter: grayscale(); */
     border-radius: 50%;
+
 }
 
 .icon-block {

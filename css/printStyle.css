@@ -1,0 +1,48 @@
+html,body{
+    height: 100%;
+}
+
+h1:first-of-type{
+    margin-top:5em;
+}
+
+.sidenav-trigger{
+    display:none;
+}
+
+#authors{
+    margin-top:25em;
+    width:100%;
+}
+.section .row{
+    display:flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.author-photo{
+    max-height: 25em;
+    object-fit: cover;
+    width: 100%;
+}
+
+.card-image{
+    text-shadow: 2px 2px 3px black;
+}
+
+#namesday-widget{
+    position: absolute;
+    width: 28em;
+    right: 0;
+}
+
+#counter-widget{
+    position: absolute;
+    width: 28em;
+    left: 0;
+}
+
+footer{
+    position: relative;
+    top: 20%;
+}

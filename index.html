@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/printStyle.css" type="text/css" rel="stylesheet" media="print" />
   <link href="css/namesday.css" type="text/css" rel="stylesheet" media="screen,projection" />
   <link href="css/flag.css" type="text/css" rel="stylesheet" media="screen,projection" />
   <link href="css/counter.css" type="text/css" rel="stylesheet" media="screen,projection" />
@@ -35,7 +36,7 @@
 
     <div class="col s2 m3 l2">
       <!-- Left side content -->
-      <div class="card teal lighten-1">
+      <div id="counter-widget" class="card teal lighten-1">
         <div class="card-content white-text">
           <span class="card-title"><b>Počítadlo návštev</b></span>
           <p>Premýšľaš nad tým, koľko krát si už navštívil našu stránku?<hr>Bolo to presne:</p>
@@ -64,7 +65,7 @@
       </div>
 
       <!-- Author's section -->
-      <div class="container">
+      <div id="authors" class="container">
         <h1 class="header center teal-text">Autori a projekt</h1>
         <div class="section">
           <div class="row center">
