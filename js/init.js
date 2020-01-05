@@ -17,3 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         constrainWidth: false
     });
 });
+
+$(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });

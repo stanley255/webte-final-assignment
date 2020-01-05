@@ -27,8 +27,10 @@ main {
 
 .author-photo {
     width: 15em;
-    height: auto;
+    height: 20em;
+    object-fit: cover;
     filter: drop-shadow();
+    /* filter: grayscale(); */
     border-radius: 50%;
 }
 
@@ -51,4 +53,18 @@ body > .row {
 
 .helper-text {
     display: hidden;
+}
+
+.author-icons {
+    text-align: center;
+}
+
+.author-icons ul {
+    white-space: nowrap;
+    margin: 0;
+    margin-top: 24px;
+}
+
+.author-icons li {
+    display: inline;
 }
