@@ -14,6 +14,7 @@ function initializeJunctionPage() {
     changeSvgBackground(formJunctionSvgPath(STARTING_JUNCTION_NUMBER));
     loadJunction(STARTING_JUNCTION_NUMBER, loadCallback);
     bindControlButtonFunction();
+    bindRepeatJunctionButton();
 }
 
 function bindJunctionChangeFunction() {
@@ -32,9 +33,17 @@ function bindControlButtonFunction() {
     $("#junction-demo-button").click(() => {
         disableDemoButton();
         unbindJunctionChangeFunction();
+        disableRepeatButton();
+        disableSolutionButton();
         clearObjectsFromJunction();
         let junctionNumber = getJunctionNumberFromListItem(currentJunctionItem);
         loadJunction(junctionNumber, reloadCallback);
+    });
+}
+
+function bindRepeatJunctionButton() {
+    $("#junction-repeat-button").click(() => {
+        changeJunction(currentJunctionItem);
     });
 }
 
@@ -57,11 +66,11 @@ function reloadCallback() {
 }
 
 function runDemoActions() {
+    JUNCTION.turnOffOnClickListenerForJunctionObjects();
     runActionsRecursively(0);
 }
 
 function runActionsRecursively(objectIndex) {
-    JUNCTION.turnOffOnClickListenerForJunctionObjects();
     unbindJunctionChangeFunction();
     disableDemoButton();
     if (JUNCTION.hasSimultaneousPassage() && JUNCTION.isObjectPartOfSimultaneousPassage(getObjectFromSolution(objectIndex)))
@@ -86,11 +95,15 @@ function simultaneousPassageActionExecution(objectIndex) {
 }
 
 function afterDemoActionExecutionRoutine(objectIndex, increment) {
-    JUNCTION.turnOnOnClickListenerForJunctionObjects();
-    bindJunctionChangeFunction();
-    enableDemoButton();
-    if (JUNCTION.solutions[0][objectIndex + increment])
+    if (JUNCTION.solutions[0][objectIndex + increment]) {
         runActionsRecursively(objectIndex + increment);
+    } else {
+        JUNCTION.turnOnOnClickListenerForJunctionObjects();
+        bindJunctionChangeFunction();
+        enableDemoButton();
+        enableSolutionButton();
+        enableRepeatButton();
+    }
 }
 
 function getObjectFromSolution(objectIndex) {
@@ -137,9 +150,10 @@ function changeJunction(listItem) {
     toggleClassesToCurrentActive(listItem);
     // Set current junction to new one
     currentJunctionItem = listItem;
-    // Disable junction demo&solution button
+    // Disable junction demo, solution and repeat buttons
     disableDemoButton();
     disableSolutionButton();
+    disableRepeatButton();
     // Switch to new junction image
     setToCorrespondingJunctionImage(listItem);
     // Deleting previous objects
@@ -178,6 +192,14 @@ function enableSolutionButton() {
 
 function disableSolutionButton() {
     removeAndAddClassToElement(SOLUTION_BUTTON_ID, SOLUTION_BUTTON_ACTIVE, SOLUTION_BUTTON_INACTIVE);
+}
+
+function enableRepeatButton() {
+    removeAndAddClassToElement(REPEAT_BUTTON_ID, REPEAT_BUTTON_INACTIVE, REPEAT_BUTTON_ACTIVE);
+}
+
+function disableRepeatButton() {
+    removeAndAddClassToElement(REPEAT_BUTTON_ID, REPEAT_BUTTON_ACTIVE, REPEAT_BUTTON_INACTIVE);
 }
 
 function removeAndAddClassToElement(element, removeClass, addClass) {

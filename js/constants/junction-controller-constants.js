@@ -24,6 +24,10 @@ const SOLUTION_BUTTON_ID = "#junction-solution-button";
 const SOLUTION_BUTTON_ACTIVE = "waves-effect waves-light btn modal-trigger";
 const SOLUTION_BUTTON_INACTIVE = "waves-effect waves-light btn modal-trigger disabled";
 
+const REPEAT_BUTTON_ID = "#junction-repeat-button";
+const REPEAT_BUTTON_ACTIVE = "waves-effect waves-light btn";
+const REPEAT_BUTTON_INACTIVE = "waves-effect waves-light btn disabled";
+
 const CORRECT_ANSWER_POP_UP_ID = "#correct-answer";
 const INCORRECT_ANSWER_POP_UP_ID = "#incorrect-answer";
 const CRASH_ANSWER_POP_UP_ID = "#crash-answer";
