@@ -68,3 +68,7 @@ body > .row {
 .author-icons li {
     display: inline;
 }
+
+table.centered .task {
+    text-align: left;
+}
