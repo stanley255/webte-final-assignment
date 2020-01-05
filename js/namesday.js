@@ -1,6 +1,7 @@
 var namesdayList;
 var lastUpdated;
 var helperBox;
+var namesdayWidgetDiscovered = false;
 
 $(document).ready(function() {
   loadNamesday(namesdayList).done(function(data) {
@@ -212,5 +213,12 @@ function convertDateToBigEndian(value) {
   }
 
 }
+
+$("#namesday-widget").mouseover(function() {
+  if (!namesdayWidgetDiscovered) {
+    $('.tap-target').tapTarget('open');
+    namesdayWidgetDiscovered = true;
+  }
+});
 
 //TODO: Format tagnames

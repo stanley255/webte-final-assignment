@@ -26,3 +26,7 @@
 input[type="text"] + label {
     pointer-events: none;
 }
+
+#namesday-feature-popup {
+    color: white;
+}
