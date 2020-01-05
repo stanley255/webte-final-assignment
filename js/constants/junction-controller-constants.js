@@ -2,6 +2,7 @@ const JUNCTION_CLASS_ACTIVE = "active teal";
 const JUNCTION_CLASS_INACTIVE = "waves-effect";
 const JUNCTION_IMAGES_PATH = "./img/junctions/";
 const JUNCTION_IMAGE_EXTENSION = ".png";
+const JUNCTION_SVG_VIEWBOX = "0 0 1000 750";
 
 const CAR_SVG_PATH = "./img/cars/";
 const CAR_SVG_PREFIX = "cars-";

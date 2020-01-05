@@ -217,6 +217,11 @@ function formJunctionObjectPath(junctionNumber) {
 
 function changeSvgBackground(path) {
     $("#svg").css("background-image", path);
+    appendViewBoxAttribute();
+}
+
+function appendViewBoxAttribute(){
+    $("#svg").attr("viewBox",JUNCTION_SVG_VIEWBOX);
 }
 
 function showCorrectAnswerPopUp() {
