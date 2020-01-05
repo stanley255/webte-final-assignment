@@ -1,0 +1,65 @@
+{
+    "number": "02",
+    "title": "Križovatka 2",
+    "objects": [
+        {
+            "id": "car01",
+            "type": "Car",
+            "position": {
+                "x": 240,
+                "y": 345
+            },
+            "angle": 90,
+            "blinker": "left"
+        },
+        {
+            "id": "car03",
+            "type": "Car",
+            "position": {
+                "x": 510,
+                "y": 50
+            },
+            "angle": 180,
+            "blinker": "left"
+        }
+    ],
+    "actions" : {
+        "car01": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 100
+            },
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 4,
+                "clockwise": false,
+                "distance": 230,
+                "blinkersAfter": "off"
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "up",
+                "distance": 300
+            }
+        ],
+        "car03": [
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 3,
+                "clockwise": false,
+                "distance": 252,
+                "blinkersAfter": "off"
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 300
+            }
+        ]
+    },
+    "solutions": [
+        ["car01", "car03"]
+    ],
+    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na vedľajšej ceste."
+}

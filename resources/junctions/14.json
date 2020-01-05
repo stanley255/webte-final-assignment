@@ -1,0 +1,53 @@
+{
+    "number": "14",
+    "title": "Križovatka 14",
+    "objects": [
+        {
+            "id": "car01",
+            "type": "Car",
+            "position": {
+                "x": 360,
+                "y": 360
+            },
+            "angle": 90,
+            "blinker": "off"
+        },
+        {
+            "id": "car03",
+            "type": "Car",
+            "position": {
+                "x": 590,
+                "y": 520
+            },
+            "angle": 0,
+            "blinker": "right"
+        }
+    ],
+    "actions" : {
+        "car01": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 700
+            }
+        ],
+        "car03": [
+            {
+                "type": "turnCarBasedOnAction",
+                "quadrant": 2,
+                "clockwise": true,
+                "distance": 120,
+                "blinkersAfter": "off"
+            },
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 300
+            }
+        ]
+    },
+    "solutions": [
+        ["car01", "car03"]
+    ],
+    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na napájacej ceste."
+}
