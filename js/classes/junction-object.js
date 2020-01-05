@@ -79,6 +79,7 @@ class JunctionObject {
     handleFirstObjectOfSimultaneousPassage(object) {
         object.removeOnClickAction();
         JUNCTION.setSimultaneousPassage(object);
+        showSimultaneousPassageHint();
     }
 
     handleSecondObjectOfSimultaneousPassage(object) {

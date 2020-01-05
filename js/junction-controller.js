@@ -261,3 +261,9 @@ function showCrashAnswerPopUp() {
 function showPopUpById(elementId) {
     M.Modal.getInstance($(elementId)).open();
 }
+
+function showSimultaneousPassageHint() {
+    M.toast({
+        html: 'Vami zvolené auto môže prejsť súčasne s iným účastníkom cestnej premávky, kliknutím označte s ktorým.'
+    });
+}
