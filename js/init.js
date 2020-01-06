@@ -9,6 +9,7 @@ $(document).ready(function () {
     $('.modal').modal();
     $('.collapsible').collapsible();
     $('.materialboxed').materialbox();
+    $('.tap-target').tapTarget();
 });
 
 // Disable all task-checkboxes click
@@ -25,12 +26,3 @@ document.addEventListener('DOMContentLoaded', function () {
         constrainWidth: false
     });
 });
-
-// Initialiazation for feature pop-ups
-$(document).ready(function () {
-    $('.tap-target').tapTarget();
-});
-// document.addEventListener('DOMContentLoaded', function () {
-//     var elems = document.querySelectorAll('.tap-target');
-//     var instances = M.TapTarget.init(elems, {color: "white"});
-// });
