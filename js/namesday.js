@@ -1,18 +1,20 @@
 var namesdayList;
 var lastUpdated;
 var helperBox;
+var isDate;
+var namesdayWidgetDiscovered = false;
 
 $(document).ready(function() {
   loadNamesday(namesdayList).done(function(data) {
     namesdayList = $(data).find("zaznam");
     injectTodaysName();
-    setupTooltipBoxValues();
-    // console.log(namesdayList[0].children[0]);
   });
 });
 
 function setupTooltipBoxValues() {
-  let helperText = "Zadajte meno, ktoré sa nachádza v <b>slovenskom, českom, rakúskom, poľskom alebo maďarskom</b> kalendári<hr>Zadajte dátum vo formáte <b>dd.mm.</b> alebo <b>dd.mm</b>";
+  let helperTextDate = "Zadajte dátum vo formáte <b>31.3.</b> alebo <b>31.03</b>";
+  let helperTextName = "Zadajte meno, ktoré sa nachádza v <b>slovenskom, českom, rakúskom, poľskom alebo maďarskom</b> kalendári";
+  let helperText = isDate ? helperTextDate : helperTextName;
   $('#namesday-input').attr("data-tooltip", helperText);
 }
 
@@ -83,10 +85,16 @@ function normalize(input) {
   return input;
 }
 
+function checkInputType(input) {
+  let dateFormat = input.split('.').join("");
+  isDate = $.isNumeric(dateFormat);
+}
+
 $("#namesday-input").on("keyup", function() {
   var value = $(this)
     .val()
     .toLowerCase();
+  checkInputType(value);
   var result = [];
   jQuery.grep(
     namesdayList,
@@ -114,38 +122,53 @@ $("#namesday-input").on("keyup", function() {
 
 function addSearchResultsByDate(collection, result) {
   for (var i = 1; i < collection.length; ++i) {
-    if (collection[i].tagName == "SKdni" || collection[i].tagName == "SKsviatky" || collection[i].tagName == "CZsviatky" ) {
+    if (collection[i].tagName == "SK" || collection[i].tagName == "SKdni" || collection[i].tagName == "SKsviatky" || collection[i].tagName == "CZsviatky" ) {
       continue;
     }
     var toReturn = {
-      name: collection[i].textContent,
+      name: formatSKdNames(collection[i].textContent),
       country: collection[i].tagName,
       date: collection[0].textContent
     };
-    result.push(toReturn);
+    if(toReturn.name)
+      result.push(toReturn);
   }
+}
+
+function formatSKdNames(content) {
+  let splitContent = content.split(",");
+  let index = splitContent.indexOf("-");
+  if(index < 0) 
+    return content;
+  splitContent.splice(index, 1);
+  return splitContent.toString();
+}
+
+function emptySKd(userInput, content) {
+  return (normalize(userInput) == "-" && content.split(",").includes("-"))
 }
 
 function addSearchResultsByName(collection, userInput, result) {
   for (var i = 1; i < collection.length; ++i) {
     //Since SK is just a subset of SKd, we do not need it
-    if (collection[i].tagName == "SK" || collection[i].tagName == "SKdni" || collection[i].tagName == "SKsviatky" || collection[i].tagName == "CZsviatky") {
+    if (collection[i].tagName == "SK" || collection[i].tagName == "SKdni" || collection[i].tagName == "SKsviatky" || collection[i].tagName == "CZsviatky" || emptySKd(userInput, collection[i].textContent)) {
       continue;
     }
 
     if (normalize(collection[i].textContent).includes(normalize(userInput))) {
       var toReturn = {
-        name: collection[i].textContent,
+        name: formatSKdNames(collection[i].textContent),
         country: collection[i].tagName,
         date: collection[0].textContent
       };
-
-      result.push(toReturn);
+      if(toReturn.name)
+        result.push(toReturn);
     }
   }
 }
 
 function showError() {
+  setupTooltipBoxValues();
   $('#namesday-input').addClass("tooltipped");
   // Set delay for the tooltip to close to 100seconds
   $('.tooltipped').tooltip({exitDelay: 100000});
@@ -212,5 +235,12 @@ function convertDateToBigEndian(value) {
   }
 
 }
+
+$("#namesday-widget").mouseover(function() {
+  if (!namesdayWidgetDiscovered) {
+    $('.tap-target').tapTarget('open');
+    namesdayWidgetDiscovered = true;
+  }
+});
 
 //TODO: Format tagnames

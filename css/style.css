@@ -3,6 +3,7 @@ body {
     min-height: 100vh;
     min-width: 300px;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 

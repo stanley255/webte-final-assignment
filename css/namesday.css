@@ -32,3 +32,15 @@ input[type="text"] + label {
         padding-top:20px;
     }
 }
+
+#namesday-feature-popup {
+    color: white;
+}
+
+.material-tooltip {
+    border-radius: 20px;
+    color: white;
+    max-width: 250px;
+    background-color: darkred;
+
+}
