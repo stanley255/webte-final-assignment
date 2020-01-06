@@ -47,26 +47,27 @@
             {
                 "type": "moveObjectBasedOnAction",
                 "direction": "down",
-                "distance": 150
+                "distance": 120
             },
             {
                 "type": "turnCarBasedOnAction",
                 "quadrant": 3,
                 "clockwise": false,
-                "distance": 80,
+                "distance": 140,
                 "blinkersAfter": "right"
             },
             {
-                "type": "turnCarBasedOnAction",
-                "quadrant": 1,
-                "clockwise": false,
-                "distance": 10,
-                "blinkersAfter": "off"
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 30
+            },
+            {
+                "type": "exitRoundaboutToRight"
             },
             {
                 "type": "moveObjectBasedOnAction",
-                "direction": "down",
-                "distance": 300
+                "direction": "right",
+                "distance": 200
             }
         ]
     },

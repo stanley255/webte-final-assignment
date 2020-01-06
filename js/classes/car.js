@@ -98,6 +98,35 @@ class Car extends JunctionObject {
         });
     }
 
+    // Please, 
+    // do not judge me for this piece of code
+    // and do not use this piece of code
+    // I do not have time and energy for making this reusable
+    // for more scenarios
+    // PEACE!
+    async exitRoundaboutToRight(car, action) {
+        let carStartX = car.transformX;
+        let carStartY = car.transformY;
+        let quadrant = QUADRANTS[4]["counterclockwise"];
+        quadrant.end = 320;
+        action.distance = 180;
+
+        for (let i = quadrant.start; i != (quadrant.end + quadrant.increment); i += quadrant.increment) {
+            this.turnCar(car, i, action.distance, carStartX, carStartY, quadrant);            
+            await this.sleep(TURN_ANIMATION_PAUSE_DURATION);
+        }
+
+        carStartX = car.transformX;
+        carStartY = car.transformY;
+        quadrant = QUADRANTS[2]["clockwise"];
+        quadrant.start = 140;
+
+        for (let i = quadrant.start; i != (quadrant.end + quadrant.increment); i += quadrant.increment) {
+            this.turnCar(car, i, action.distance, carStartX - 50, carStartY + 140, quadrant);            
+            await this.sleep(TURN_ANIMATION_PAUSE_DURATION);
+        }
+    }
+
     clearObjectRoutine() {
         this.stopBlinker();
     }
