@@ -94,11 +94,19 @@ table.centered .task {
     padding-top: 12px;
 }
 
-
 #nav-mobile{
     width:fit-content;
     padding-right:70px;
 }
+
+.copyright-row {
+    margin-bottom: 0px;
+}
+
+.page-footer .container .row{
+    margin-bottom:0;
+}
+
 @media only screen and (min-width: 100px) and (max-width: 993px){
     .row:first-of-type{
         display: flex;
@@ -128,6 +136,4 @@ table.centered .task {
         margin-left:0;
         width: 100%;
     }
-.copyright-row {
-    margin-bottom: 0px;
 }
