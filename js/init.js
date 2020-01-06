@@ -5,9 +5,10 @@
     });
 })(jQuery);
 
-// Pop-initialization
 $(document).ready(function () {
     $('.modal').modal();
+    $('.collapsible').collapsible();
+    $('.materialboxed').materialbox();
 });
 
 // Disable all task-checkboxes click
@@ -24,7 +25,3 @@ document.addEventListener('DOMContentLoaded', function () {
         constrainWidth: false
     });
 });
-
-$(document).ready(function(){
-    $('.collapsible').collapsible();
-  });
