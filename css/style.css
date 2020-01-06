@@ -94,6 +94,7 @@ table.centered .task {
     padding-top: 12px;
 }
 
+
 #nav-mobile{
     width:fit-content;
     padding-right:70px;
@@ -127,4 +128,6 @@ table.centered .task {
         margin-left:0;
         width: 100%;
     }
+.copyright-row {
+    margin-bottom: 0px;
 }
