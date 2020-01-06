@@ -79,6 +79,7 @@ class JunctionObject {
     handleFirstObjectOfSimultaneousPassage(object) {
         object.removeOnClickAction();
         JUNCTION.setSimultaneousPassage(object);
+        showSimultaneousPassageHint();
     }
 
     handleSecondObjectOfSimultaneousPassage(object) {
@@ -100,12 +101,15 @@ class JunctionObject {
     }
 
     setOnClickAction() {
-        if (!this.addedToJunctionSolution)
+        if (!this.addedToJunctionSolution) {
             this.layer.addEventListener('click', this._listener);
+            this.layer.style.cursor = "hand";
+        }
     }
 
     removeOnClickAction() {
         this.layer.removeEventListener('click', this._listener);
+        this.layer.style.cursor = "auto";
     }
 
     sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));

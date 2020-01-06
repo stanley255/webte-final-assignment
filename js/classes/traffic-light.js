@@ -25,6 +25,10 @@ class TrafficLight extends JunctionObject {
 
     handleClick() {}
 
+    setOnClickAction() {}
+
+    removeOnClickAction() {}
+
     async switchTrafficLightToRed() {
         this.setYellowLight();
         await this.sleep(TRAFFIC_LIGHT_COLOR_SWITCHING_DURATION);

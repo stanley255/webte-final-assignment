@@ -47,31 +47,32 @@
             {
                 "type": "moveObjectBasedOnAction",
                 "direction": "down",
-                "distance": 150
+                "distance": 120
             },
             {
                 "type": "turnCarBasedOnAction",
                 "quadrant": 3,
                 "clockwise": false,
-                "distance": 80,
+                "distance": 140,
                 "blinkersAfter": "right"
             },
             {
-                "type": "turnCarBasedOnAction",
-                "quadrant": 1,
-                "clockwise": false,
-                "distance": 10,
-                "blinkersAfter": "off"
+                "type": "moveObjectBasedOnAction",
+                "direction": "right",
+                "distance": 30
+            },
+            {
+                "type": "exitRoundaboutToRight"
             },
             {
                 "type": "moveObjectBasedOnAction",
-                "direction": "down",
-                "distance": 300
+                "direction": "right",
+                "distance": 200
             }
         ]
     },
     "solutions": [
         ["car02", "car03"]
     ],
-    "solutionText": "Najprv prejde <b>zelené auto</b> nakoľko podľa prednosti sprava mu <b>červené auto</b> musí udeliť prednosť."
+    "solutionText": "Kruhový objazd nie je označený dopravnými značkami upravujúcimi prednosť v jazde.</br>Vodič vchádzajúci do kruhového objazdu označeného príslušnou dopravnou značkou je povinný dodržať smer na kruhovom objazde vyznačený šípkami. Vodič vchádzajúci do kruhového objazdu má prednosť v jazde, ak dopravnou značkou nie je ustanovené inak.</br>Prednosť v jazde má <b>zelené auto</b>, pretože vchádza do kruhového objazdu."
 }

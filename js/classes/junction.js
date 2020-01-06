@@ -48,6 +48,7 @@ class Junction {
             this.junctionNotSolved()
         this.allowToWatchDemo();
         this.allowToShowSolution();
+        this.allowToRepeatJunction();
     }
 
     isUserSolutionValid() {
@@ -79,6 +80,7 @@ class Junction {
         showCrashAnswerPopUp();
         this.allowToWatchDemo();
         this.allowToShowSolution();
+        this.allowToRepeatJunction();
     }
 
     allowToWatchDemo() {
@@ -87,6 +89,10 @@ class Junction {
 
     allowToShowSolution() {
         enableSolutionButton();
+    }
+
+    allowToRepeatJunction() {
+        enableRepeatButton();
     }
 
     async executeActions(object) {
