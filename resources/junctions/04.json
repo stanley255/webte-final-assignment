@@ -79,5 +79,5 @@
     "solutions": [
         ["car01", "car02", "car03"]
     ],
-    "solutionText": "Najprv prejde <b>modré auto</b>, potom <b>zelené auto</b> a ako posledné pôjde križovatkou <b>červené auto</b>."
+    "solutionText": "Do križovatky ako prvé vojde <b>červené auto</b>, ktoré však dáva prednosť <b>zelenému autu</b>. To však musí pustiť <b>modré auto</b>, pretože dáva prednosť sprava a zároveň <b>modrému auo</b> už sprava nikto nestojí v ceste, pretože <b>červené auto</b> už vošlo do križovatky.</br>Ako prvé teda prejde križovatkou <b>modré auto</b>, potom <b>zelené auto</b> a ako posledné ju opustí <b>červené auto</b>"
 }

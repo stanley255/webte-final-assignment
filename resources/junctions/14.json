@@ -49,5 +49,5 @@
     "solutions": [
         ["car01", "car03"]
     ],
-    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa nachádza na hlavnej ceste a následne pôjde <b>červené auto</b>, ktoré je na napájacej ceste."
+    "solutionText": "<b>Červené auto</b> prichádza ku križovatke po vedľajšej ceste a chce odbočiť vpravo.</br>Ako prvé prejde cez križovatku <b>modré auto</b> prichádzajúce po hlavnej ceste.</br>V poradí druhé prejde cez križovatku <b>červené auto</b>, ktoré pri odbočovaní vpravo muselo dať prednosť v jazde <b>modrému autu</b> prichádzajúcemu po hlavnej ceste."
 }

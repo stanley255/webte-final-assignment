@@ -54,5 +54,5 @@
     "solutions": [
         ["car02", "car01"]
     ],
-    "solutionText": "Najprv prejde <b>zelené auto</b> a následne pôjde <b>modré auto</b>, ktoré dáva prednosť."
+    "solutionText": "Vodič vchádzajúci do križovatky označenej dopravnou značkou <b>Stoj, daj prednosť v jazde!</b> je povinný dať prednosť autu idúcemu po hlavnej ceste.</br><b>Modré auto</b> idúce po ceste označenej ako vedľajšia musí na príkaz dopravnej značky <b>Stoj, daj prednosť v jazde!</b> zastaviť auto na takom mieste, odkiaľ má na križovatku náležitý rozhľad a dať prednosť v jazde <b>zelenému autu</b>."
 }

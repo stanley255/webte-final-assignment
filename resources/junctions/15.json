@@ -78,5 +78,5 @@
         ["cyclist01", "car01", "car02"],
         ["cyclist01", "car02", "car01"]
     ],
-    "solutionText": "Najprv prejde <b>cyklista</b>, potom <b>modré auto</b> súčasne s <b>červeným autom</b>."
+    "solutionText": "Obe vozidlá prichádzajú ku križovatke po hlavnej ceste, avšak musia dať prednosť cyklistom prechádzajúcim vo voľnom smere, pritom ich nesmie ohroziť ani obmedziť a na tento účel je povinný zastaviť vozidlo.</br>Ako prvý teda prejde križovatku <b>cyklista</b>, následne prejde cez križovatku <b>modré auto</b> súčasne so <b>zeleným</b>, pretože ich dráhy sa nepretínajú."
 }

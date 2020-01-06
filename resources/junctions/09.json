@@ -85,5 +85,5 @@
     "solutions": [
         ["car02", "car01"]
     ],
-    "solutionText": "Najprv prejde <b>modré auto</b> nakoľko sa má na neoznačenej križovatke prednosť sprava, následne pôjde <b>zelené auto</b>."
+    "solutionText": "Ako prvé prejde cez križovatku <b>zelené auto</b> prichádzajúce v smere, pre ktorý svieti signál VOĽNO.</br><b>Modré auto</b> musí zastaviť na signál STOJ. Po zmene signálu STOJ na VOĽNO <b>modré auto</b> prejde križovatkou v smere jazdy vľavo."
 }

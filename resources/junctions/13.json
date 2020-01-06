@@ -6,72 +6,66 @@
             "id": "car02",
             "type": "Car",
             "position": {
-                "x": 200,
-                "y": 270
+                "x": 790,
+                "y": 240
             },
-            "angle": 90,
-            "blinker": "right"
+            "angle": 270,
+            "blinker": "off"
+        },
+        {
+            "id": "car01",
+            "type": "Car",
+            "position": {
+                "x": 500,
+                "y": 50
+            },
+            "angle": 180,
+            "blinker": "off"
         },
         {
             "id": "car03",
             "type": "Car",
+            "color": "blue",
             "position": {
-                "x": 390,
-                "y": 140
+                "x": 600,
+                "y": 550
             },
-            "angle": 180,
-            "blinker": "off"
+            "angle": 0,
+            "blinker": "left"
         }
     ],
     "actions" : {
-        "car02": [
-            {
-                "type": "moveObjectBasedOnAction",
-                "direction": "right",
-                "distance": 50
-            },
-            {
-                "type": "turnCarBasedOnAction",
-                "quadrant": 1,
-                "clockwise": false,
-                "distance": 250,
-                "blinkersAfter": "off"
-            },
+        "car01": [
             {
                 "type": "moveObjectBasedOnAction",
                 "direction": "down",
-                "distance": 300
+                "distance": 700
+            }
+        ],
+        "car02": [
+            {
+                "type": "moveObjectBasedOnAction",
+                "direction": "left",
+                "distance": 920
             }
         ],
         "car03": [
             {
-                "type": "moveObjectBasedOnAction",
-                "direction": "down",
-                "distance": 150
-            },
-            {
-                "type": "turnCarBasedOnAction",
-                "quadrant": 3,
-                "clockwise": false,
-                "distance": 80,
-                "blinkersAfter": "right"
-            },
-            {
                 "type": "turnCarBasedOnAction",
                 "quadrant": 1,
-                "clockwise": false,
-                "distance": 10,
+                "clockwise": true,
+                "distance": 270,
                 "blinkersAfter": "off"
             },
             {
                 "type": "moveObjectBasedOnAction",
-                "direction": "down",
-                "distance": 300
+                "direction": "left",
+                "distance": 420
             }
         ]
     },
     "solutions": [
-        ["car02", "car03"]
+        ["car01", "car02", "car03"]
     ],
-    "solutionText": "Najprv prejde <b>zelené auto</b> nakoľko podľa prednosti sprava mu <b>červené auto</b> musí udeliť prednosť."
+    "solutionText": "Ako prvé prejde cez križovatku <b>modré auto</b>, pretože k nemu neprichádza žiadne vozidlo sprava.</br>Ako druhé prejde cez križovatku <b>zelené auto</b>, ktoré muselo dať prednosť v jazde <b>modrému autu</b> prichádzajúcemu k nemu sprava.</br>Ako posledné prejde <b>červené auto</b>, pretože muselo dať prednosť <b>zelenému autu</b> prichádzajúcemu k nemu sprava."
 }

@@ -48,5 +48,5 @@
     "solutions": [
         ["tram01", "car01"]
     ],
-    "solutionText": "Najprv prejde <b>električka</b> nakoľko má prednosť a následne pôjde <b>modré auto</b>."
+    "solutionText": "<b>Modré auto</b> prichádza ku križovatke a na križovatke chce odbočiť vľavo.</br>V poradí prvá prejde cez križovatku <b>električka</b> idúca po hlavnej ceste.</br>Ako druhé prejde cez križovatku <b>modré auto</b>, ktoré muselo dať pri odbočovaní vľavo prednosť v jazde <b>električke</b>."
 }

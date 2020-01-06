@@ -73,5 +73,5 @@
     "solutions": [
         ["car03", "car02"]
     ],
-    "solutionText": "Najprv prejde <b>červené auto</b> nakoľko mu <b>zelené auto</b> musí podľa dopravného značenia udeliť prednosť."
+    "solutionText": "Vodič vchádzajúci do kruhového objazdu označeného príslušnou dopravnou značkou je povinný dodržať smer na kruhovom objazde vyznačený šípkami. Vodič vchádzajúci do kruhového objazdu má prednosť v jazde, ak dopravnou značkou nie je ustanovené inak.</br><b>Červené auto</b> idúce po kruhovom objazde má prednosť v jazde, pretože prichádza ku križovatke po ceste označenej ako hlavná.</br><b>Zelené auto</b> vchádzajúce do kruhovému objazdu po ceste označenej ako vedľajšia musí na príkaz dopravnej značky dať prednosť v jazde <b>červenému autu</b>."
 }
