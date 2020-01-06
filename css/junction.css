@@ -3,4 +3,14 @@
     height: 100%;
     width: 100%;
     background-size: contain;
+    max-width: 730px;
+}
+
+@media only screen and (max-width:435px) and (min-width:100px){
+    #junction-demo-button{
+        margin-left: 0.5em;
+    }
+    #junction-solution-button{
+        margin-top:0.5em;
+    }
 }
