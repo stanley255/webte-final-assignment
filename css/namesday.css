@@ -26,3 +26,9 @@
 input[type="text"] + label {
     pointer-events: none;
 }
+
+@media only screen and (max-width:1622px){
+    #namesday-input{
+        padding-top:20px;
+    }
+}
