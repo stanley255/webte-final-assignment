@@ -89,3 +89,7 @@ table.centered .task {
 .card-content {
     padding-top: 12px;
 }
+
+.copyright-row {
+    margin-bottom: 0px;
+}
