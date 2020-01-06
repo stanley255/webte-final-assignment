@@ -144,10 +144,14 @@ function formatSKdNames(content) {
   return splitContent.toString();
 }
 
+function emptySKd(userInput, content) {
+  return (normalize(userInput) == "-" && content.split(",").includes("-"))
+}
+
 function addSearchResultsByName(collection, userInput, result) {
   for (var i = 1; i < collection.length; ++i) {
     //Since SK is just a subset of SKd, we do not need it
-    if (collection[i].tagName == "SK" || collection[i].tagName == "SKdni" || collection[i].tagName == "SKsviatky" || collection[i].tagName == "CZsviatky" || collection[i].textContent.split(",").includes("-")) {
+    if (collection[i].tagName == "SK" || collection[i].tagName == "SKdni" || collection[i].tagName == "SKsviatky" || collection[i].tagName == "CZsviatky" || emptySKd(userInput, collection[i].textContent)) {
       continue;
     }
 
