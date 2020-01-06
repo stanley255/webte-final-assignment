@@ -63,7 +63,7 @@
             {
                 "type": "moveObjectBasedOnAction",
                 "direction": "left",
-                "distance": 560
+                "distance": 570
             }
         ],
         "cyclist01": [
@@ -78,5 +78,5 @@
         ["cyclist01", "car01", "car02"],
         ["cyclist01", "car02", "car01"]
     ],
-    "solutionText": "Najprv prejde <b>cyklista</b>, potom <b>modré auto</b> súčasne s <b>červeným autom</b>."
+    "solutionText": "Najprv prejde <b>cyklista</b> po cyklistickom chodníku a následne môže prejsť <b>modré auto</b> súčasne so <b>zeleným autom</b>."
 }
