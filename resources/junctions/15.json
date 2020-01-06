@@ -63,7 +63,7 @@
             {
                 "type": "moveObjectBasedOnAction",
                 "direction": "left",
-                "distance": 560
+                "distance": 570
             }
         ],
         "cyclist01": [
