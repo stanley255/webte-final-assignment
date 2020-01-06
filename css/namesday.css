@@ -17,6 +17,7 @@
 
 #result{
     color:black;
+    width:200px;
 }
 
 .validate {
@@ -27,9 +28,36 @@ input[type="text"] + label {
     pointer-events: none;
 }
 
-@media only screen and (max-width:1622px){
+@media only screen and (max-width:1641px){
     #namesday-input{
         padding-top:20px;
+    }
+    
+    #name-input-box{
+        left: -15px;
+    }
+}
+
+
+@media only screen and (max-width:1085px){
+    #namesday-input{
+        padding-top:15px;
+    }
+
+    #name-input-box{
+        left: -20px;
+        width: 125px;
+    }
+}
+
+@media only screen and (min-width: 100px) and (max-width: 993px){
+    #namesday-input{
+        padding-top:0;
+    }
+
+    #name-input-box{
+        left:0;
+        width: 100%;
     }
 }
 
