@@ -6,6 +6,10 @@
     max-width: 730px;
 }
 
+#correct-answer, #incorrect-answer, #crash-answer {
+    text-align: center;
+}
+
 #toast-container {
     transform: translateX(50%) translateY(50%);
     top: 5% !important;

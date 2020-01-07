@@ -12,7 +12,7 @@ $(document).ready(function() {
 });
 
 function setupTooltipBoxValues() {
-  let helperTextDate = "Zadajte dátum vo formáte <b>31.3.</b> alebo <b>31.03</b>";
+  let helperTextDate = "Zadajte správny dátum vo formáte <b>31.3.</b> alebo <b>31.03</b>";
   let helperTextName = "Zadajte meno, ktoré sa nachádza v <b>slovenskom, českom, rakúskom, poľskom alebo maďarskom</b> kalendári";
   let helperText = isDate ? helperTextDate : helperTextName;
   $('#namesday-input').attr("data-tooltip", helperText);
