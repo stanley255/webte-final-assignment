@@ -163,3 +163,9 @@ table.centered .task {
         width: 100%;
     }
 }
+
+@media only screen and (max-width:1574px){   
+    .junc-list-container > span:first-child {
+        margin-left: 14px;
+    }
+}

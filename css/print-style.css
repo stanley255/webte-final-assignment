@@ -39,6 +39,10 @@ footer .container .row:nth-of-type(2){
     display:flex;
 }
 
+#main-section > div.section.no-pad-bot > div > div:nth-child(5) > table{
+    margin-bottom: -60px;
+}
+
 #junc-thumbnail{
     margin-left:-50px;
     margin-right:100em;
@@ -46,4 +50,14 @@ footer .container .row:nth-of-type(2){
 
 .sidenav-trigger{
     display:none;
+}
+
+.junc-list-container{
+    height: 2em;
+    width: fit-content;
+}
+
+.junc-list-container span{
+    min-width: 2rem;
+    width:2rem;
 }
