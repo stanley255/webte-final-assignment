@@ -61,3 +61,7 @@ footer .container .row:nth-of-type(2){
     min-width: 2rem;
     width:2rem;
 }
+
+#svg{
+    background-size: contain;
+}
