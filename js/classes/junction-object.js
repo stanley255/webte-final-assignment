@@ -104,6 +104,7 @@ class JunctionObject {
         if (!this.addedToJunctionSolution) {
             this.layer.addEventListener('click', this._listener);
             this.layer.style.cursor = "hand";
+            this.layer.style.cursor = "pointer";
         }
     }
 
