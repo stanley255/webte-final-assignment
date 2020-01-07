@@ -6,6 +6,14 @@
     max-width: 730px;
 }
 
+#toast-container {
+    transform: translateX(50%) translateY(50%);
+    top: 5% !important;
+    right: 50% !important;
+    bottom: auto !important;
+    left:auto !important;
+}
+
 @media only screen and (max-width:435px) and (min-width:100px){
     #junction-demo-button{
         margin-left: 0.5em;
