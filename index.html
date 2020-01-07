@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <meta name="viewport" content="width=device-width" />
   <title>Finálne zadanie</title>
   <!-- FAVICON -->
-  <link rel="shorcut icon" type="image/png" href="img/favicon.png">
+  <link rel="icon" type="image/png" href="img/favicon.png">
   <!-- CSS -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="css/printStyle.css" type="text/css" rel="stylesheet" media="print" />
-  <link href="css/namesday.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="css/flag.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="css/counter.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="css/print-style.css" type="text/css" rel="stylesheet" media="print" />
+  <link href="css/namesday.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="css/flag.css" type="text/css" rel="stylesheet" media="screen" />
+  <link href="css/counter.css" type="text/css" rel="stylesheet" media="screen" />
 </head>
 
 <body>
-  <nav class="teal lighten-1" role="navigation">
+  <nav class="teal lighten-1">
     <div class="nav-wrapper container"><a id="logo-container" href="./index.html" class="brand-logo">WEBTE</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="./junction.html">Križovatky</a></li>
@@ -38,8 +38,8 @@
         <div id="counter-widget" class="card teal lighten-1">
           <div class="card-content white-text">
             <span class="card-title"><b>Počítadlo návštev</b></span>
-            <p>Premýšľaš nad tým, koľko krát si už navštívil našu stránku?
-              <hr>Bolo to presne:</p>
+            Premýšľaš nad tým, koľko krát si už navštívil našu stránku?
+              <hr>Bolo to presne:
             <span id="visit-counter"></span> krát
           </div>
         </div>
@@ -47,7 +47,7 @@
       </div>
 
       <div id="mid-col" class="col s8 m9 l8">
-        <div class="section no-pad-bot" id="index-banner">
+        <div class="section no-pad-bot">
           <div class="container">
             <br><br>
             <h1 class="header center teal-text">Finálne zadanie</h1>
@@ -56,7 +56,7 @@
                 technológie!</h5>
             </div>
             <div class="row center">
-              <img id="junc-thumbnail" src="/img/thumbnail.png" alt="Junction Thumbnail">
+              <img id="junc-thumbnail" src="./img/thumbnail.png" alt="Junction Thumbnail">
             </div>
             <div class="row center">
               <a href="./junction.html" id="download-button"
@@ -97,11 +97,10 @@
       <!-- middle content  -->
       <!-- Author's section -->
       <div id="authors" class="container">
-        <h1 class="header center teal-text">Autori a projekt</h1>
+        <h2 class="header center teal-text">Autori a projekt</h2>
         <div class="section">
           <div class="row center">
-            <p>
-              <h6 class="header col s12 regular">Náš tím vypracoval zadanie k predmetu <b>Webové technológie 1</b>.
+              <span class="header col s12 regular">Náš tím vypracoval zadanie k predmetu <b>Webové technológie 1</b>.
                 Nižšie
                 si môžete prečítať o tom, kto mal ktorú časť zadania na starosti, pozrieť si veľmi stručné rozdelenie
                 úloh,
@@ -111,8 +110,7 @@
                 úvodné
                 úlohy) alebo si môžete pozrieť náš <a href="https://github.com/stanley255/webte-final-assignment"
                   target="_blank">GitHub repozritár</a>, ktorý bude zverejnený verejnosti po dátume odovzdania projektu.
-              </h6>
-            </p>
+              </span>
           </div>
           <div id="authors-cards" class="row">
             <div class="col s12 m4">
@@ -120,7 +118,7 @@
                 <div class="card-image">
                   <img class="author-photo materialboxed" src="img/authors/adam.jpg" alt="Adam Petro">
                   <a class="btn-floating halfway-fab waves-effect waves-light black" href="https://github.com/adik6555"
-                    target="_blank"><i style="font-size:24px" class="fa">&#xf09b;</i></a>
+                    target="_blank"><i class="fa fa-github" style="font-size:24px"></i></a>
                 </div>
                 <div class="card-content">
                   <span class="card-title">Adam Petro</span>
@@ -138,7 +136,7 @@
                       </div>
                     </li>
                     <li class="collection-item">
-                      <address><div>
+                      <div>
                         <i class="material-icons">local_phone</i>
                         <a class="secondary-content black-text" href="tel:+421946124149">+421 907 273 677</a>
                       </div>
@@ -189,8 +187,7 @@
                 <div class="card-image">
                   <img class="author-photo materialboxed" src="img/authors/stano.jpg" alt="Stanislav Pekarovič">
                   <a class="btn-floating halfway-fab waves-effect waves-light black"
-                    href="https://github.com/stanley255" target="_blank"><i style="font-size:24px"
-                      class="fa">&#xf09b;</i></a>
+                    href="https://github.com/stanley255" target="_blank"><i class="fa fa-github" style="font-size:24px"></i></a>
                 </div>
                 <div class="card-content">
                   <span class="card-title">Stanislav Pekarovič</span>
@@ -267,8 +264,7 @@
                 <div class="card-image">
                   <img class="author-photo materialboxed" src="img/authors/matej.jpg" alt="Matej Friedel">
                   <a class="btn-floating halfway-fab waves-effect waves-light black"
-                    href="https://github.com/MatejFriedel" target="_blank"><i style="font-size:24px"
-                      class="fa">&#xf09b;</i></a>
+                    href="https://github.com/MatejFriedel" target="_blank"><i class="fa fa-github" style="font-size:24px"></i></a>
                 </div>
                 <div class="card-content">
                   <span class="card-title">Matej Friedel</span>
@@ -343,10 +339,10 @@
         <br><br>
       </div>
 
-      <div class="section no-pad-bot" id="index-banner">
+      <div class="section no-pad-bot">
         <div class="container">
           <br><br>
-          <h1 class="header center teal-text">Task checklist</h1>
+          <h2 class="header center teal-text">Task checklist</h2>
           <div class="row center">
             <h5 class="header col s12 light">Všetky úlohy s ktorými sme sa museli popasovať nájdete v tejto tabuľke!
             </h5>
@@ -355,7 +351,7 @@
             <table class="responsive-table centered striped">
               <thead>
                 <tr>
-                  <th class="task">Task</th class="task">
+                  <th class="task">Task</th>
                   <th>Adam</th>
                   <th>Stanislav</th>
                   <th>Matej</th>
@@ -370,13 +366,13 @@
                   <td><i class="material-icons">done</i></td>
                 </tr>
                 <tr>
-                  <td class="task">Implementácia počítadla osobných prístupov na stránku pomocou cookies</td class="task">
+                  <td class="task">Implementácia počítadla osobných prístupov na stránku pomocou cookies</td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                   <td><i class="material-icons">done</i></td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                 </tr>
                 <tr>
-                  <td class="task">Načítanie údajov kalendára z XML súboru</td class="task">
+                  <td class="task">Načítanie údajov kalendára z XML súboru</td>
                   <td><i class="material-icons">done</i></td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
@@ -388,73 +384,73 @@
                   <td><i class="material-icons">done</i></td>
                 </tr>
                 <tr>
-                  <td class="task">Implementácia vyhľadávania menín pomocou mena</td class="task">
+                  <td class="task">Implementácia vyhľadávania menín pomocou mena</td>
                   <td><i class="material-icons">done</i></td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                   <td><i class="material-icons">done</i></td>
                 </tr>
                 <tr>
-                  <td class="task">Kontrola vstupu používateľa a výsledkov vyhľadávania menín</td class="task">
+                  <td class="task">Kontrola vstupu používateľa a výsledkov vyhľadávania menín</td>
                   <td><i class="material-icons">done</i></td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                   <td><i class="material-icons">done</i></td>
                 </tr>
                 <tr>
-                  <td class="task">Návrh a načítanie štruktúry JSON-u s informáciami o križovatke</td class="task">
+                  <td class="task">Návrh a načítanie štruktúry JSON-u s informáciami o križovatke</td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                   <td><i class="material-icons">done</i></td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                 </tr>
                 <tr>
-                  <td class="task">Implementácia konkrétnych 15 križovatiek</td class="task">
+                  <td class="task">Implementácia konkrétnych 15 križovatiek</td>
                   <td><i class="material-icons">done</i></td>
                   <td><i class="material-icons">done</i></td>
                   <td><i class="material-icons">done</i></td>
                 </tr>
                 <tr>
-                  <td class="task">Implementácia animácie blinkrov áut pomocou sprites</td class="task">
+                  <td class="task">Implementácia animácie blinkrov áut pomocou sprites</td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                   <td><i class="material-icons">done</i></td>
                   <td><i class="material-icons">done</i></td>
                 </tr>
                 <tr>
-                  <td class="task">Implementácia animácie pohybu objektov</td class="task">
+                  <td class="task">Implementácia animácie pohybu objektov</td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                   <td><i class="material-icons">done</i></td>
                   <td><i class="material-icons">done</i></td>
                 </tr>
                 <tr>
-                  <td class="task">Pridanie interakcií používateľa s aplikáciou (správne riešenia, tooltipy)</td class="task">
+                  <td class="task">Pridanie interakcií používateľa s aplikáciou (správne riešenia, tooltipy)</td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                   <td><i class="material-icons">done</i></td>
                   <td><i class="material-icons">done</i></td>
                 </tr>
                 <tr>
-                  <td class="task">Vytvorenie návodu na používanie aplikácie</td class="task">
+                  <td class="task">Vytvorenie návodu na používanie aplikácie</td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                   <td><i class="material-icons">done</i></td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                 </tr>
                 <tr>
-                  <td class="task">Vytvorenie sekcie o autoroch stránky</td class="task">
+                  <td class="task">Vytvorenie sekcie o autoroch stránky</td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                   <td><i class="material-icons">done</i></td>
                 </tr>
                 <tr>
-                  <td class="task">Vytvorenie faviconu pre stránku</td class="task">
+                  <td class="task">Vytvorenie faviconu pre stránku</td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                   <td><i class="material-icons">done</i></td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                 </tr>
                 <tr>
-                  <td class="task">Aplikovanie responzivity a optimalizácie stránky pre tlač</td class="task">
+                  <td class="task">Aplikovanie responzivity a optimalizácie stránky pre tlač</td>
                   <td><i class="material-icons">done</i></td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                 </tr>
                 <tr>
-                  <td class="task">Grafický návrh križovatiek a jej objektov</td class="task">
+                  <td class="task">Grafický návrh križovatiek a jej objektov</td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>
                   <td><i class="material-icons">done</i></td>
                   <td><i class="material-icons">do_not_disturb_alt</i></td>

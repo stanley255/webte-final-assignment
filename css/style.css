@@ -34,7 +34,7 @@ body {
     width: 15em;
     height: 20em;
     object-fit: cover;
-    filter: drop-shadow();
+    /* filter: drop-shadow(); */
     /* filter: grayscale(); */
     border-radius: 50%;
 
@@ -58,7 +58,7 @@ body > .row {
 }
 
 .helper-text {
-    display: hidden;
+    display: none;
 }
 
 .author-icons {
