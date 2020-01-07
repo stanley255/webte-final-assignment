@@ -108,6 +108,10 @@ table.centered .task {
     margin-bottom:0;
 }
 
+.junc-wrapper {
+    text-align: center;
+}
+
 @media only screen and (min-width: 100px) and (max-width: 993px){
     .row:first-of-type{
         display: flex;
