@@ -264,6 +264,7 @@ function showPopUpById(elementId) {
 
 function showSimultaneousPassageHint() {
     M.toast({
-        html: 'Vami zvolené auto môže prejsť súčasne s iným účastníkom cestnej premávky, kliknutím označte s ktorým.'
+        html: 'Vami zvolené auto môže prejsť súčasne s iným účastníkom cestnej premávky, kliknutím označte s ktorým.',
+        classes: 'rounded'
     });
 }
