@@ -112,6 +112,27 @@ table.centered .task {
     text-align: center;
 }
 
+.junc-list-wrapper {
+    text-align: center;
+}
+
+.card-content h6 {
+    margin-bottom: .5em;
+}
+
+.junc-list-container {
+    display:inline-flex;
+    flex-wrap: wrap;
+}
+
+.junc-list-container > span {
+    margin-top: .5em;
+}
+
+.junc-list-container > span:first-child {
+    margin-left: 0;
+}
+
 @media only screen and (min-width: 100px) and (max-width: 993px){
     .row:first-of-type{
         display: flex;
