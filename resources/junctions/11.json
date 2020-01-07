@@ -111,5 +111,5 @@
     "solutions": [
         ["tram01", "car02", "car03", "car01"]
     ],
-    "solutionText": "<b>Modré auto</b> prichádza ku križovatke po vedľajšej ceste a na križovatke chce odbočiť vľavo.</br>V poradí prvá prejde cez križovatku <b>električka</b> idúca po hlavnej ceste.</br>Ako druhé prejde cez križovatku <b>zelené auto</b>, ktoré muselo dať pri odbočovaní vľavo prednosť v jazde protiidúcej <b>električke</b>.</br>Ako tretie prejde cez križovatku <b>červené auto</b>, ktoré muselo dať prednosť v jazde vozidlám idúcim po hlavnej ceste.</br>Nakoniec prejde <b>modré auto</b>, potom čo dalo prednosť v jazde vozidlám idúcim po hlavnej ceste a pri odbočovaní vľavo aj protiidúcemu <b>červenému autu</b>."
+    "solutionText": "V poradí prvá prejde cez križovatku <b>električka</b> idúca po hlavnej ceste.</br>Ako druhé prejde cez križovatku <b>zelené auto</b>, ktoré muselo dať pri odbočovaní vľavo prednosť v jazde protiidúcej <b>električke</b>.</br>Ako tretie prejde cez križovatku <b>červené auto</b>, ktoré muselo dať prednosť v jazde vozidlám idúcim po hlavnej ceste.</br>Nakoniec prejde <b>modré auto</b>, potom čo dalo prednosť v jazde vozidlám idúcim po hlavnej ceste a pri odbočovaní vľavo aj protiidúcemu <b>červenému autu</b>."
 }

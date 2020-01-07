@@ -44,7 +44,7 @@
             {
                 "type": "moveObjectBasedOnAction",
                 "direction": "up",
-                "distance": 760
+                "distance": 770
             }
         ],
         "tram01": [

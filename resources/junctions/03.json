@@ -71,5 +71,5 @@
     "solutions": [
         ["car01", "car02", "car03"]
     ],
-    "solutionText": "<b>Zelené auto</b> prichádza po hlavnej ceste a na križovatke odbočuje vľavo.</br>Ako prvé prejde cez križovatku modré vozidlo idúce taktiež po hlavnej ceste.</br>Ako druhé prejde <b>zelené auto</b>, pretože muselo dať pri odbočovaní vľavo prednosť v jazde protiidúcemu <b>modrému autu</b>.</br>V poradí posledné prejde cez križovatku <b>červené auto</b>, ktoré muselo dať prednosť v jazde vozidlám prichádzajúcim po hlavnej ceste."
+    "solutionText": "<b>Zelené auto</b> prichádza po hlavnej ceste a na križovatke odbočuje vľavo.</br>Ako prvé prejde cez križovatku <b>modré auto</b> idúce taktiež po hlavnej ceste.</br>Ako druhé prejde <b>zelené auto</b>, pretože muselo dať pri odbočovaní vľavo prednosť v jazde protiidúcemu <b>modrému autu</b>.</br>V poradí posledné prejde cez križovatku <b>červené auto</b>, ktoré muselo dať prednosť v jazde autám prichádzajúcim po hlavnej ceste."
 }
