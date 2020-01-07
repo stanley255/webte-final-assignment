@@ -20,6 +20,9 @@
   width: 100%;
 }
 
+#authors{
+    margin-bottom:1em;
+}
 
 #authors-cards{
     display: flex;
