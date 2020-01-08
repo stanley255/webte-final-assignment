@@ -24,15 +24,15 @@ Odkaz na [XML súbor](https://github.com/stanley255/webte-final-assignment/blob/
 
 ## Náhľad aplikácie
 
- ![](https://github.com/stanley255/webte-final-assignment/blob/master/img/junction.gif)
+ ![](https://s5.gifyu.com/images/junction.gif)
 
  *Ukážka jednej z križovatiek*
  
- ![](https://github.com/stanley255/webte-final-assignment/blob/master/img/main-page-web.png)
+ ![](https://i.imgur.com/edYfgPr.png)
 
  *Náhľad na úvodnú stránku nášho projektu*
 
- ![](https://github.com/stanley255/webte-final-assignment/blob/master/img/main-page-mobile.png)
+ ![](https://i.imgur.com/p8IWXZO.png)
 
  *Úvodná stránka pre mobilné zariadenia*
 
