@@ -1,12 +1,12 @@
 
-# WEBTE1 - Final assignment
+# WEBTE1 - Final assignment 🚗
 
 ## Zadanie
 Projekt ku skúške na predmet **Webové technológie 1** pozostáva z troch úloh:
 
- 1. Križovatkový trenažér
- 2. Kalendár menín
- 3. Osobné počítadlo návštev stránky
+ 1. Križovatkový trenažér 🚦
+ 2. Kalendár menín 📅
+ 3. Osobné počítadlo návštev stránky 🙋‍♂️
 
 Viac informácií o [zadaní ](https://github.com/stanley255/webte-final-assignment/blob/master/zadanie.pdf)
 Odkaz na [XML súbor](https://github.com/stanley255/webte-final-assignment/blob/master/resources/meniny.xml), ktorý je určený na načítavanie menín
@@ -22,25 +22,20 @@ Odkaz na [XML súbor](https://github.com/stanley255/webte-final-assignment/blob/
  7. **Validnosť** všetkých **HTML** a **CSS** súborov
  8. Stránka musí byť **optimalizovaná pre Chrome a Firefox**
 
-## Zostávajúce tasky
+## Náhľad aplikácie
 
- - [ ] Križovatkový trenažér
-	 - [ ] navrhnúť štruktúru JSON-u s informáciami o križovatke - Stanislav Pekarovič
-	 - [X] implementovať pozadie križovatiek  - Stanislav Pekarovič
-	 - [ ] implementovať pohyb áut  - Stanislav Pekarovič
-	 - [ ] blinkre  - Adam Petro
-	 - [ ] implementovať konkrétnych 15 križovatiek - Matej Friedel, Stanislav Pekarovič, Adam Petro
- - [ ] Kalendár menín
-	 - [X] načítanie údajov z XML  - Adam Petro
-	 - [X] dohľadanie mena na základe zadaného dátumu  - Adam Petro
-	 - [X] dohľadanie dátumu na základe zadaného mena  - Adam Petro
-	 - [ ] kontrola pre zadané inputy - Matej Friedel
- - [X] Osobné počítadlo návštev stránky
-	 - [X] JavaScript pre prácu s cookies - Stanislav Pekarovič
-	 - [X] CSS pre widget počítadla - Stanislav Pekarovič
- - [ ] Kontakt na autorov - Matej Friedel
- - [X] Favicon
- - [ ] Dizajn stránky - Matej Friedel
+ ![](https://github.com/stanley255/webte-final-assignment/blob/master/img/junction.gif)
+
+ *Ukážka jednej z križovatiek*
+ 
+ ![](https://github.com/stanley255/webte-final-assignment/blob/master/img/main-page-web.png)
+
+ *Náhľad na úvodnú stránku nášho projektu*
+
+ ![](https://github.com/stanley255/webte-final-assignment/blob/master/img/main-page-mobile.png)
+
+ *Úvodná stránka pre mobilné zariadenia*
+
 
 ## Autori
 
