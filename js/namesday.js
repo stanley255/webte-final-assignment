@@ -1,15 +1,27 @@
 var namesdayList;
-var lastUpdated;
 var helperBox;
 var isDate;
 var namesdayWidgetDiscovered = false;
+var showTooltipOnFocus = true;
 
 $(document).ready(function() {
   loadNamesday(namesdayList).done(function(data) {
     namesdayList = $(data).find("zaznam");
     injectTodaysDateAndName();
   });
+  $('#namesday-input').focus(onFocusFunc);
+  $('#namesday-input').blur(onBlurFunc);
 });
+
+function onFocusFunc() {
+  if(showTooltipOnFocus)
+    showError();
+}
+
+function onBlurFunc() {
+  showTooltipOnFocus = $('#namesday-input').hasClass("tooltipped") ? true : false;
+  hideError();
+}
 
 function setupTooltipBoxValues() {
   let helperTextDate = "Zadajte správny dátum vo formáte <b>31.3.</b> alebo <b>31.03</b>";
@@ -172,6 +184,7 @@ function addSearchResultsByName(collection, userInput, result) {
 }
 
 function showError() {
+  if($('#namesday-input').hasClass("tooltipped")) return;
   setupTooltipBoxValues();
   $('#namesday-input').addClass("tooltipped");
   // Set delay for the tooltip to close to 100seconds
