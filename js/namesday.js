@@ -13,7 +13,7 @@ $(document).ready(function() {
 
 function setupTooltipBoxValues() {
   let helperTextDate = "Zadajte správny dátum vo formáte <b>31.3.</b> alebo <b>31.03</b>";
-  let helperTextName = "Zadajte meno, ktoré sa nachádza v <b>slovenskom, českom, rakúskom, poľskom alebo maďarskom</b> kalendári";
+  let helperTextName = "Zadajte celé meno, ktoré sa nachádza v <b>slovenskom, českom, rakúskom, poľskom alebo maďarskom</b> kalendári";
   let helperText = isDate ? helperTextDate : helperTextName;
   $('#namesday-input').attr("data-tooltip", helperText);
 }
@@ -32,7 +32,7 @@ function injectTodaysDateAndName() {
   output = output.split(",");
   $("#namesday-today").append("<em><b>" + output + "</em></b>");
   let todaysDate = formatDate(getToday());
-  $("#namesday-today-date").html("<b>" + todaysDate + ".</b>");
+  $("#namesday-today-date").html("<b>" + todaysDate + "</b>");
 }
 
 function retrieveNameFromDate(date) {
@@ -77,7 +77,7 @@ function getToday() {
 function formatDate(date) {
   let month = date[0].toString() + date[1].toString();
   let day = date[2].toString() + date[3].toString();
-  return day + "." + month;
+  return day + "." + month + ".";
 }
 
 function normalize(input) {
@@ -147,7 +147,7 @@ function formatSKdNames(content) {
 }
 
 function emptySKd(userInput, content) {
-  return (normalize(userInput) == "-" && content.split(",").includes("-"))
+  return (normalize(userInput) == "-" && content.split(", ").includes("-"))
 }
 
 function addSearchResultsByName(collection, userInput, result) {
@@ -247,4 +247,3 @@ $("#namesday-widget").mouseover(function() {
   }
 });
 
-//TODO: Format tagnames
