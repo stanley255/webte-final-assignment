@@ -126,6 +126,7 @@ class Car extends JunctionObject {
     }
 
     clearObjectRoutine() {
+        super.clearObjectRoutine();
         this.stopBlinker();
     }
 

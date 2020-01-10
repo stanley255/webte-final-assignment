@@ -14,7 +14,9 @@ class JunctionObject {
 
         this._listener = () => this.handleClick(object);
         this.setOnClickAction();
-        this.sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+        this.sleep = (ms) => new Promise(resolve => {
+            this.timeout = setTimeout(resolve, ms);
+        });
     }
 
     setDefaultPosition(position = DEFAULT_POSITION, angle = DEFAULT_ANGLE) {
@@ -160,6 +162,8 @@ class JunctionObject {
         return JUNCTION.getPartnerForSimultaneousPassage(object).id !== JUNCTION.simultaneousPassageObjectId;
     }
 
-    clearObjectRoutine() {}
+    clearObjectRoutine() {
+        clearTimeout(this.timeout);
+    }
 
 }
