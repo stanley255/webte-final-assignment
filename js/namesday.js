@@ -32,7 +32,7 @@ function injectTodaysDateAndName() {
   output = output.split(",");
   $("#namesday-today").append("<em><b>" + output + "</em></b>");
   let todaysDate = formatDate(getToday());
-  $("#namesday-today-date").html("<b>" + todaysDate + "</b>");
+  $("#namesday-today-date").html("<b>" + todaysDate + ".</b>");
 }
 
 function retrieveNameFromDate(date) {
@@ -195,7 +195,7 @@ function printResults(input) {
     var toAppend =
       '<li class="collection-item">' +
       convertDateToLittleEndian(element.date) +
-      " <i class=\"flag "+element.country.toLowerCase()+"\"></i>" +
+      ". <i class=\"flag "+element.country.toLowerCase()+"\"></i>" +
       element.name +
       "<br></li>";
     $("#result").append(toAppend);

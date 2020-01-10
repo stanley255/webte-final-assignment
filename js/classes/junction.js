@@ -29,13 +29,13 @@ class Junction {
 
     turnOnOnClickListenerForJunctionObjects() {
         for (const key in JUNCTION_OBJECTS) {
-            JUNCTION_OBJECTS[key].setOnClickAction()
+            if (!JUNCTION_OBJECTS[key].addedToJunctionSolution) JUNCTION_OBJECTS[key].setOnClickAction();
         }
     }
 
     turnOffOnClickListenerForJunctionObjects() {
         for (const key in JUNCTION_OBJECTS) {
-            JUNCTION_OBJECTS[key].removeOnClickAction()
+            JUNCTION_OBJECTS[key].removeOnClickAction();
         }
     }
 
@@ -43,9 +43,9 @@ class Junction {
         if (this.userSolution.length !== this.solutions[0].length)
             return;
         if (this.isUserSolutionValid())
-            this.junctionSolved()
+            this.junctionSolved();
         else
-            this.junctionNotSolved()
+            this.junctionNotSolved();
         this.allowToWatchDemo();
         this.allowToShowSolution();
         this.allowToRepeatJunction();
