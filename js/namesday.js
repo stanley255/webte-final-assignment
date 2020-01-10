@@ -156,15 +156,17 @@ function addSearchResultsByName(collection, userInput, result) {
     if (collection[i].tagName == "SK" || collection[i].tagName == "SKdni" || collection[i].tagName == "SKsviatky" || collection[i].tagName == "CZsviatky" || emptySKd(userInput, collection[i].textContent)) {
       continue;
     }
-
-    if (normalize(collection[i].textContent).includes(normalize(userInput))) {
-      var toReturn = {
-        name: formatSKdNames(collection[i].textContent),
-        country: collection[i].tagName,
-        date: collection[0].textContent
-      };
-      if(toReturn.name)
-        result.push(toReturn);
+    splitArr = (collection[i].textContent.split(", "));
+    for(var j = 0; j<splitArr.length; ++j){
+      if (normalize(splitArr[j])==(normalize(userInput))) {
+        var toReturn = {
+          name: formatSKdNames(collection[i].textContent),
+          country: collection[i].tagName,
+          date: collection[0].textContent
+        };
+        if(toReturn.name)
+          result.push(toReturn);
+      }
     }
   }
 }
