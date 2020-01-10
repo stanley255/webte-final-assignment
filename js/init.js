@@ -10,6 +10,12 @@ $(document).ready(function () {
     $('.collapsible').collapsible();
     $('.materialboxed').materialbox();
     $('.tap-target').tapTarget();
+    $('#namesday-input').keyup(function(event) {
+        if (event.which === 13) {
+            event.preventDefault();
+            document.querySelector("#namesday-result-button").click();
+        }
+    });
 });
 
 // Disable all task-checkboxes click
