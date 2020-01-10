@@ -7,7 +7,7 @@ var namesdayWidgetDiscovered = false;
 $(document).ready(function() {
   loadNamesday(namesdayList).done(function(data) {
     namesdayList = $(data).find("zaznam");
-    injectTodaysName();
+    injectTodaysDateAndName();
   });
 });
 
@@ -26,11 +26,13 @@ function loadNamesday(data) {
   });
 }
 
-function injectTodaysName() {
+function injectTodaysDateAndName() {
   let names = retrieveNameFromDate(getToday());
   let output = names[0].names.textContent;
   output = output.split(",");
   $("#namesday-today").append("<em><b>" + output + "</em></b>");
+  let todaysDate = formatDate(getToday());
+  $("#namesday-today-date").html("<b>" + todaysDate + "</b>");
 }
 
 function retrieveNameFromDate(date) {
