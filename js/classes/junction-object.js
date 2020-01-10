@@ -14,6 +14,7 @@ class JunctionObject {
 
         this._listener = () => this.handleClick(object);
         this.setOnClickAction();
+        this.sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
     }
 
     setDefaultPosition(position = DEFAULT_POSITION, angle = DEFAULT_ANGLE) {
@@ -112,8 +113,6 @@ class JunctionObject {
         this.layer.removeEventListener('click', this._listener);
         this.layer.style.cursor = "auto";
     }
-
-    sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
     async moveObjectBasedOnAction(object, action) {
         let distance = action.distance;

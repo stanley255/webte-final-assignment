@@ -13,7 +13,7 @@ class Car extends JunctionObject {
         this.startBlinker(car.blinker);
     }
 
-    setIntervalAsync = async (fn, ms) => {
+    async setIntervalAsync(fn, ms) {
         if(this.exitBlinker) return;
         fn().then(() => setTimeout(() => {this.setIntervalAsync(fn, ms);}, ms));
     }
