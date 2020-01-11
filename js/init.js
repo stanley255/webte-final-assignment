@@ -10,12 +10,26 @@ $(document).ready(function () {
     $('.collapsible').collapsible();
     $('.materialboxed').materialbox();
     $('.tap-target').tapTarget();
-});
-
-// Disable all task-checkboxes click
-$(".task-checkbox").each((i, checkbox) => {
-    $(checkbox).on("click", function (e) {
-        e.preventDefault();
+    // Show namesday results on ENTER
+    $('#namesday-input').keyup(function(event) {
+        if (event.which === 13) {
+            event.preventDefault();
+            if ($("#result").children().length > 0)
+                document.querySelector("#namesday-result-button").click();
+        }
+    });
+    // Show feature discovery on mouseOver
+    $("#namesday-widget").mouseover(function() {
+        if (!namesdayWidgetDiscovered) {
+          $('.tap-target').tapTarget('open');
+          namesdayWidgetDiscovered = true;
+        }
+      });
+    // Disable all task-checkboxes click
+    $(".task-checkbox").each((i, checkbox) => {
+        $(checkbox).on("click", function (e) {
+            e.preventDefault();
+        });
     });
 });
 
