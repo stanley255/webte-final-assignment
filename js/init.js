@@ -14,7 +14,8 @@ $(document).ready(function () {
     $('#namesday-input').keyup(function(event) {
         if (event.which === 13) {
             event.preventDefault();
-            document.querySelector("#namesday-result-button").click();
+            if ($("#result").children().length > 0)
+                document.querySelector("#namesday-result-button").click();
         }
     });
     // Show feature discovery on mouseOver
