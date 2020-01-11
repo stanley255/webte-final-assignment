@@ -239,11 +239,3 @@ function convertDateToBigEndian(value) {
   }
 
 }
-
-$("#namesday-widget").mouseover(function() {
-  if (!namesdayWidgetDiscovered) {
-    $('.tap-target').tapTarget('open');
-    namesdayWidgetDiscovered = true;
-  }
-});
-

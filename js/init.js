@@ -10,18 +10,25 @@ $(document).ready(function () {
     $('.collapsible').collapsible();
     $('.materialboxed').materialbox();
     $('.tap-target').tapTarget();
+    // Show namesday results on ENTER
     $('#namesday-input').keyup(function(event) {
         if (event.which === 13) {
             event.preventDefault();
             document.querySelector("#namesday-result-button").click();
         }
     });
-});
-
-// Disable all task-checkboxes click
-$(".task-checkbox").each((i, checkbox) => {
-    $(checkbox).on("click", function (e) {
-        e.preventDefault();
+    // Show feature discovery on mouseOver
+    $("#namesday-widget").mouseover(function() {
+        if (!namesdayWidgetDiscovered) {
+          $('.tap-target').tapTarget('open');
+          namesdayWidgetDiscovered = true;
+        }
+      });
+    // Disable all task-checkboxes click
+    $(".task-checkbox").each((i, checkbox) => {
+        $(checkbox).on("click", function (e) {
+            e.preventDefault();
+        });
     });
 });
 
